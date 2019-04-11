@@ -3,6 +3,7 @@
 <mapper namespace="com.lsh.mustardtest.mapper.WareHouseMapper">
   <resultMap id="BaseResultMap" type="com.lsh.mustardtest.pojo.WareHouse">
     <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="tiny_stock" jdbcType="INTEGER" property="tiny_stock" />
     <result column="small_stock" jdbcType="INTEGER" property="small_stock" />
@@ -39,7 +40,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, address, tiny_stock, small_stock, middle_stock, big_stock
+    id, name, address, tiny_stock, small_stock, middle_stock, big_stock
   </sql>
   <select id="selectByExample" parameterType="com.lsh.mustardtest.pojo.WareHouseExample" resultMap="BaseResultMap">
     select
@@ -67,14 +68,19 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.WareHouse" useGeneratedKeys="true">
-    insert into warehouse (address, tiny_stock, small_stock, 
-      middle_stock, big_stock)
-    values (#{address,jdbcType=VARCHAR}, #{tiny_stock,jdbcType=INTEGER}, #{small_stock,jdbcType=INTEGER}, 
-      #{middle_stock,jdbcType=INTEGER}, #{big_stock,jdbcType=INTEGER})
+    insert into warehouse (name, address, tiny_stock, 
+      small_stock, middle_stock, big_stock
+      )
+    values (#{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{tiny_stock,jdbcType=INTEGER}, 
+      #{small_stock,jdbcType=INTEGER}, #{middle_stock,jdbcType=INTEGER}, #{big_stock,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.WareHouse" useGeneratedKeys="true">
     insert into warehouse
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        name,
+      </if>
       <if test="address != null">
         address,
       </if>
@@ -92,6 +98,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
       <if test="address != null">
         #{address,jdbcType=VARCHAR},
       </if>
@@ -112,6 +121,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.lsh.mustardtest.pojo.WareHouse">
     update warehouse
     <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
       <if test="address != null">
         address = #{address,jdbcType=VARCHAR},
       </if>
@@ -132,7 +144,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lsh.mustardtest.pojo.WareHouse">
     update warehouse
-    set address = #{address,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
       tiny_stock = #{tiny_stock,jdbcType=INTEGER},
       small_stock = #{small_stock,jdbcType=INTEGER},
       middle_stock = #{middle_stock,jdbcType=INTEGER},

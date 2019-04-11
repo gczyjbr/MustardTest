@@ -11,6 +11,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 刘森华
+ * 2019/04/11
+ */
+
 public class MybatisGenerator {
     public static void main(String[] args) throws Exception {
         String today = "2019-04-11";

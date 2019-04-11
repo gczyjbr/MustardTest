@@ -4,7 +4,7 @@ import com.lsh.mustardtest.mapper.CategoryMapper;
 import com.lsh.mustardtest.pojo.Category;
 import com.lsh.mustardtest.pojo.CategoryExample;
 import com.lsh.mustardtest.service.CategoryService;
-import com.lsh.mustardtest.util.Page;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,7 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> list() {
         CategoryExample example = new CategoryExample();
         example.setOrderByClause("id desc");
-        return  categoryMapper.selectByExample(example);
+        return categoryMapper.selectByExample(example);
     }
 
     @Override
