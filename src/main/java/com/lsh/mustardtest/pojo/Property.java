@@ -1,7 +1,9 @@
 package com.lsh.mustardtest.pojo;
 
-public class Category {
+public class Property {
     private Integer id;
+
+    private Integer categoryID;
 
     private String name;
 
@@ -11,6 +13,14 @@ public class Category {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getCategoryID() {
+        return categoryID;
+    }
+
+    public void setCategoryID(Integer categoryID) {
+        this.categoryID = categoryID;
     }
 
     public String getName() {

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsh.mustardtest.mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.lsh.mustardtest.pojo.Product">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="productCode" jdbcType="VARCHAR" property="productCode" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="originalPrice" jdbcType="REAL" property="originalPrice" />
+    <result column="promotePrice" jdbcType="REAL" property="promotePrice" />
+    <result column="categoryID" jdbcType="INTEGER" property="categoryID" />
+    <result column="warehouseID" jdbcType="INTEGER" property="warehouseID" />
+    <result column="used" jdbcType="BIT" property="used" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, productCode, type, originalPrice, promotePrice, categoryID, warehouseID, used
+  </sql>
+  <select id="selectByExample" parameterType="com.lsh.mustardtest.pojo.ProductExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.Product" useGeneratedKeys="true">
+    insert into product (productCode, type, originalPrice, 
+      promotePrice, categoryID, warehouseID, 
+      used)
+    values (#{productCode,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{originalPrice,jdbcType=REAL}, 
+      #{promotePrice,jdbcType=REAL}, #{categoryID,jdbcType=INTEGER}, #{warehouseID,jdbcType=INTEGER}, 
+      #{used,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.Product" useGeneratedKeys="true">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productCode != null">
+        productCode,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="originalPrice != null">
+        originalPrice,
+      </if>
+      <if test="promotePrice != null">
+        promotePrice,
+      </if>
+      <if test="categoryID != null">
+        categoryID,
+      </if>
+      <if test="warehouseID != null">
+        warehouseID,
+      </if>
+      <if test="used != null">
+        used,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productCode != null">
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        #{originalPrice,jdbcType=REAL},
+      </if>
+      <if test="promotePrice != null">
+        #{promotePrice,jdbcType=REAL},
+      </if>
+      <if test="categoryID != null">
+        #{categoryID,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseID != null">
+        #{warehouseID,jdbcType=INTEGER},
+      </if>
+      <if test="used != null">
+        #{used,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lsh.mustardtest.pojo.Product">
+    update product
+    <set>
+      <if test="productCode != null">
+        productCode = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        originalPrice = #{originalPrice,jdbcType=REAL},
+      </if>
+      <if test="promotePrice != null">
+        promotePrice = #{promotePrice,jdbcType=REAL},
+      </if>
+      <if test="categoryID != null">
+        categoryID = #{categoryID,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseID != null">
+        warehouseID = #{warehouseID,jdbcType=INTEGER},
+      </if>
+      <if test="used != null">
+        used = #{used,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lsh.mustardtest.pojo.Product">
+    update product
+    set productCode = #{productCode,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      originalPrice = #{originalPrice,jdbcType=REAL},
+      promotePrice = #{promotePrice,jdbcType=REAL},
+      categoryID = #{categoryID,jdbcType=INTEGER},
+      warehouseID = #{warehouseID,jdbcType=INTEGER},
+      used = #{used,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

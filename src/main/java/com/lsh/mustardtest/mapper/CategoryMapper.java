@@ -1,23 +1,21 @@
 package com.lsh.mustardtest.mapper;
 
 import com.lsh.mustardtest.pojo.Category;
-import com.lsh.mustardtest.util.Page;
-
+import com.lsh.mustardtest.pojo.CategoryExample;
 import java.util.List;
 
-/**
- * 刘森华
- * 2019/04/10
- */
-
 public interface CategoryMapper {
-    List<Category> list();
+    int deleteByPrimaryKey(Integer id);
 
-    void add(Category category);
+    int insert(Category record);
 
-    void delete(int id);
+    int insertSelective(Category record);
 
-    Category get(int id);
+    List<Category> selectByExample(CategoryExample example);
 
-    void update(Category category);
+    Category selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(Category record);
+
+    int updateByPrimaryKey(Category record);
 }
