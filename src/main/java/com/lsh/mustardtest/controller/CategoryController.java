@@ -1,5 +1,7 @@
 package com.lsh.mustardtest.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lsh.mustardtest.pojo.Category;
 import com.lsh.mustardtest.service.CategoryService;
 import com.lsh.mustardtest.util.ImageUtil;
@@ -32,8 +34,9 @@ public class CategoryController {
      */
     @RequestMapping("admin_category_list")
     public String List(Model model, Page page) {
-        List<Category> cs = categoryService.list(page);
-        int total = categoryService.total();
+        PageHelper.offsetPage(page.getStart(), page.getCount());
+        List<Category> cs = categoryService.list();
+        int total = (int) new PageInfo<>(cs).getTotal();
         page.setTotal(total);
         model.addAttribute("cs", cs);
         return "admin/listCategory";
