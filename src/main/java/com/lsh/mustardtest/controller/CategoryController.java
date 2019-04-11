@@ -65,4 +65,36 @@ public class CategoryController {
 
         return "redirect:/admin_category_list";
     }
+
+    /**
+     *
+     * @param id category id
+     * @param session session对象
+     * @return 重定向url(admin_category_list),即List方法映射的路径
+     * @throws IOException
+     */
+    @RequestMapping("admin_category_delete")
+    public String delete(int id, HttpSession session) throws  IOException {
+        categoryService.delete(id);
+
+        File imageFolder = new File(session.getServletContext().getRealPath("img/category"));
+        File file = new File(imageFolder, id + ".jpg");
+        file.delete();
+
+        return "redirect:/admin_category_list";
+    }
+
+    /**
+     *
+     * @param id category id
+     * @param model 渲染模型
+     * @return jsp文件路径，具体路径为classpath/admin/editCategory.jsp
+     * @throws IOException
+     */
+    @RequestMapping("admin_category_edit")
+    public String edit(int id, Model model) throws IOException {
+        Category c = categoryService.get(id);
+        model.addAttribute("c", c);
+        return "admin/editCategory";
+    }
 }

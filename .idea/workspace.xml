@@ -6,239 +6,24 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0041b818-9031-4eb8-8e7e-1bcb3f527bbd" name="Default Changelist" comment="分类列表&#10;图片上传">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mustard.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/CategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/log4j/TestLog4j.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/mapper/CategoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/test/TestMustard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/util/ImageUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/util/Page.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/util/UploadedImageFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/springMVC.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/listCategory.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/admin/adminFooter.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/admin/adminHeader.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/admin/adminNavigator.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/admin/adminPage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/back/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/3.3.6/bootstrap-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/3.3.6/bootstrap-theme.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/3.3.6/bootstrap-theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/3.3.6/bootstrap-theme.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/3.3.6/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/3.3.6/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/3.3.6/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/3.3.6/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/fore/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/lunbo/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/lunbo/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/lunbo/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/lunbo/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/lunbo/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/7day.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/TB1LF0CKFXXXXcAXFXXXXXXXXXX-21-20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/alipay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/alipay2wei.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/buyflow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/canvas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/cartNotSelected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/cartSelected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/catear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/cateye.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/chaoshi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/comformPayFlow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/confirmOrderTmall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/copyRight1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/copyRight2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/creditcard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/decrease.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/eachcategory.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/end.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/ensure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/gouwujuan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/guoji.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/increase.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/leaveMessage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/li_dot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/loginBackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/logo.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/ma.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/orderFinish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/orderItemTmall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/paySuccess.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/priceBackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/promise.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/registerSuccess.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/renzheng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/reviewLight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/simpleLogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/star/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/tmallbuy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/wangwang.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/wangwang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/site/warning.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/bootstrap/3.3.6/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/bootstrap/3.3.6/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/bootstrap/3.3.6/npm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/jquery/2.0.0/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/META-INF/MustardTest.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/controller/CategoryController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/log4j/TestLog4j.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/mapper/CategoryMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/pojo/Category.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/service/CategoryService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/service/impl/CategoryServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/test/TestMustard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/util/ImageUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/util/Page.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/util/UploadedImageFile.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/jdbc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/mapper/CategoryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/springMVC.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/jsp/admin/listCategory.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/jsp/include/admin/adminFooter.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/jsp/include/admin/adminHeader.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/jsp/include/admin/adminNavigator.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/jsp/include/admin/adminPage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/aopalliance-1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/aspectjweaver-1.8.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/commons-fileupload-1.2.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/commons-io-1.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/commons-lang-2.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/druid-1.0.18.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/jsqlparser-1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/log4j-1.2.16.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/mybatis-3.1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/mybatis-generator-core-1.3.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/mybatis-spring-1.2.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/mysql-connector-java-8.0.13.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/pagehelper-5.1.2-beta.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/protobuf-java-3.6.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/spring-aop-4.1.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/spring-aspects-4.1.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/spring-beans-4.1.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/spring-context-4.1.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/spring-core-4.1.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/spring-expression-4.1.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/spring-jdbc-4.1.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/spring-test-4.1.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/spring-tx-4.1.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/spring-web-4.1.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/lib/spring-webmvc-4.1.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/admin/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/back/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/3.3.6/bootstrap-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/3.3.6/bootstrap-theme.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/3.3.6/bootstrap-theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/3.3.6/bootstrap-theme.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/3.3.6/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/3.3.6/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/3.3.6/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/3.3.6/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/css/fore/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/category/22.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/lunbo/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/lunbo/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/lunbo/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/lunbo/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/lunbo/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/7day.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/TB1LF0CKFXXXXcAXFXXXXXXXXXX-21-20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/alipay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/alipay2wei.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/buyflow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/canvas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/cartNotSelected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/cartSelected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/catear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/cateye.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/chaoshi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/comformPayFlow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/confirmOrderTmall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/copyRight1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/copyRight2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/creditcard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/decrease.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/eachcategory.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/end.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/ensure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/gouwujuan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/guoji.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/increase.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/leaveMessage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/li_dot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/loginBackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/logo.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/ma.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/orderFinish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/orderItemTmall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/paySuccess.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/priceBackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/promise.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/registerSuccess.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/renzheng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/reviewLight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/simpleLogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/star/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/tmallbuy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/wangwang.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/wangwang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/img/site/warning.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/js/bootstrap/3.3.6/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/js/bootstrap/3.3.6/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/js/bootstrap/3.3.6/npm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MustardTest/js/jquery/2.0.0/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/MustardTest.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/controller/CategoryController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/log4j/TestLog4j.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/mapper/CategoryMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/pojo/Category.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/service/CategoryService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/service/impl/CategoryServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/test/TestMustard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/util/ImageUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/util/Page.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/util/UploadedImageFile.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CategoryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/springMVC.xml" afterDir="false" />
+    <list default="true" id="0041b818-9031-4eb8-8e7e-1bcb3f527bbd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/mapper/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/controller/CategoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/mapper/CategoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/mapper/CategoryMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/service/CategoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/service/impl/CategoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/mapper/CategoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MustardTest/img/category/22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/controller/CategoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/mapper/CategoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/mapper/CategoryMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/service/CategoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/service/impl/CategoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CategoryMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -253,20 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/Category.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/CategoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-196">
-              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+            <state relative-caret-position="168">
+              <caret line="96" column="35" lean-forward="true" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -274,10 +50,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/editCategory.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="44" column="76" selection-start-line="44" selection-start-column="76" selection-end-line="44" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/admin/adminHeader.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
+            <state relative-caret-position="179">
               <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
             </state>
           </provider>
@@ -287,10 +72,19 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/mapper/CategoryMapper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+              <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -298,20 +92,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/CategoryService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+            <state relative-caret-position="150">
+              <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/util/Page.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -349,12 +134,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/CategoryServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+            <state relative-caret-position="125">
+              <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#758#759#0" expanded="true" />
                 <element signature="e#802#803#0" expanded="true" />
+                <element signature="e#850#851#0" expanded="true" />
+                <element signature="e#879#880#0" expanded="true" />
+                <element signature="e#940#941#0" expanded="true" />
+                <element signature="e#984#985#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -370,8 +159,8 @@
         <option value="log4j" />
         <option value="jdbc" />
         <option value="xml" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -399,16 +188,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/log4j/TestLogj4.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/log4j/TestLog4j.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/CategoryService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/CategoryServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/mapper/CategoryMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/util/Page.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/util/UploadedImageFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/util/ImageUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/CategoryController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/admin/adminHeader.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/listCategory.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/mapper/CategoryMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/CategoryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/CategoryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/editCategory.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/CategoryController.java" />
       </list>
     </option>
   </component>
@@ -432,7 +222,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="775" />
@@ -474,6 +264,23 @@
               <item name="MustardTest" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mustardtest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MustardTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MustardTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mustardtest" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MustardTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MustardTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -501,17 +308,6 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MustardTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MustardTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -524,7 +320,6 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -683,17 +478,26 @@
       <workItem from="1554875660559" duration="13889000" />
       <workItem from="1554944600527" duration="4002000" />
       <workItem from="1554948709638" duration="67000" />
-      <workItem from="1554949433348" duration="1083000" />
+      <workItem from="1554949433348" duration="4922000" />
     </task>
+    <task id="LOCAL-00001" summary="分类列表&#10;图片上传">
+      <created>1554950712674</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1554950712674</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22038000" />
+    <option name="totallyTimeSpent" value="25877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="676" y="0" width="697" height="775" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.40188384" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3579278" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -703,7 +507,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33333334" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3693086" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -716,7 +520,7 @@
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Application Servers" order="14" weight="0.32854864" />
-      <window_info active="true" anchor="bottom" id="Messages" order="15" visible="true" weight="0.32546374" />
+      <window_info anchor="bottom" id="Messages" order="15" weight="0.32546374" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -831,37 +635,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="10" lean-forward="true" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/Category.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/mapper/CategoryMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/CategoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -896,32 +673,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/admin/adminHeader.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/mapper/CategoryMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/CategoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/CategoryServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+        <state relative-caret-position="125">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#758#759#0" expanded="true" />
             <element signature="e#802#803#0" expanded="true" />
+            <element signature="e#850#851#0" expanded="true" />
+            <element signature="e#879#880#0" expanded="true" />
+            <element signature="e#940#941#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/editCategory.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="44" column="76" selection-start-line="44" selection-start-column="76" selection-end-line="44" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/CategoryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-196">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+        <state relative-caret-position="168">
+          <caret line="96" column="35" lean-forward="true" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/admin/adminHeader.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
         </state>
       </provider>
     </entry>
