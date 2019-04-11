@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpSession;
@@ -25,9 +26,8 @@ public class CategoryController {
     CategoryService categoryService;
 
     /**
-     *
      * @param model 渲染模型
-     * @param page 分页
+     * @param page  分页
      * @return jsp文件路径，具体路径为classpath/admin/listCategory.jsp
      */
     @RequestMapping("admin_category_list")
@@ -40,11 +40,10 @@ public class CategoryController {
     }
 
     /**
-     *
-     * @param c Category对象
-     * @param session HttpSession（会话）对象，
+     * @param c                 Category对象
+     * @param session           HttpSession（会话）对象，
      * @param uploadedImageFile 上传的图片文件
-     * @return 重定向url(admin_category_list),即List方法映射的路径
+     * @return 重定向url(admin_category_list), 即List方法映射的路径
      * @throws IOException
      */
     @RequestMapping("admin_category_add")
@@ -67,14 +66,13 @@ public class CategoryController {
     }
 
     /**
-     *
-     * @param id category id
-     * @param session session对象
-     * @return 重定向url(admin_category_list),即List方法映射的路径
+     * @param id      category id
+     * @param session HttpSession对象
+     * @return 重定向url(admin_category_list), 即List方法映射的路径
      * @throws IOException
      */
     @RequestMapping("admin_category_delete")
-    public String delete(int id, HttpSession session) throws  IOException {
+    public String delete(int id, HttpSession session) throws IOException {
         categoryService.delete(id);
 
         File imageFolder = new File(session.getServletContext().getRealPath("img/category"));
@@ -85,8 +83,7 @@ public class CategoryController {
     }
 
     /**
-     *
-     * @param id category id
+     * @param id    category id
      * @param model 渲染模型
      * @return jsp文件路径，具体路径为classpath/admin/editCategory.jsp
      * @throws IOException
@@ -96,5 +93,26 @@ public class CategoryController {
         Category c = categoryService.get(id);
         model.addAttribute("c", c);
         return "admin/editCategory";
+    }
+
+    /**
+     * @param c                 category对象
+     * @param session           HttpSession对象
+     * @param uploadedImageFile
+     * @return 重定向url(admin_category_list), 即List方法映射的路径
+     * @throws IOException
+     */
+    @RequestMapping("admin_category_update")
+    public String update(Category c, HttpSession session, UploadedImageFile uploadedImageFile) throws IOException {
+        categoryService.update(c);
+        MultipartFile image = uploadedImageFile.getImage();
+        if (null != image && !image.isEmpty()) {
+            File imageFolder = new File(session.getServletContext().getRealPath("img/category"));
+            File file = new File(imageFolder, c.getId() + ".jpg");
+            image.transferTo(file);
+            BufferedImage img = ImageUtil.change2jpg(file);
+            ImageIO.write(img, "jpg", file);
+        }
+        return "redirect:/admin_category_list";
     }
 }
