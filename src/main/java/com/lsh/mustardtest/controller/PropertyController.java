@@ -30,7 +30,7 @@ public class PropertyController {
     /**
      * @param categoryID
      * @param model      渲染模型
-     * @param page       分页
+     * @param page       Page对象
      * @return jsp文件路径，具体路径为classpath/admin/listProperty.jsp
      */
     @RequestMapping("admin_property_list")
@@ -40,15 +40,34 @@ public class PropertyController {
         PageHelper.offsetPage(page.getStart(), page.getCount());
         List<Property> ps = propertyService.list(categoryID);
 
-        int total = (int) new PageInfo<>(ps).getTotal();
-        page.setTotal(total);
-        page.setParam("&categoryID=" + c.getId());
+        setPage(page, c, ps);
 
+        setModel(model, page, c, ps);
+
+        return "admin/listProperty";
+    }
+
+    /**
+     * @param model 渲染模型
+     * @param page  Page对象
+     * @param c     Category对象
+     * @param ps    property列表
+     */
+    private void setModel(Model model, Page page, Category c, List<Property> ps) {
         model.addAttribute("ps", ps);
         model.addAttribute("c", c);
         model.addAttribute("page", page);
+    }
 
-        return "admin/listProperty";
+    /**
+     * @param page Page对象
+     * @param c    Category对象
+     * @param ps   property列表
+     */
+    private void setPage(Page page, Category c, List<Property> ps) {
+        int total = (int) new PageInfo<>(ps).getTotal();
+        page.setTotal(total);
+        page.setParam("&categoryID=" + c.getId());
     }
 
     /**

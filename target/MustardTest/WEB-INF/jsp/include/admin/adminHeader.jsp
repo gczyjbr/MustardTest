@@ -73,9 +73,19 @@
     <script>
         $(function () {
             $("addForm").submit(function () {
-                if (!checkEmpty("name", "分类名称"))
+                if (!checkEmpty("name", "仓库名称"))
                     return false;
-                if (!checkEmpty("categoryPic", "分类图片"))
+                if (!checkEmpty("address", "仓库地址"))
+                    return false;
+                if (!checkInt("tiny_stock"), "微型库存")
+                    return false;
+                if (!checkInt("small_stock"), "小型库存")
+                    return false;
+                if (!checkInt("middle_stock"), "中型库存")
+                    return false;
+                if (!checkInt("big_stock"), "大型库存")
+                    return false;
+                if (!checkEmpty("wareHousePic", "仓库图片"))
                     return false;
                 return true;
             })
