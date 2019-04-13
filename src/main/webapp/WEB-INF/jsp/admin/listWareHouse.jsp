@@ -7,7 +7,7 @@
 
 <script>
     $(function () {
-        $("addForm").submit(function () {
+        $("addForm1").submit(function () {
             if (!checkEmpty("name", "仓库名称"))
                 return false;
             if (!checkEmpty("address"), "仓库地址")
@@ -20,6 +20,8 @@
                 return false;
             if (!checkInt("big_stock"), "大型库存")
                 return false;
+            if (!checkEmpty("wareHousePic", "仓库图片"))
+                return  false;
             return true
         });
     });
@@ -40,9 +42,9 @@
                 <th>图片</th>
                 <th>仓库名称</th>
                 <th>仓库地址</th>
+                <th>库存管理</th>
                 <th>属性管理</th>
                 <th>产品管理</th>
-                <th>库存管理</th>
                 <th>编辑</th>
                 <th>删除</th>
             </tr>
@@ -55,14 +57,18 @@
                     <td><img height="40px" src="img/warehouse/${w.id}.jpg"></td>
                     <td>${w.name}</td>
                     <td>${w.address}</td>
+                    <td>
+                        微仓:${w.tiny_stock}
+                        小仓:${w.small_stock}
+                        中仓:${w.middle_stock}
+                        大仓:${w.big_stock}
+                    </td>
 
                     <td><a href="admin_property_list?WareHouseID=${w.id}"><span
                             class="glyphicon glyphicon-th-list"></span></a>
                     </td>
                     <td><a href="admin_product_list?WareHouseID=${w.id}"><span
                             class="glyphicon glyphicon-shopping-cart"></span></a>
-                    </td>
-                        <td><a href=""></a> </td>
                     <td><a href="admin_warehouse_edit?id=${w.id}"><span class="glyphicon glyphicon-edit"></span></a>
                     </td>
                     <td><a deleteLink="true" href="admin_warehouse_delete?id=${w.id}"><span
@@ -81,7 +87,7 @@
     <div class="panel panel-warning addDiv">
         <div class="panel-heading">新增仓库</div>
         <div class="panel-body">
-            <form method="post" id="addForm" action="admin_warehouse_add" enctype="multipart/form-data">
+            <form method="post" id="addForm1" action="admin_warehouse_add" enctype="multipart/form-data">
                 <table class="addTable">
                     <tr>
                         <td>仓库名称</td>
@@ -127,7 +133,6 @@
             </form>
         </div>
     </div>
-
 </div>
 
 <%@include file="../include/admin/adminFooter.jsp" %>

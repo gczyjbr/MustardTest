@@ -70,7 +70,7 @@
             });
         })
     </script>
-    <script>
+    <%--<script>
         $(function () {
             $("addForm").submit(function () {
                 if (!checkEmpty("name", "仓库名称"))
@@ -90,7 +90,7 @@
                 return true;
             })
         })
-    </script>
+    </script>--%>
 </head>
 <body>
 

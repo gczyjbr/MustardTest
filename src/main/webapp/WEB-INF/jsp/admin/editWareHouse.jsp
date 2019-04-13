@@ -13,15 +13,13 @@
         $("#editForm").submit(function () {
             if (!checkEmpty("name", "仓库名称"))
                 return false;
-            if (!checkInt("tiny_stock"), "微型库存")
+            if (!checkEmpty("tiny_stock", "微仓数量"))
                 return false;
-            if (!checkInt("small_stock"), "小型库存")
+            if (!checkEmpty("small_stock", "小仓数量"))
                 return false;
-            if (!checkInt("middle_stock"), "中型库存")
+            if (!checkEmpty("middle_stock", "中仓数量"))
                 return false;
-            if (!checkInt("big_stock"), "大型库存")
-                return false;
-            if (!checkEmpty("address"), "仓库地址")
+            if (!checkEmpty("big_stock", "大仓数量"));
                 return false;
             return true;
         });
@@ -41,34 +39,25 @@
         <div class="panel-body">
             <form method="post" id="editForm" action="admin_warehouse_update" enctype="multipart/form-data">
                 <table class="editTable">
-                    <tr>
+                    <%--<tr>
                         <td>仓库名称</td>
                         <td><input id="name" name="name" value="${w.name}" type="text" class="form-control"></td>
+                    </tr>--%>
+                    <tr>
+                        <td>微仓数量</td>
+                        <td><input id="tiny_stock" name="tiny_stock" value="${w.tiny_stock}" type="text" class="form-control"></td>
                     </tr>
                     <tr>
-                        <td>仓库地址</td>
-                        <td><input id="address" name="address" value="${w.address}" type="text" class="form-control">
-                        </td>
+                        <td>小仓数量</td>
+                        <td><input id="small_stock" name="small_stock" value="${w.small_stock}" type="text" class="form-control"></td>
                     </tr>
                     <tr>
-                        <td>微型库存</td>
-                        <td><input id="tiny_stock" name="tiny_stock" value="${w.tiny_stock}" type="text"
-                                   class="form-control"></td>
+                        <td>中仓数量</td>
+                        <td><input id="middle_stock" name="middle_stock" value="${w.middle_stock}" type="text" class="form-control"></td>
                     </tr>
                     <tr>
-                        <td>小型库存</td>
-                        <td><input id="small_stock" name="small_stock" value="${w.small_stock}" type="text"
-                                   class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <td>中型库存</td>
-                        <td><input id="middle_stock" name="middle_stock" value="${w.middle_stock}" type="text"
-                                   class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <td>大型库存</td>
-                        <td><input id="big_stock" name="big_stock" value="${w.big_stock}" type="text"
-                                   class="form-control"></td>
+                        <td>大仓数量</td>
+                        <td><input id="big_stock" name="big_stock" value="${w.big_stock}" type="text" class="form-control"></td>
                     </tr>
                     <tr>
                         <td>仓库图片</td>
