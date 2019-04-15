@@ -23,9 +23,9 @@ import java.util.List;
 @RequestMapping("")
 public class ProductController {
     @Autowired
-    ProductService productService;
-    @Autowired
     WareHouseService wareHouseService;
+    @Autowired
+    ProductService productService;
 
     /**
      *
@@ -42,7 +42,7 @@ public class ProductController {
     /**
      *
      * @param id product id
-     * @return 重定向url(admin_prodct_list)，即list方法映射的路径
+     * @return 重定向url(admin_product_list)，即list方法映射的路径
      */
     @RequestMapping("admin_product_delete")
     public String delete(Integer id) {
@@ -79,17 +79,17 @@ public class ProductController {
 
     /**
      *
-     * @param wareHouseID
+     * @param warehouseID
      * @param model 渲染模型
      * @param page Page对象
      * @return jsp文件路径，具体路径为classpath:/jsp/admin/listProduct.jsp
      */
     @RequestMapping("admin_product_list")
-    public String list(Integer wareHouseID, Model model, Page page) {
-        WareHouse w = wareHouseService.get(wareHouseID);
+    public String list(Integer warehouseID, Model model, Page page) {
+        WareHouse w = wareHouseService.get(warehouseID);
 
         PageHelper.offsetPage(page.getStart(), page.getCount());
-        List<Product> ps = productService.listByWarehouse(wareHouseID);
+        List<Product> ps = productService.list(warehouseID);
 
         setPage(page, w, ps);
         setModel(model, page, w, ps);

@@ -35,7 +35,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product get(Integer id) {
-        return productMapper.selectByPrimaryKey(id);
+        Product p = productMapper.selectByPrimaryKey(id);
+        setWareHouse(p);
+        return p;
     }
 
     public void setWareHouse(List<Product> ps) {
@@ -50,9 +52,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List listByWarehouse(Integer wareHouseID) {
+    public List list(Integer warehouseID) {
         ProductExample example = new ProductExample();
-        example.createCriteria().andWareHouseIDEqualTo(wareHouseID);
+        example.createCriteria().andWareHouseIDEqualTo(warehouseID);
         example.setOrderByClause("id");
         List result = productMapper.selectByExample(example);
         setWareHouse(result);

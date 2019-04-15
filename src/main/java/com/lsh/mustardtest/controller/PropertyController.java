@@ -35,6 +35,7 @@ public class PropertyController {
      */
     @RequestMapping("admin_property_list")
     public String list(Integer warehouseID, Model model, Page page) {
+        System.out.println("PropertyController.list.warehouseID: " + warehouseID);
         WareHouse w = wareHouseService.get(warehouseID);
 
         PageHelper.offsetPage(page.getStart(), page.getCount());
