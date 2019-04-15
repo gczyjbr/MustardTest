@@ -7,24 +7,27 @@
 
 <script>
     $(function () {
-        $("addForm1").submit(function () {
+
+        $("#addForm").submit(function () {
             if (!checkEmpty("name", "仓库名称"))
                 return false;
-            if (!checkEmpty("address"), "仓库地址")
+            if (!checkEmpty("address", "仓库地址"))
                 return false;
-            if (!checkInt("tiny_stock"), "微型库存")
+            if (!checkInt("tinyStock", "微仓数量"))
                 return false;
-            if (!checkInt("small_stock"), "小型库存")
+            if (!checkInt("smallStock", "小仓数量"))
                 return false;
-            if (!checkInt("middle_stock"), "中型库存")
+            if (!checkInt("middleStock", "中仓数量"))
                 return false;
-            if (!checkInt("big_stock"), "大型库存")
+            if (!checkInt("bigStock", "大仓数量"))
                 return false;
             if (!checkEmpty("wareHousePic", "仓库图片"))
-                return  false;
-            return true
+                return false;
+
+            return true;
         });
     });
+
 </script>
 
 <title>仓库管理</title>
@@ -58,16 +61,16 @@
                     <td>${w.name}</td>
                     <td>${w.address}</td>
                     <td>
-                        微仓:${w.tiny_stock}
-                        小仓:${w.small_stock}
-                        中仓:${w.middle_stock}
+                        微仓:${w.tiny_stock}&nbsp;
+                        小仓:${w.small_stock}&nbsp;
+                        中仓:${w.middle_stock}&nbsp;
                         大仓:${w.big_stock}
                     </td>
 
-                    <td><a href="admin_property_list?WareHouseID=${w.id}"><span
+                    <td><a href="admin_property_list?warehouseID=${w.id}"><span
                             class="glyphicon glyphicon-th-list"></span></a>
                     </td>
-                    <td><a href="admin_product_list?WareHouseID=${w.id}"><span
+                    <td><a href="admin_product_list?warehouseID=${w.id}"><span
                             class="glyphicon glyphicon-shopping-cart"></span></a>
                     <td><a href="admin_warehouse_edit?id=${w.id}"><span class="glyphicon glyphicon-edit"></span></a>
                     </td>
@@ -87,7 +90,7 @@
     <div class="panel panel-warning addDiv">
         <div class="panel-heading">新增仓库</div>
         <div class="panel-body">
-            <form method="post" id="addForm1" action="admin_warehouse_add" enctype="multipart/form-data">
+            <form method="post" id="addForm" action="admin_warehouse_add" enctype="multipart/form-data">
                 <table class="addTable">
                     <tr>
                         <td>仓库名称</td>
@@ -96,22 +99,22 @@
 
                     <tr>
                         <td>微型库存</td>
-                        <td><input id="tiny_stock" name="tiny_stock" type="text" class="form-control"></td>
+                        <td><input id="tinyStock" name="tiny_stock" type="text" class="form-control"></td>
                     </tr>
 
                     <tr>
                         <td>小型库存</td>
-                        <td><input id="small_stock" name="small_stock" type="text" class="form-control"></td>
+                        <td><input id="smallStock" name="small_stock" type="text" class="form-control"></td>
                     </tr>
 
                     <tr>
                         <td>中型库存</td>
-                        <td><input id="middle_stock" name="middle_stock" type="text" class="form-control"></td>
+                        <td><input id="middleStock" name="middle_stock" type="text" class="form-control"></td>
                     </tr>
 
                     <tr>
                         <td>大型库存</td>
-                        <td><input id="big_stock" name="big_stock" type="text" class="form-control"></td>
+                        <td><input id="bigStock" name="big_stock" type="text" class="form-control"></td>
                     </tr>
 
                     <tr>

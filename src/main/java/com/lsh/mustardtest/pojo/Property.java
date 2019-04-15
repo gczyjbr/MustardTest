@@ -3,21 +3,19 @@ package com.lsh.mustardtest.pojo;
 public class Property {
     private Integer id;
 
-    private Integer categoryID;
+    private Integer warehouseID;
 
     private String name;
 
-    /**
-     * 非数据库字段
-     **/
-    private Category category;
+    /** 非数据库字段 **/
+    private WareHouse wareHouse;
 
-    public Category getCategory() {
-        return category;
+    public WareHouse getWareHouse() {
+        return wareHouse;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setWareHouse(WareHouse wareHouse) {
+        this.wareHouse = wareHouse;
     }
 
     public Integer getId() {
@@ -28,12 +26,12 @@ public class Property {
         this.id = id;
     }
 
-    public Integer getCategoryID() {
-        return categoryID;
+    public Integer getWarehouseID() {
+        return warehouseID;
     }
 
-    public void setCategoryID(Integer categoryID) {
-        this.categoryID = categoryID;
+    public void setWarehouseID(Integer warehouseID) {
+        this.warehouseID = warehouseID;
     }
 
     public String getName() {

@@ -105,14 +105,14 @@ public class WareHouseController {
         wareHouseService.update(w);
         MultipartFile image = uploadedImageFile.getImage();
         if (null != image && !image.isEmpty()) {
-            /*File file = getFile(session, w.getId());
+            File file = getFile(session, w.getId());
             image.transferTo(file);
-            writeImg(file);*/
-            File imageFolder = new File(session.getServletContext().getRealPath("img/warehouse"));
+            writeImg(file);
+            /*File imageFolder = new File(session.getServletContext().getRealPath("img/warehouse"));
             File file = new File(imageFolder, w.getId() + ".jpg");
             image.transferTo(file);
             BufferedImage img = ImageUtil.change2jpg(file);
-            ImageIO.write(img, "jpg", file);
+            ImageIO.write(img, "jpg", file);*/
         }
         return "redirect:/admin_warehouse_list";
     }

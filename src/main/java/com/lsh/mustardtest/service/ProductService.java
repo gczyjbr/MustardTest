@@ -9,6 +9,5 @@ public interface ProductService {
     void delete(Integer id);
     void update(Product p);
     Product get(Integer id);
-    List listByCategory(Integer categoryID);
     List listByWarehouse(Integer wareHouseID);
 }

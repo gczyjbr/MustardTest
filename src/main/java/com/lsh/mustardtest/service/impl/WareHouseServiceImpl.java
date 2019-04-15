@@ -17,7 +17,7 @@ public class WareHouseServiceImpl implements WareHouseService {
     @Override
     public List<WareHouse> list() {
         WareHouseExample example = new WareHouseExample();
-        example.setOrderByClause("id desc");
+        example.setOrderByClause("id");
         return wareHouseMapper.selectByExample(example);
     }
 

@@ -9,8 +9,8 @@
 
 <div class="workingArea">
     <ol class="breadcrumb">
-        <li><a href="admin_category_list">所有分类</a></li>
-        <li><a href="admin_property_list?categoryID=${p.category.id}">${p.category.name}</a></li>
+        <li><a href="admin_category_list">所有仓库</a></li>
+        <li><a href="admin_property_list?warehouseID=${p.wareHouse.id}">${p.wareHouse.name}</a></li>
         <li class="active">编辑属性</li>
     </ol>
 
@@ -27,7 +27,7 @@
                     <tr class="submitTR">
                         <td colspan="2" align="center">
                             <input type="hidden" name="id" value="${p.id}">
-                            <input type="hidden" name="categoryID" value="${p.category.id}">
+                            <input type="hidden" name="warehouseID" value="${p.wareHouse.id}">
                             <button type="submit" class="btn btn-success">提 交</button>
                         </td>
                     </tr>

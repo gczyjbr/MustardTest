@@ -2,10 +2,10 @@ package com.lsh.mustardtest.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.lsh.mustardtest.pojo.Category;
 import com.lsh.mustardtest.pojo.Property;
-import com.lsh.mustardtest.service.CategoryService;
+import com.lsh.mustardtest.pojo.WareHouse;
 import com.lsh.mustardtest.service.PropertyService;
+import com.lsh.mustardtest.service.WareHouseService;
 import com.lsh.mustardtest.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,26 +23,26 @@ import java.util.List;
 @RequestMapping("")
 public class PropertyController {
     @Autowired
-    CategoryService categoryService;
+    WareHouseService wareHouseService;
     @Autowired
     PropertyService propertyService;
 
     /**
-     * @param categoryID
+     * @param warehouseID
      * @param model      渲染模型
      * @param page       Page对象
      * @return jsp文件路径，具体路径为classpath/admin/listProperty.jsp
      */
     @RequestMapping("admin_property_list")
-    public String list(Integer categoryID, Model model, Page page) {
-        Category c = categoryService.get(categoryID);
+    public String list(Integer warehouseID, Model model, Page page) {
+        WareHouse w = wareHouseService.get(warehouseID);
 
         PageHelper.offsetPage(page.getStart(), page.getCount());
-        List<Property> ps = propertyService.list(categoryID);
+        List<Property> ps = propertyService.list(warehouseID);
 
-        setPage(page, c, ps);
+        setPage(page, w, ps);
 
-        setModel(model, page, c, ps);
+        setModel(model, page, w, ps);
 
         return "admin/listProperty";
     }
@@ -50,24 +50,24 @@ public class PropertyController {
     /**
      * @param model 渲染模型
      * @param page  Page对象
-     * @param c     Category对象
+     * @param w     WareHouse对象
      * @param ps    property列表
      */
-    private void setModel(Model model, Page page, Category c, List<Property> ps) {
+    private void setModel(Model model, Page page, WareHouse w, List<Property> ps) {
         model.addAttribute("ps", ps);
-        model.addAttribute("c", c);
+        model.addAttribute("w", w);
         model.addAttribute("page", page);
     }
 
     /**
      * @param page Page对象
-     * @param c    Category对象
+     * @param w    WareHouse对象
      * @param ps   property列表
      */
-    private void setPage(Page page, Category c, List<Property> ps) {
+    private void setPage(Page page, WareHouse w, List<Property> ps) {
         int total = (int) new PageInfo<>(ps).getTotal();
         page.setTotal(total);
-        page.setParam("&categoryID=" + c.getId());
+        page.setParam("&warehouseID=" + w.getId());
     }
 
     /**
@@ -78,7 +78,7 @@ public class PropertyController {
     @RequestMapping("admin_property_add")
     public String add(Model model, Property p) {
         propertyService.add(p);
-        return "redirect:admin_property_list?categoryID=" + p.getCategoryID();
+        return "redirect:admin_property_list?warehouseID=" + p.getWarehouseID();
     }
 
     /**
@@ -87,10 +87,10 @@ public class PropertyController {
      * @return jsp文件路径，具体路径为classpath/admin/editProperty.jsp
      */
     @RequestMapping("admin_property_edit")
-    public String edit(Model model, int id) {
+    public String edit(Model model, Integer id) {
         Property p = propertyService.get(id);
-        Category c = categoryService.get(p.getCategoryID());
-        p.setCategory(c);
+        WareHouse w = wareHouseService.get(p.getWarehouseID());
+        p.setWareHouse(w);
         model.addAttribute("p", p);
         return "admin/editProperty";
     }
@@ -102,12 +102,12 @@ public class PropertyController {
     @RequestMapping("admin_property_update")
     public String update(Property p) {
         propertyService.update(p);
-        return "redirect:admin_property_list?categoryID=" + p.getCategoryID();
+        return "redirect:admin_property_list?warehouseID=" + p.getWarehouseID();
     }
 
-    public String delete(int id) {
+    public String delete(Integer id) {
         Property p = propertyService.get(id);
         propertyService.delete(id);
-        return "redirect:admin_property_list?categoryID=" + p.getCategoryID();
+        return "redirect:admin_property_list?warehouseID=" + p.getWarehouseID();
     }
 }

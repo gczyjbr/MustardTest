@@ -7,9 +7,9 @@
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="originalPrice" jdbcType="REAL" property="originalPrice" />
     <result column="promotePrice" jdbcType="REAL" property="promotePrice" />
-    <result column="categoryID" jdbcType="INTEGER" property="categoryID" />
-    <result column="warehouseID" jdbcType="INTEGER" property="warehouseID" />
+    <result column="wareHouseID" jdbcType="INTEGER" property="wareHouseID" />
     <result column="used" jdbcType="BIT" property="used" />
+    <result column="userID" jdbcType="INTEGER" property="userID" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -41,7 +41,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, productCode, type, originalPrice, promotePrice, categoryID, warehouseID, used
+    id, productCode, type, originalPrice, promotePrice, wareHouseID, used, userID
   </sql>
   <select id="selectByExample" parameterType="com.lsh.mustardtest.pojo.ProductExample" resultMap="BaseResultMap">
     select
@@ -70,11 +70,11 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.Product" useGeneratedKeys="true">
     insert into product (productCode, type, originalPrice, 
-      promotePrice, categoryID, warehouseID, 
-      used)
+      promotePrice, wareHouseID, used, 
+      userID)
     values (#{productCode,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{originalPrice,jdbcType=REAL}, 
-      #{promotePrice,jdbcType=REAL}, #{categoryID,jdbcType=INTEGER}, #{warehouseID,jdbcType=INTEGER}, 
-      #{used,jdbcType=BIT})
+      #{promotePrice,jdbcType=REAL}, #{wareHouseID,jdbcType=INTEGER}, #{used,jdbcType=BIT}, 
+      #{userID,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.Product" useGeneratedKeys="true">
     insert into product
@@ -91,14 +91,14 @@
       <if test="promotePrice != null">
         promotePrice,
       </if>
-      <if test="categoryID != null">
-        categoryID,
-      </if>
-      <if test="warehouseID != null">
-        warehouseID,
+      <if test="wareHouseID != null">
+        wareHouseID,
       </if>
       <if test="used != null">
         used,
+      </if>
+      <if test="userID != null">
+        userID,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -114,14 +114,14 @@
       <if test="promotePrice != null">
         #{promotePrice,jdbcType=REAL},
       </if>
-      <if test="categoryID != null">
-        #{categoryID,jdbcType=INTEGER},
-      </if>
-      <if test="warehouseID != null">
-        #{warehouseID,jdbcType=INTEGER},
+      <if test="wareHouseID != null">
+        #{wareHouseID,jdbcType=INTEGER},
       </if>
       <if test="used != null">
         #{used,jdbcType=BIT},
+      </if>
+      <if test="userID != null">
+        #{userID,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -140,14 +140,14 @@
       <if test="promotePrice != null">
         promotePrice = #{promotePrice,jdbcType=REAL},
       </if>
-      <if test="categoryID != null">
-        categoryID = #{categoryID,jdbcType=INTEGER},
-      </if>
-      <if test="warehouseID != null">
-        warehouseID = #{warehouseID,jdbcType=INTEGER},
+      <if test="wareHouseID != null">
+        wareHouseID = #{wareHouseID,jdbcType=INTEGER},
       </if>
       <if test="used != null">
         used = #{used,jdbcType=BIT},
+      </if>
+      <if test="userID != null">
+        userID = #{userID,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -158,9 +158,9 @@
       type = #{type,jdbcType=VARCHAR},
       originalPrice = #{originalPrice,jdbcType=REAL},
       promotePrice = #{promotePrice,jdbcType=REAL},
-      categoryID = #{categoryID,jdbcType=INTEGER},
-      warehouseID = #{warehouseID,jdbcType=INTEGER},
-      used = #{used,jdbcType=BIT}
+      wareHouseID = #{wareHouseID,jdbcType=INTEGER},
+      used = #{used,jdbcType=BIT},
+      userID = #{userID,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

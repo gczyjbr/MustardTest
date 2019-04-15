@@ -1,11 +1,9 @@
 package com.lsh.mustardtest.service.impl;
 
 import com.lsh.mustardtest.mapper.ProductMapper;
-import com.lsh.mustardtest.pojo.Category;
 import com.lsh.mustardtest.pojo.Product;
 import com.lsh.mustardtest.pojo.ProductExample;
 import com.lsh.mustardtest.pojo.WareHouse;
-import com.lsh.mustardtest.service.CategoryService;
 import com.lsh.mustardtest.service.ProductService;
 import com.lsh.mustardtest.service.WareHouseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +15,6 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductMapper productMapper;
-    @Autowired
-    CategoryService categoryService;
     @Autowired
     WareHouseService wareHouseService;
 
@@ -39,21 +35,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product get(Integer id) {
-        Product p = productMapper.selectByPrimaryKey(id);
-        setCategory(p);
-        setWareHouse(p);
-        return p;
-    }
-
-    public void setCategory(List<Product> ps) {
-        for (Product p : ps)
-            setCategory(p);
-    }
-
-    public void setCategory(Product p) {
-        int categoryID = p.getCategoryID();
-        Category c = categoryService.get(categoryID);
-        p.setCategory(c);
+        return productMapper.selectByPrimaryKey(id);
     }
 
     public void setWareHouse(List<Product> ps) {
@@ -68,19 +50,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List listByCategory(Integer categoryID) {
-        ProductExample example = new ProductExample();
-        example.createCriteria().andCategoryIDEqualTo(categoryID);
-        example.setOrderByClause("id");
-        List result = productMapper.selectByExample(example);
-        setCategory(result);
-        return result;
-    }
-
-    @Override
     public List listByWarehouse(Integer wareHouseID) {
         ProductExample example = new ProductExample();
-        example.createCriteria().andWarehouseIDEqualTo(wareHouseID);
+        example.createCriteria().andWareHouseIDEqualTo(wareHouseID);
         example.setOrderByClause("id");
         List result = productMapper.selectByExample(example);
         setWareHouse(result);

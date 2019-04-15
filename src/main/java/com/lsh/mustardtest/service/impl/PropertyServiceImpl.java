@@ -40,9 +40,9 @@ public class PropertyServiceImpl implements PropertyService {
     }
 
     @Override
-    public List list(int categoryID) {
+    public List list(int warehouseID) {
         PropertyExample example = new PropertyExample();
-        example.createCriteria().andCategoryIDEqualTo(categoryID);
+        example.createCriteria().andWarehouseIDEqualTo(warehouseID);
         example.setOrderByClause("id");
         return propertyMapper.selectByExample(example);
     }

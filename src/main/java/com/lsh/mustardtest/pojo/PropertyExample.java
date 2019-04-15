@@ -164,63 +164,63 @@ public class PropertyExample {
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIDIsNull() {
-            addCriterion("categoryID is null");
+        public Criteria andWarehouseIDIsNull() {
+            addCriterion("warehouseID is null");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIDIsNotNull() {
-            addCriterion("categoryID is not null");
+        public Criteria andWarehouseIDIsNotNull() {
+            addCriterion("warehouseID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIDEqualTo(Integer value) {
-            addCriterion("categoryID =", value, "categoryID");
+        public Criteria andWarehouseIDEqualTo(Integer value) {
+            addCriterion("warehouseID =", value, "warehouseID");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIDNotEqualTo(Integer value) {
-            addCriterion("categoryID <>", value, "categoryID");
+        public Criteria andWarehouseIDNotEqualTo(Integer value) {
+            addCriterion("warehouseID <>", value, "warehouseID");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIDGreaterThan(Integer value) {
-            addCriterion("categoryID >", value, "categoryID");
+        public Criteria andWarehouseIDGreaterThan(Integer value) {
+            addCriterion("warehouseID >", value, "warehouseID");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIDGreaterThanOrEqualTo(Integer value) {
-            addCriterion("categoryID >=", value, "categoryID");
+        public Criteria andWarehouseIDGreaterThanOrEqualTo(Integer value) {
+            addCriterion("warehouseID >=", value, "warehouseID");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIDLessThan(Integer value) {
-            addCriterion("categoryID <", value, "categoryID");
+        public Criteria andWarehouseIDLessThan(Integer value) {
+            addCriterion("warehouseID <", value, "warehouseID");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIDLessThanOrEqualTo(Integer value) {
-            addCriterion("categoryID <=", value, "categoryID");
+        public Criteria andWarehouseIDLessThanOrEqualTo(Integer value) {
+            addCriterion("warehouseID <=", value, "warehouseID");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIDIn(List<Integer> values) {
-            addCriterion("categoryID in", values, "categoryID");
+        public Criteria andWarehouseIDIn(List<Integer> values) {
+            addCriterion("warehouseID in", values, "warehouseID");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIDNotIn(List<Integer> values) {
-            addCriterion("categoryID not in", values, "categoryID");
+        public Criteria andWarehouseIDNotIn(List<Integer> values) {
+            addCriterion("warehouseID not in", values, "warehouseID");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIDBetween(Integer value1, Integer value2) {
-            addCriterion("categoryID between", value1, value2, "categoryID");
+        public Criteria andWarehouseIDBetween(Integer value1, Integer value2) {
+            addCriterion("warehouseID between", value1, value2, "warehouseID");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIDNotBetween(Integer value1, Integer value2) {
-            addCriterion("categoryID not between", value1, value2, "categoryID");
+        public Criteria andWarehouseIDNotBetween(Integer value1, Integer value2) {
+            addCriterion("warehouseID not between", value1, value2, "warehouseID");
             return (Criteria) this;
         }
 

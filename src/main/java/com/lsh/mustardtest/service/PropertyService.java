@@ -9,5 +9,5 @@ public interface PropertyService {
     void delete(int id);
     void update(Property p);
     Property get(int id);
-    List list(int categoryID);
+    List list(int warehouseID);
 }

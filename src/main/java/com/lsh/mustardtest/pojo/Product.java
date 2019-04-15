@@ -11,15 +11,13 @@ public class Product {
 
     private Float promotePrice;
 
-    private Integer categoryID;
-
     private Integer wareHouseID;
 
     private Boolean used;
 
-    /** 非数据库字段 **/
-    private Category category;
+    private Integer userID;
 
+    /** 非数据库字段 **/
     private WareHouse wareHouse;
 
     public WareHouse getWareHouse() {
@@ -28,14 +26,6 @@ public class Product {
 
     public void setWareHouse(WareHouse wareHouse) {
         this.wareHouse = wareHouse;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     public Integer getId() {
@@ -78,20 +68,12 @@ public class Product {
         this.promotePrice = promotePrice;
     }
 
-    public Integer getCategoryID() {
-        return categoryID;
-    }
-
-    public void setCategoryID(Integer categoryID) {
-        this.categoryID = categoryID;
-    }
-
     public Integer getWareHouseID() {
         return wareHouseID;
     }
 
-    public void setWareHouseID(Integer warehouseID) {
-        this.wareHouseID = warehouseID;
+    public void setWareHouseID(Integer wareHouseID) {
+        this.wareHouseID = wareHouseID;
     }
 
     public Boolean getUsed() {
@@ -100,5 +82,13 @@ public class Product {
 
     public void setUsed(Boolean used) {
         this.used = used;
+    }
+
+    public Integer getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Integer userID) {
+        this.userID = userID;
     }
 }
