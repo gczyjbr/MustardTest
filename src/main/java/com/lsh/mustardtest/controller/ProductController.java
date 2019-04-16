@@ -58,8 +58,10 @@ public class ProductController {
     @RequestMapping("admin_product_edit")
     public String edit(Model model, Integer id) {
         Product p = productService.get(id);
+//        System.out.println("ProductController.edit.wareHouseID(61): " + p.getWareHouseID());
         WareHouse w = wareHouseService.get(p.getWareHouseID());
         p.setWareHouse(w);
+//        System.out.println("ProductController.edit.p.warehouse.id(64): " + p.getWareHouse().getId());
         model.addAttribute("p", p);
         return "admin/editProduct";
     }
@@ -70,6 +72,7 @@ public class ProductController {
      */
     @RequestMapping("admin_product_update")
     public String update(Product p) {
+//        System.out.println("ProductController.update.warehouseID: " + p.getWareHouseID());
         productService.update(p);
         return "redirect:admin_product_list?warehouseID=" + p.getWareHouseID();
     }

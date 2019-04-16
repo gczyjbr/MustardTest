@@ -106,6 +106,12 @@ public class PropertyController {
         return "redirect:admin_property_list?warehouseID=" + p.getWarehouseID();
     }
 
+    /**
+     *
+     * @param id property id
+     * @return 重定向url(admin_property_list),即list方法映射的路径
+     */
+    @RequestMapping("admin_property_delete")
     public String delete(Integer id) {
         Property p = propertyService.get(id);
         propertyService.delete(id);

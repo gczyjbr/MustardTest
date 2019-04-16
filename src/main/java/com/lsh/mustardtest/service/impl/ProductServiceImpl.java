@@ -39,6 +39,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void update(Product p) {
+//        System.out.println("ProductServiceImpl.product.wareHouse.id:  " + p.getWareHouse().getId());
+//        System.out.println("ProductServiceImpl.wareHouseID: " + p.getWareHouseID());
         productMapper.updateByPrimaryKeySelective(p);
     }
 
