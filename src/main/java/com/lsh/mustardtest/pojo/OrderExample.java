@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 刘森华
+ * 2019/04/15
+ */
+
 public class OrderExample {
     protected String orderByClause;
 

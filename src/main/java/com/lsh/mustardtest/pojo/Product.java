@@ -1,5 +1,10 @@
 package com.lsh.mustardtest.pojo;
 
+/**
+ * 刘森华
+ * 2019/04/15
+ */
+
 public class Product {
     private Integer id;
 
@@ -19,6 +24,16 @@ public class Product {
 
     /** 非数据库字段 **/
     private WareHouse wareHouse;
+
+    private ProductImage firstProductImage;
+
+    public ProductImage getFirstProductImage() {
+        return firstProductImage;
+    }
+
+    public void setFirstProductImage(ProductImage firstProductImage) {
+        this.firstProductImage = firstProductImage;
+    }
 
     public WareHouse getWareHouse() {
         return wareHouse;

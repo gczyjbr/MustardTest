@@ -4,6 +4,11 @@ import com.lsh.mustardtest.pojo.User;
 import com.lsh.mustardtest.pojo.UserExample;
 import java.util.List;
 
+/**
+ * 刘森华
+ * 2019/04/15
+ */
+
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 

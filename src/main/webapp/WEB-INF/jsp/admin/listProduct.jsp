@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" import="java.util.*"%>
+         pageEncoding="UTF-8" import="java.util.*" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@include file="../include/admin/adminHeader.jsp"%>
-<%@include file="../include/admin/adminNavigator.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@include file="../include/admin/adminHeader.jsp" %>
+<%@include file="../include/admin/adminNavigator.jsp" %>
 
 <script>
-    $(function() {
-        $("#addForm").submit(function() {
+    $(function () {
+        $("#addForm").submit(function () {
             if (!checkEmpty("productCode", "产品编码"))
                 return false;
             if (!checkEmpty("type", "产品类型"))
@@ -55,10 +55,9 @@
                 <tr>
                     <td>${p.id}</td>
                     <td>
-
-                            <%--<c:if test="${!empty p.firstProductImage}">--%>
-                            <%--<img width="40px" src="img/productSingle/${p.firstProductImage.id}.jpg">--%>
-                            <%--</c:if>--%>
+                        <c:if test="${!empty p.firstProductImage}">
+                            <img width="40px" src="img/productSingle/${p.firstProductImage.id}.jpg">
+                        </c:if>
 
                     </td>
                     <td>${p.productCode}</td>
@@ -66,9 +65,9 @@
                     <td>${p.originalPrice}</td>
                     <td>${p.promotePrice}</td>
                     <td>${p.userID}</td>
-                    <td><a href="admin_productImage_list?pid=${p.id}"><span
+                    <td><a href="admin_productImage_list?productID=${p.id}"><span
                             class="glyphicon glyphicon-picture"></span></a></td>
-                    <td><a href="admin_propertyValue_edit?pid=${p.id}"><span
+                    <td><a href="admin_propertyValue_edit?productID=${p.id}"><span
                             class="glyphicon glyphicon-th-list"></span></a></td>
 
                     <td><a href="admin_product_edit?id=${p.id}"><span
@@ -84,7 +83,7 @@
     </div>
 
     <div class="pageDiv">
-        <%@include file="../include/admin/adminPage.jsp"%>
+        <%@include file="../include/admin/adminPage.jsp" %>
     </div>
 
     <div class="panel panel-warning addDiv">
@@ -94,7 +93,7 @@
                 <table class="addTable">
                     <tr>
                         <td>产品编码</td>
-                        <td><input id="productCode" name="code" type="text"
+                        <td><input id="productCode" name="productCode" type="text"
                                    class="form-control"></td>
                     </tr>
                     <tr>
@@ -109,12 +108,12 @@
                     </tr>
                     <tr>
                         <td>优惠价格</td>
-                        <td><input id="promotePrice"  value="19.98" name="promotePrice" type="text"
+                        <td><input id="promotePrice" value="19.98" name="promotePrice" type="text"
                                    class="form-control"></td>
                     </tr>
                     <tr class="submitTR">
                         <td colspan="2" align="center">
-                            <input type="hidden" name="warehouseID" value="${w.id}">
+                            <input type="hidden" name="wareHouseID" value="${w.id}">
                             <button type="submit" class="btn btn-success">提 交</button>
                         </td>
                     </tr>
@@ -125,4 +124,4 @@
 
 </div>
 
-<%@include file="../include/admin/adminFooter.jsp"%>
+<%@include file="../include/admin/adminFooter.jsp" %>

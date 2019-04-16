@@ -4,6 +4,11 @@ import com.lsh.mustardtest.pojo.ProductImage;
 import com.lsh.mustardtest.pojo.ProductImageExample;
 import java.util.List;
 
+/**
+ * 刘森华
+ * 2019/04/15
+ */
+
 public interface ProductImageMapper {
     int deleteByPrimaryKey(Integer id);
 

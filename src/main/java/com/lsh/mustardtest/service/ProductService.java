@@ -4,10 +4,16 @@ import com.lsh.mustardtest.pojo.Product;
 
 import java.util.List;
 
+/**
+ * 刘森华
+ * 2019/04/13
+ */
+
 public interface ProductService {
     void add(Product p);
     void delete(Integer id);
     void update(Product p);
     Product get(Integer id);
     List list(Integer warehouseID);
+    void setFirstProductImage(Product p);
 }

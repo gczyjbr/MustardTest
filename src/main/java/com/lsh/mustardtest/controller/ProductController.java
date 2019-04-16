@@ -28,19 +28,18 @@ public class ProductController {
     ProductService productService;
 
     /**
-     *
      * @param model 渲染模型
-     * @param p Product对象
+     * @param p     Product对象
      * @return 重定型url(admin_product_list)，即list方法映射的路径
      */
     @RequestMapping("admin_product_add")
     public String add(Model model, Product p) {
         productService.add(p);
+//        System.out.println("ProductController.add.wareHouseID: " + p.getWareHouseID());
         return "redirect:admin_product_list?warehouseID=" + p.getWareHouseID();
     }
 
     /**
-     *
      * @param id product id
      * @return 重定向url(admin_product_list)，即list方法映射的路径
      */
@@ -52,9 +51,8 @@ public class ProductController {
     }
 
     /**
-     *
      * @param model 渲染模型
-     * @param id product id
+     * @param id    product id
      * @return jsp文件路径，具体路径为classpath:/jsp//admin/editProduct.jsp
      */
     @RequestMapping("admin_product_edit")
@@ -67,7 +65,6 @@ public class ProductController {
     }
 
     /**
-     *
      * @param p Product对象
      * @return 重定向url(admin_product_list)，即list方法映射的路径
      */
@@ -78,10 +75,9 @@ public class ProductController {
     }
 
     /**
-     *
      * @param warehouseID
-     * @param model 渲染模型
-     * @param page Page对象
+     * @param model       渲染模型
+     * @param page        Page对象
      * @return jsp文件路径，具体路径为classpath:/jsp/admin/listProduct.jsp
      */
     @RequestMapping("admin_product_list")
@@ -110,10 +106,9 @@ public class ProductController {
     }
 
     /**
-     *
      * @param page Page对象
-     * @param w WareHouse对象
-     * @param ps product对象列表
+     * @param w    WareHouse对象
+     * @param ps   product对象列表
      */
     private void setPage(Page page, WareHouse w, List<Product> ps) {
         int total = (int) new PageInfo<>(ps).getTotal();

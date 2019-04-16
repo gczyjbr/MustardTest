@@ -4,6 +4,11 @@ import com.lsh.mustardtest.pojo.OrderItem;
 import com.lsh.mustardtest.pojo.OrderItemExample;
 import java.util.List;
 
+/**
+ * 刘森华
+ * 2019/04/15
+ */
+
 public interface OrderItemMapper {
     int deleteByPrimaryKey(Integer id);
 

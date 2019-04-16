@@ -4,6 +4,11 @@ import com.lsh.mustardtest.pojo.PropertyValue;
 import com.lsh.mustardtest.pojo.PropertyValueExample;
 import java.util.List;
 
+/**
+ * 刘森华
+ * 2019/04/15
+ */
+
 public interface PropertyValueMapper {
     int deleteByPrimaryKey(Integer id);
 

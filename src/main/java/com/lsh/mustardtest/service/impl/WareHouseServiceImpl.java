@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * 刘森华
+ * 2019/04/12
+ */
+
 @Service
 public class WareHouseServiceImpl implements WareHouseService {
     @Autowired
