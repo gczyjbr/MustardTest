@@ -39,15 +39,7 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="category" domainObjectName="Category" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
-               selectByExampleQueryId="false">
-            <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
-
-        <table tableName="property" domainObjectName="Property"
+        <!--<table tableName="property" domainObjectName="Property"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="true" selectByExampleQueryId="false">
             <property name="my.isgen.useKeys" value="true"/>
@@ -83,7 +75,7 @@
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
+        </table>-->
 
         <table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
@@ -92,7 +84,7 @@
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
-        <table tableName="orderItem" domainObjectName="OrderItem" enableCountByExample="false"
+        <!--<table tableName="orderItem" domainObjectName="OrderItem" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
@@ -106,6 +98,6 @@
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
+        </table>-->
     </context>
 </generatorConfiguration>

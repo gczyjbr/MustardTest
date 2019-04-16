@@ -1,10 +1,5 @@
 package com.lsh.mustardtest.pojo;
 
-/**
- * 刘森华
- * 2019/04/15
- */
-
 public class UserWithBLOBs extends User {
     private byte[] ssl_cipher;
 

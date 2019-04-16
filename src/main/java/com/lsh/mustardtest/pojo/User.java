@@ -1,10 +1,5 @@
 package com.lsh.mustardtest.pojo;
 
-/**
- * 刘森华
- * 2019/04/15
- */
-
 public class User {
     private Integer id;
 
@@ -13,6 +8,8 @@ public class User {
     private String password;
 
     private String sex;
+
+    private Integer phone;
 
     public Integer getId() {
         return id;
@@ -44,5 +41,13 @@ public class User {
 
     public void setSex(String sex) {
         this.sex = sex == null ? null : sex.trim();
+    }
+
+    public Integer getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Integer phone) {
+        this.phone = phone;
     }
 }
