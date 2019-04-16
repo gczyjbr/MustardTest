@@ -8,7 +8,7 @@ package com.lsh.mustardtest.pojo;
 public class OrderItem {
     private Integer id;
 
-    private Integer pid;
+    private Integer productID;
 
     private Integer oid;
 
@@ -24,12 +24,12 @@ public class OrderItem {
         this.id = id;
     }
 
-    public Integer getPid() {
-        return pid;
+    public Integer getProductID() {
+        return productID;
     }
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
+    public void setProductID(Integer productID) {
+        this.productID = productID;
     }
 
     public Integer getOid() {

@@ -8,11 +8,24 @@ package com.lsh.mustardtest.pojo;
 public class PropertyValue {
     private Integer id;
 
-    private Integer pid;
+    private Integer productID;
 
-    private Integer ptid;
+    private Integer propertyID;
 
     private String value;
+
+    /**
+     * 非数据库字段
+     **/
+    private Property property;
+
+    public Property getProperty() {
+        return property;
+    }
+
+    public void setProperty(Property property) {
+        this.property = property;
+    }
 
     public Integer getId() {
         return id;
@@ -22,20 +35,20 @@ public class PropertyValue {
         this.id = id;
     }
 
-    public Integer getPid() {
-        return pid;
+    public Integer getProductID() {
+        return productID;
     }
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
+    public void setProductID(Integer productID) {
+        this.productID = productID;
     }
 
-    public Integer getPtid() {
-        return ptid;
+    public Integer getPropertyID() {
+        return propertyID;
     }
 
-    public void setPtid(Integer ptid) {
-        this.ptid = ptid;
+    public void setPropertyID(Integer propertyID) {
+        this.propertyID = propertyID;
     }
 
     public String getValue() {

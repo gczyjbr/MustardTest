@@ -3,7 +3,7 @@
 <mapper namespace="com.lsh.mustardtest.mapper.OrderItemMapper">
   <resultMap id="BaseResultMap" type="com.lsh.mustardtest.pojo.OrderItem">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="productID" jdbcType="INTEGER" property="productID" />
     <result column="oid" jdbcType="INTEGER" property="oid" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
     <result column="number" jdbcType="INTEGER" property="number" />
@@ -38,7 +38,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, pid, oid, uid, number
+    id, productID, oid, uid, number
   </sql>
   <select id="selectByExample" parameterType="com.lsh.mustardtest.pojo.OrderItemExample" resultMap="BaseResultMap">
     select
@@ -66,16 +66,16 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.OrderItem" useGeneratedKeys="true">
-    insert into orderitem (pid, oid, uid, 
+    insert into orderitem (productID, oid, uid,
       number)
-    values (#{pid,jdbcType=INTEGER}, #{oid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, 
+    values (#{productID,jdbcType=INTEGER}, #{oid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER},
       #{number,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.OrderItem" useGeneratedKeys="true">
     insert into orderitem
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="pid != null">
-        pid,
+      <if test="productID != null">
+        productID,
       </if>
       <if test="oid != null">
         oid,
@@ -88,8 +88,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="pid != null">
-        #{pid,jdbcType=INTEGER},
+      <if test="productID != null">
+        #{productID,jdbcType=INTEGER},
       </if>
       <if test="oid != null">
         #{oid,jdbcType=INTEGER},
@@ -105,8 +105,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.lsh.mustardtest.pojo.OrderItem">
     update orderitem
     <set>
-      <if test="pid != null">
-        pid = #{pid,jdbcType=INTEGER},
+      <if test="productID != null">
+        productID = #{productID,jdbcType=INTEGER},
       </if>
       <if test="oid != null">
         oid = #{oid,jdbcType=INTEGER},
@@ -122,7 +122,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lsh.mustardtest.pojo.OrderItem">
     update orderitem
-    set pid = #{pid,jdbcType=INTEGER},
+    set productID = #{productID,jdbcType=INTEGER},
       oid = #{oid,jdbcType=INTEGER},
       uid = #{uid,jdbcType=INTEGER},
       number = #{number,jdbcType=INTEGER}
