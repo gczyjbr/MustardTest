@@ -41,13 +41,13 @@
                 <th>图片</th>
                 <th>产品编码</th>
                 <th>产品类型</th>
-                <th width="53px">原价格</th>
-                <th width="80px">优惠价格</th>
-                <th width="80px">用户ID</th>
-                <th width="80px">图片管理</th>
-                <th width="80px">设置属性</th>
-                <th width="42px">编辑</th>
-                <th width="42px">删除</th>
+                <th>原价格</th>
+                <th>优惠价格</th>
+                <th>用户ID</th>
+                <th>图片管理</th>
+                <th>设置属性</th>
+                <th>编辑</th>
+                <th>删除</th>
             </tr>
             </thead>
             <tbody>

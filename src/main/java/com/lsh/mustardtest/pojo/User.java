@@ -9,7 +9,7 @@ public class User {
 
     private String sex;
 
-    private Integer phone;
+    private Long phone;
 
     public Integer getId() {
         return id;
@@ -43,11 +43,11 @@ public class User {
         this.sex = sex == null ? null : sex.trim();
     }
 
-    public Integer getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 }
