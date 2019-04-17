@@ -47,7 +47,8 @@ public class ProductImageController {
             imageFolder = session.getServletContext().getRealPath("img/productSingle");
             imageFolder_small = session.getServletContext().getRealPath("img/productSingle_small");
             imageFolder_middle = session.getServletContext().getRealPath("img/productSingle_middle");
-        } else
+        }
+        else
             imageFolder = session.getServletContext().getRealPath("img/productDetail");
 
         File f = new File(imageFolder, fileName);

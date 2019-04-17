@@ -4,11 +4,6 @@ import com.lsh.mustardtest.pojo.Order;
 import com.lsh.mustardtest.pojo.OrderExample;
 import java.util.List;
 
-/**
- * 刘森华
- * 2019/04/15
- */
-
 public interface OrderMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -16,11 +11,15 @@ public interface OrderMapper {
 
     int insertSelective(Order record);
 
+    List<Order> selectByExampleWithBLOBs(OrderExample example);
+
     List<Order> selectByExample(OrderExample example);
 
     Order selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Order record);
+
+    int updateByPrimaryKeyWithBLOBs(Order record);
 
     int updateByPrimaryKey(Order record);
 }

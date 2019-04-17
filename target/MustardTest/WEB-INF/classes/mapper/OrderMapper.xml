@@ -7,7 +7,6 @@
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="post" jdbcType="INTEGER" property="post" />
     <result column="sender" jdbcType="VARCHAR" property="sender" />
-    <result column="mobile" jdbcType="INTEGER" property="mobile" />
     <result column="userMessage" jdbcType="VARCHAR" property="userMessage" />
     <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
     <result column="payDate" jdbcType="TIMESTAMP" property="payDate" />
@@ -17,6 +16,9 @@
     <result column="status" jdbcType="VARCHAR" property="status" />
     <result column="duration" jdbcType="INTEGER" property="duration" />
     <result column="userID" jdbcType="INTEGER" property="userID" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.lsh.mustardtest.pojo.Order">
+    <result column="mobile" jdbcType="LONGVARCHAR" property="mobile" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -48,17 +50,22 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, orderCode, address, post, sender, mobile, userMessage, createDate, payDate, deliveryDate, 
+    id, orderCode, address, post, sender, userMessage, createDate, payDate, deliveryDate, 
     confirmDate, endDate, status, duration, userID
   </sql>
-  <select id="selectByExample" parameterType="com.lsh.mustardtest.pojo.OrderExample" resultMap="BaseResultMap">
+  <sql id="Blob_Column_List">
+    mobile
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.lsh.mustardtest.pojo.OrderExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
     </if>
     'false' as QUERYID,
     <include refid="Base_Column_List" />
-    from order
+    ,
+    <include refid="Blob_Column_List" />
+    from order_
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -66,30 +73,47 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lsh.mustardtest.pojo.OrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from order_
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
-    from order
+    ,
+    <include refid="Blob_Column_List" />
+    from order_
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from order
+    delete from order_
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.Order" useGeneratedKeys="true">
-    insert into order (orderCode, address, post, 
-      sender, mobile, userMessage, 
-      createDate, payDate, deliveryDate, 
-      confirmDate, endDate, status, 
-      duration, userID)
+    insert into order_ (orderCode, address, post, 
+      sender, userMessage, createDate, 
+      payDate, deliveryDate, confirmDate, 
+      endDate, status, duration, 
+      userID, mobile)
     values (#{orderCode,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{post,jdbcType=INTEGER}, 
-      #{sender,jdbcType=VARCHAR}, #{mobile,jdbcType=INTEGER}, #{userMessage,jdbcType=VARCHAR}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{payDate,jdbcType=TIMESTAMP}, #{deliveryDate,jdbcType=TIMESTAMP}, 
-      #{confirmDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
-      #{duration,jdbcType=INTEGER}, #{userID,jdbcType=INTEGER})
+      #{sender,jdbcType=VARCHAR}, #{userMessage,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{payDate,jdbcType=TIMESTAMP}, #{deliveryDate,jdbcType=TIMESTAMP}, #{confirmDate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{duration,jdbcType=INTEGER}, 
+      #{userID,jdbcType=INTEGER}, #{mobile,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.Order" useGeneratedKeys="true">
-    insert into order
+    insert into order_
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderCode != null">
         orderCode,
@@ -102,9 +126,6 @@
       </if>
       <if test="sender != null">
         sender,
-      </if>
-      <if test="mobile != null">
-        mobile,
       </if>
       <if test="userMessage != null">
         userMessage,
@@ -133,6 +154,9 @@
       <if test="userID != null">
         userID,
       </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="orderCode != null">
@@ -146,9 +170,6 @@
       </if>
       <if test="sender != null">
         #{sender,jdbcType=VARCHAR},
-      </if>
-      <if test="mobile != null">
-        #{mobile,jdbcType=INTEGER},
       </if>
       <if test="userMessage != null">
         #{userMessage,jdbcType=VARCHAR},
@@ -177,10 +198,13 @@
       <if test="userID != null">
         #{userID,jdbcType=INTEGER},
       </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=LONGVARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.lsh.mustardtest.pojo.Order">
-    update order
+    update order_
     <set>
       <if test="orderCode != null">
         orderCode = #{orderCode,jdbcType=VARCHAR},
@@ -193,9 +217,6 @@
       </if>
       <if test="sender != null">
         sender = #{sender,jdbcType=VARCHAR},
-      </if>
-      <if test="mobile != null">
-        mobile = #{mobile,jdbcType=INTEGER},
       </if>
       <if test="userMessage != null">
         userMessage = #{userMessage,jdbcType=VARCHAR},
@@ -224,16 +245,36 @@
       <if test="userID != null">
         userID = #{userID,jdbcType=INTEGER},
       </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=LONGVARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lsh.mustardtest.pojo.Order">
-    update order
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lsh.mustardtest.pojo.Order">
+    update order_
     set orderCode = #{orderCode,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       post = #{post,jdbcType=INTEGER},
       sender = #{sender,jdbcType=VARCHAR},
-      mobile = #{mobile,jdbcType=INTEGER},
+      userMessage = #{userMessage,jdbcType=VARCHAR},
+      createDate = #{createDate,jdbcType=TIMESTAMP},
+      payDate = #{payDate,jdbcType=TIMESTAMP},
+      deliveryDate = #{deliveryDate,jdbcType=TIMESTAMP},
+      confirmDate = #{confirmDate,jdbcType=TIMESTAMP},
+      endDate = #{endDate,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      duration = #{duration,jdbcType=INTEGER},
+      userID = #{userID,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lsh.mustardtest.pojo.Order">
+    update order_
+    set orderCode = #{orderCode,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      post = #{post,jdbcType=INTEGER},
+      sender = #{sender,jdbcType=VARCHAR},
       userMessage = #{userMessage,jdbcType=VARCHAR},
       createDate = #{createDate,jdbcType=TIMESTAMP},
       payDate = #{payDate,jdbcType=TIMESTAMP},
