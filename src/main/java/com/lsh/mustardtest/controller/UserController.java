@@ -37,5 +37,6 @@ public class UserController {
         model.addAttribute("page", page);
 
         return "admin/listUser";
+
     }
 }

@@ -1,5 +1,7 @@
 package com.lsh.mustardtest.pojo;
 
+import java.util.List;
+
 /**
  * 刘森华
  * 2019/04/15
@@ -19,6 +21,17 @@ public class WareHouse {
     private Integer middle_stock;
 
     private Integer big_stock;
+
+    /** 非数据库字段 **/
+    private List<Product> products;
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 
     public Integer getId() {
         return id;

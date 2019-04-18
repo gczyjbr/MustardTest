@@ -45,6 +45,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product get(Integer id) {
         Product p = productMapper.selectByPrimaryKey(id);
+        setFirstProductImage(p);
         setWareHouse(p);
         return p;
     }
@@ -78,6 +79,19 @@ public class ProductServiceImpl implements ProductService {
             ProductImage pi = pis.get(0);
             p.setFirstProductImage(pi);
         }
+    }
+
+    @Override
+    public void fill(List<WareHouse> ws) {
+        for (WareHouse w : ws) {
+            fill(w);
+        }
+    }
+
+    @Override
+    public void fill(WareHouse w) {
+        List<Product> ps = list(w.getId());
+        w.setProducts(ps);
     }
 
     public void setFirstProductImage(List<Product> ps) {

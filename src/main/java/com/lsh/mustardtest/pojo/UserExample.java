@@ -384,7 +384,7 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andPhoneEqualTo(Integer value) {
+        public Criteria andPhoneEqualTo(Long value) {
             addCriterion("phone =", value, "phone");
             return (Criteria) this;
         }

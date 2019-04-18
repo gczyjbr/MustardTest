@@ -1,6 +1,7 @@
 package com.lsh.mustardtest.service;
 
 import com.lsh.mustardtest.pojo.Product;
+import com.lsh.mustardtest.pojo.WareHouse;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface ProductService {
     Product get(Integer id);
     List list(Integer warehouseID);
     void setFirstProductImage(Product p);
+    void fill(List<WareHouse> ws);
+    void fill(WareHouse w);
 }

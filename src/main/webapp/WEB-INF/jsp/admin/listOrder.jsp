@@ -75,9 +75,9 @@
                             <table width="800px" align="center" class="orderPageOrderItemTable">
                                 <c:forEach items="${o.orderItems}" var="oi">
                                     <tr>
-                                        <%--<td align="left">
+                                        <td align="left">
                                             <img width="40px" height="40px" src="img/productSingle/${oi.product.firstProductImage.id}.jpg">
-                                        </td>--%>
+                                        </td>
 
                                         <td>
                                             <a href="admin_product_list?warehouseID=${oi.product.wareHouseID}">

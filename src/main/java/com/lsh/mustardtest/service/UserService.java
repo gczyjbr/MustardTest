@@ -15,4 +15,5 @@ public interface UserService {
     void update(User u);
     User get(Integer id);
     List list();
+    boolean isExist(long phone);
 }
