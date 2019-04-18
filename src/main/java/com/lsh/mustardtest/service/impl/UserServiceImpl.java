@@ -51,4 +51,14 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
+    @Override
+    public User get(Long phone, String password) {
+        UserExample example = new UserExample();
+        example.createCriteria().andPhoneEqualTo(phone).andPasswordEqualTo(password);
+        List<User> result = userMapper.selectByExample(example);
+        if (result.isEmpty())
+            return null;
+        return result.get(0);
+    }
+
 }

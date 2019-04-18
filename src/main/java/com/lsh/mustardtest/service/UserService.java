@@ -16,4 +16,5 @@ public interface UserService {
     User get(Integer id);
     List list();
     boolean isExist(long phone);
+    User get(Long phone, String password);
 }

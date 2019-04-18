@@ -1,17 +1,15 @@
 package com.lsh.mustardtest.controller;
 
-import com.lsh.mustardtest.pojo.ProductImage;
+import com.lsh.mustardtest.msg.AccountMsg;
 import com.lsh.mustardtest.pojo.User;
 import com.lsh.mustardtest.pojo.WareHouse;
 import com.lsh.mustardtest.service.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.util.HtmlUtils;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -33,25 +31,55 @@ public class AndroidController {
     OrderItemService orderItemService;
 
     @RequestMapping("home")
-    public @ResponseBody List<WareHouse> home() throws Exception{
+    @ResponseBody
+    public List<WareHouse> home() throws Exception{
         List<WareHouse> ws = wareHouseService.list();
         productService.fill(ws);
         return ws;
     }
 
     @RequestMapping("register")
-    public @ResponseBody String register(User user) {
-        Long phone = user.getPhone();
+    @ResponseBody
+    public AccountMsg register(HttpServletRequest request) {
+        Long phone = (Long) request.getAttribute("phone");
+        String password = (String) request.getAttribute("password");
         boolean exist = userService.isExist(phone);
-        String msg = "";
+        AccountMsg accountMsg = new AccountMsg();
+        User user = new User();
 
         if (exist) {
-            msg = "该号码已经被注册，不能使用";
-            return msg;
+            accountMsg.setFlag(false);
+            accountMsg.setUser(null);
+            accountMsg.setMessage("该号码已被注册");
         }
-        userService.add(user);
-        msg = "注册成功";
-        return msg;
+        else {
+            user.setPhone(phone);
+            user.setPassword(password);
+            userService.add(user);
+            accountMsg.setFlag(true);
+            accountMsg.setMessage("注册成功");
+            accountMsg.setUser(userService.get(phone, password));
+        }
+        return accountMsg;
     }
 
+    @RequestMapping("login")
+    @ResponseBody
+    public AccountMsg login(HttpServletRequest request) {
+        AccountMsg accountMsg = new AccountMsg();
+        Long phone = (Long) request.getAttribute("phone");
+        String password = (String) request.getAttribute("password");
+        User user = userService.get(phone, password);
+        if (null == user) {
+            accountMsg.setFlag(false);
+            accountMsg.setMessage("该号码未注册");
+            accountMsg.setUser(null);
+        }
+        else {
+            accountMsg.setUser(user);
+            accountMsg.setFlag(true);
+            accountMsg.setMessage("登录成功");
+        }
+        return accountMsg;
+    }
 }
