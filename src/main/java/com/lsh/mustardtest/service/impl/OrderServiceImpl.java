@@ -3,6 +3,7 @@ package com.lsh.mustardtest.service.impl;
 import com.lsh.mustardtest.mapper.OrderMapper;
 import com.lsh.mustardtest.pojo.Order;
 import com.lsh.mustardtest.pojo.OrderExample;
+import com.lsh.mustardtest.pojo.Product;
 import com.lsh.mustardtest.pojo.User;
 import com.lsh.mustardtest.service.OrderService;
 import com.lsh.mustardtest.service.UserService;
@@ -61,5 +62,12 @@ public class OrderServiceImpl implements OrderService {
         List<Order> result = orderMapper.selectByExample(example);
         setUser(result);
         return result;
+    }
+
+    @Override
+    public Order get(String orderCode) {
+        OrderExample example = new OrderExample();
+        example.createCriteria().andOrderCodeEqualTo(orderCode);
+        return orderMapper.selectByExample(example).get(0);
     }
 }

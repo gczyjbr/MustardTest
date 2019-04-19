@@ -21,4 +21,5 @@ public interface ProductService {
     void fill(WareHouse w);
     List usableProducts(Integer wareHouseID);
     List productsByType(Integer wareHouseID, String type);
+    List myProducts(Integer userID);
 }

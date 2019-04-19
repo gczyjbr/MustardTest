@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -49,6 +50,7 @@ public class AndroidController {
 
     /**
      * 注册
+     *
      * @param request http请求
      * @return AccountMsg对象
      * @throws Exception
@@ -70,8 +72,7 @@ public class AndroidController {
             accountMsg.setUser(null);
             accountMsg.setMessage("该号码已被注册");
             System.out.println("该账号已注册");
-        }
-        else {
+        } else {
             user.setPhone(phone);
             user.setPassword(password);
             userService.add(user);
@@ -85,6 +86,7 @@ public class AndroidController {
 
     /**
      * 登录
+     *
      * @param request http请求
      * @return AccountMsg对象
      */
@@ -103,8 +105,7 @@ public class AndroidController {
             accountMsg.setMessage("该号码未注册");
             accountMsg.setUser(null);
             System.out.println("该号码未注册");
-        }
-        else {
+        } else {
             accountMsg.setUser(user);
             accountMsg.setFlag(true);
             accountMsg.setMessage("登录成功");
@@ -115,6 +116,7 @@ public class AndroidController {
 
     /**
      * 修改密码
+     *
      * @param request http请求
      * @return
      * @throws Exception
@@ -127,14 +129,12 @@ public class AndroidController {
         if (null == id) {
             System.out.println("updatePassword.id为空");
             return ID_IS_NULL;
-        }
-        else {
+        } else {
             User user = userService.get(id);
             if (null == user) {
                 System.out.println("账户不存在");
                 return OBJECT_IS_NULL;
-            }
-            else {
+            } else {
                 user.setPassword(password);
                 userService.update(user);
                 System.out.println("修改密码成功");
@@ -146,6 +146,7 @@ public class AndroidController {
 
     /**
      * 编辑用户信息
+     *
      * @param user User对象
      * @throws Exception
      */
@@ -158,8 +159,7 @@ public class AndroidController {
         if (null == user.getId()) {
             System.out.println("editUser.id为空");
             return ID_IS_NULL;
-        }
-        else {
+        } else {
             if (null == userService.get(user.getId())) {
                 System.out.println("账户不存在");
                 return OBJECT_IS_NULL;
@@ -173,6 +173,7 @@ public class AndroidController {
 
     /**
      * 用户信息
+     *
      * @param request http请求
      * @return User对象
      * @throws Exception
@@ -181,15 +182,41 @@ public class AndroidController {
     @ResponseBody
     public User userInformation(HttpServletRequest request) throws Exception {
         Integer id = Integer.valueOf(request.getParameter("id"));
-        System.out.println("id: " + id);
-        System.out.println("获取用户信息成功");
-        return userService.get(id);
+        System.out.println("userID: " + id);
+        if (null == id) {
+            System.out.println("userInformation.id为空");
+            return null;
+        } else {
+            System.out.println("获取用户信息成功");
+            return userService.get(id);
+        }
+    }
+
+    @RequestMapping("myProducts")
+    @ResponseBody
+    public List<Product> myProducts(HttpServletRequest request) throws Exception {
+        Integer userID = Integer.valueOf(request.getParameter("userID"));
+        System.out.println("userID: " + userID);
+        if (null == userID) {
+            System.out.println("userID为空");
+            return null;
+        } else {
+            List<Product> products = productService.myProducts(userID);
+            if (products.isEmpty()) {
+                System.out.println("该用户还未租用产品");
+                return null;
+            } else {
+                System.out.println("获取我的产品列表成功");
+                return products;
+            }
+        }
     }
 
     /** 产品管理 **/
 
     /**
      * 产品列表
+     *
      * @param request
      * @return 产品列表
      * @throws Exception
@@ -200,11 +227,10 @@ public class AndroidController {
         Integer wareHouseID = Integer.valueOf(request.getParameter("wareHouseID"));
         System.out.println("wareHouseID: " + wareHouseID);
         System.out.println("获取产品列表成功");
-        return  productService.usableProducts(wareHouseID);
+        return productService.usableProducts(wareHouseID);
     }
 
     /**
-     *
      * @param request http请求
      * @return ProductMsg对象
      * @throws Exception
@@ -232,37 +258,93 @@ public class AndroidController {
         return productMsg;
     }
 
-    /** 订单管理 **/
+    /**
+     * 订单管理
+     **/
     @RequestMapping(value = "createOrder", method = RequestMethod.POST)
     @ResponseBody
-    public Order createOrder(@RequestBody Order order, HttpServletRequest request) throws Exception {
-        Integer wareHouseID = 0;
-        int numSS = 0;
-        int numS = 0;
-        int numM = 0;
-        int numL = 0;
-        OrderItem oi = new OrderItem();
+    public void createOrder(@RequestBody Order order, HttpServletRequest request) throws Exception {
+        orderService.add(order);
+        Integer orderID = orderService.get(order.getOrderCode()).getId();
+        Integer wareHouseID = Integer.valueOf(request.getParameter("wareHouseID"));
+        int numSS = Integer.valueOf(request.getParameter("numSS"));
+        int numS = Integer.valueOf(request.getParameter("numS"));
+        int numM = Integer.valueOf(request.getParameter("numM"));
+        int numL = Integer.valueOf(request.getParameter("numL"));
 
         WareHouse w = wareHouseService.get(wareHouseID);
 
-        if (numSS != 0) {
-            if (w.getTiny_stock() < numSS)
-                System.out.println("微仓库存不足");
-            else {
-                List products = productService.productsByType(wareHouseID, "小型");
-                Product p;
-                for (int i = 0; i < numSS; i++) {
-                    p = (Product) products.get(i);
-                    p.setUsed(true);
-                    p.setUserID(order.getUserID());
-                    productService.update(p);
-                    oi.setProductID(p.getId());
-                    oi.setUserID(order.getUserID());
-                    oi.setOrderID(order.getId());
-                }
+        if (order.getStatus() == OrderService.waitConfirm) {
+            if (0 != numSS) {
+                if (w.getTiny_stock() < numSS)
+                    System.out.println("微仓库存不足");
+                else
+                   processOrder(order, orderID, wareHouseID, numSS, numS, numM, numL, "微型");
+            }
+
+            if (0 != numS) {
+                if (w.getSmall_stock() < numS)
+                    System.out.println("小仓库存不足");
+                else
+                    processOrder(order, orderID, wareHouseID, numSS, numS, numM, numL, "小型");
+
+            }
+
+            if (0 != numM) {
+                if (w.getMiddle_stock() < numM)
+                    System.out.println("中仓库存不足");
+                else
+                    processOrder(order, orderID, wareHouseID, numSS, numS,numM, numL,"中型");
+            }
+
+            if (0 != numL) {
+                if (w.getBig_stock() < numL)
+                    System.out.println("大仓库存不足");
+                else
+                    processOrder(order, orderID, wareHouseID, numSS, numS, numM, numL, "大型");
             }
         }
-            List<Product> products = productService.list(wareHouseID);
-        return new Order();
+
+    }
+
+    private void processOrder(Order order, Integer orderID, Integer wareHouseID, int numSS, int numS, int numM, int numL, String type) {
+        List products = productService.productsByType(wareHouseID, type);
+        int j = selector(type, numSS, numS, numM, numL);
+        Product p;
+        for (int i = 0; i < j; i++) {
+            p = (Product) products.get(i);
+            p.setUsed(true);
+            p.setUserID(order.getUserID());
+            productService.update(p);
+            OrderItem oi = new OrderItem();
+            oi.setProductID(p.getId());
+            oi.setUserID(order.getUserID());
+            oi.setOrderID(orderID);
+            orderItemService.add(oi);
+        }
+    }
+
+    /**
+     * 选择器
+     * @param type 类型
+     * @param numSS 微仓数量
+     * @param numS 小仓数量
+     * @param numM 中仓数量
+     * @param numL 大仓数量
+     * @return 整数
+     */
+    private int selector (String type, int numSS, int numS, int numM, int numL) {
+        switch (type) {
+            case "微型":
+                return numSS;
+            case "小型":
+                return numS;
+            case "中型":
+                return numM;
+            case "大型":
+                return numL;
+            default:
+                return 0;
+        }
     }
 }
