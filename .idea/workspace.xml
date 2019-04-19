@@ -7,12 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0041b818-9031-4eb8-8e7e-1bcb3f527bbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/msg/ProductMsg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/agreement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/AndroidController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/AndroidController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/pojo/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MustardTest/WEB-INF/classes/com/lsh/mustardtest/pojo/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/pojo/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lsh/mustardtest/pojo/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/ProductServiceImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -44,91 +45,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/AndroidController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/msg/ProductMsg.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#317#318#0" expanded="true" />
-                <element signature="e#347#348#0" expanded="true" />
-                <element signature="e#394#395#0" expanded="true" />
-                <element signature="e#432#433#0" expanded="true" />
-                <element signature="e#573#574#0" expanded="true" />
-                <element signature="e#610#611#0" expanded="true" />
-                <element signature="e#683#684#0" expanded="true" />
-                <element signature="e#735#736#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/OrderExample.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/Product.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-              <folding>
-                <element signature="e#652#653#0" expanded="true" />
-                <element signature="e#694#695#0" expanded="true" />
-                <element signature="e#896#897#0" expanded="true" />
-                <element signature="e#938#939#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/msg/AccountMsg.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-              <folding>
-                <element signature="e#863#864#0" expanded="true" />
-                <element signature="e#891#892#0" expanded="true" />
-                <element signature="e#931#932#0" expanded="true" />
-                <element signature="e#965#966#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1125">
-              <caret line="60" column="29" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+            <state relative-caret-position="284">
+              <caret line="260" column="49" lean-forward="true" selection-start-line="260" selection-start-column="49" selection-end-line="260" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,10 +58,57 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/springMVC.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/OrderItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+            <state relative-caret-position="-50">
+              <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/OrderController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="41" column="34" lean-forward="true" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/OrderItemServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-560">
+              <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/ProductServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="115" column="22" selection-start-line="115" selection-start-column="22" selection-end-line="115" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1066#1067#0" expanded="true" />
+                <element signature="e#1126#1127#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/agreement.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="818">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
             </state>
           </provider>
         </entry>
@@ -148,8 +116,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/ProductService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+            <state relative-caret-position="398">
+              <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -158,8 +126,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/mapper/ProductMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="73">
+              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3675" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/PropertyServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-175">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -188,6 +176,7 @@
       <find>Uid</find>
       <find>Oid</find>
       <find>oid</find>
+      <find>若惠</find>
     </findStrings>
     <replaceStrings>
       <replace>productID</replace>
@@ -198,6 +187,7 @@
       <replace>userID</replace>
       <replace>UserID</replace>
       <replace>OrderID</replace>
+      <replace>芥子</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\Project\MustardTest\src\main\java\com\lsh\mustardtest\service</dir>
@@ -215,7 +205,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/listProductImage.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/editProduct.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/listProperty.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/WareHouseController.java" />
@@ -242,14 +231,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/OrderItemService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/OrderItemServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/ProductController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/OrderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/ProductImageController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/admin/adminNavigator.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/UserExample.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/test/TestLogin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/WareHouse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/ProductServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/listOrder.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/util/SwaagerConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/util/SwaggerConfig.java" />
@@ -262,10 +249,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/msg/RegisterMsg.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/msg/loginMag.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/ProductService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/Product.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/AndroidController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/msg/ProductMsg.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/agreement.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/OrderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/ProductService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/AndroidController.java" />
       </list>
     </option>
   </component>
@@ -352,6 +342,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mustardtest" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MustardTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MustardTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mustardtest" type="462c0819:PsiDirectoryNode" />
               <item name="msg" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -403,7 +402,8 @@
               <item name="MustardTest" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MustardTest" type="b2602c69:ProjectViewProjectNode" />
@@ -411,15 +411,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MustardTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MustardTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MustardTest" type="b2602c69:ProjectViewProjectNode" />
@@ -460,7 +451,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/swagger" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -473,17 +464,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\MustardTest\src\main\webapp" />
+      <recent name="D:\Project\MustardTest\src\main\webapp\swagger" />
+      <recent name="D:\Project\MustardTest\src\main\webapp\img\site" />
+      <recent name="D:\Project\MustardTest\src\main\webapp\WEB-INF" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\MustardTest\src\main\webapp\WEB-INF" />
       <recent name="D:\Project\MustardTest\src\main\webapp" />
       <recent name="D:\Project\MustardTest\src\main\webapp\img\site" />
       <recent name="D:\Project\MustardTest\src\main\resources\mapper" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Project\MustardTest\src\main\webapp\swagger" />
-      <recent name="D:\Project\MustardTest\src\main\webapp\img\site" />
-      <recent name="D:\Project\MustardTest\src\main\webapp\WEB-INF" />
-      <recent name="D:\Project\MustardTest\src\main\webapp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -672,7 +663,7 @@
       <workItem from="1555499104044" duration="6389000" />
       <workItem from="1555549106808" duration="5816000" />
       <workItem from="1555565510630" duration="13522000" />
-      <workItem from="1555636055286" duration="7362000" />
+      <workItem from="1555636055286" duration="23454000" />
     </task>
     <task id="LOCAL-00001" summary="分类列表&#10;图片上传">
       <created>1554950712674</created>
@@ -814,7 +805,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555579998841</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="修改登录、注册接口&#10;新增产品接口">
+      <created>1555644469617</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1555644469617</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -826,7 +824,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174384000" />
+    <option name="totallyTimeSpent" value="190476000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -850,7 +848,7 @@
       <window_info id="Web" order="7" sideWeight="0.50479233" side_tool="true" weight="0.290469" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290735" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4977307" weight="0.62460065" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4977307" weight="0.6629393" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49848714" weight="0.40415335" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -899,19 +897,10 @@
     <MESSAGE value="新增订单管理" />
     <MESSAGE value="解决订单管理中查看详情时无法显示图片的bug" />
     <MESSAGE value="新增安卓登录、注册接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增安卓登录、注册接口" />
+    <MESSAGE value="修改登录、注册接口&#10;新增产品接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改登录、注册接口&#10;新增产品接口" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/OrderController.java</url>
-          <line>46</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
         <watch expression="p.wareHouseID" />
@@ -919,37 +908,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/PropertyValueController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/editPropertyValue.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/listUser.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/listWareHouse.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="779">
@@ -1036,13 +994,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/OrderItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/listProduct.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -1050,30 +1001,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/OrderItemServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/ProductController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-777">
           <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/OrderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="46" column="54" lean-forward="true" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1138,18 +1069,6 @@
           <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
           <folding>
             <element signature="e#454#455#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/ProductServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1066#1067#0" expanded="true" />
-            <element signature="e#1126#1127#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1334,30 +1253,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/ProductService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/AndroidController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/Product.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
           <folding>
             <element signature="e#652#653#0" expanded="true" />
             <element signature="e#694#695#0" expanded="true" />
@@ -1369,8 +1268,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/msg/ProductMsg.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        <state relative-caret-position="375">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#317#318#0" expanded="true" />
@@ -1381,6 +1280,91 @@
             <element signature="e#610#611#0" expanded="true" />
             <element signature="e#683#684#0" expanded="true" />
             <element signature="e#735#736#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/agreement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="818">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/mapper/ProductMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3675" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/PropertyServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-175">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/ProductService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/ProductServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="115" column="22" selection-start-line="115" selection-start-column="22" selection-end-line="115" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1066#1067#0" expanded="true" />
+            <element signature="e#1126#1127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="41" column="34" lean-forward="true" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/service/impl/OrderItemServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-560">
+          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/pojo/OrderItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lsh/mustardtest/controller/AndroidController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="260" column="49" lean-forward="true" selection-start-line="260" selection-start-column="49" selection-end-line="260" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

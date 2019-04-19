@@ -94,6 +94,29 @@ public class ProductServiceImpl implements ProductService {
         w.setProducts(ps);
     }
 
+    @Override
+    public List usableProducts(Integer wareHouseID) {
+        ProductExample example =  new ProductExample();
+        example.createCriteria().andWareHouseIDEqualTo(wareHouseID).andUsedEqualTo(false).andUserIDEqualTo(null);
+        example.setOrderByClause("id");
+        List result = productMapper.selectByExample(example);
+        setWareHouse(result);
+        setFirstProductImage(result);
+        return result;
+    }
+
+    @Override
+    public List productsByType(Integer wareHouseID, String type) {
+        ProductExample example = new ProductExample();
+        example.createCriteria().andWareHouseIDEqualTo(wareHouseID).andUsedEqualTo(false).andUserIDEqualTo(null).andTypeEqualTo(type);
+        example.setOrderByClause("id");
+        List result = productMapper.selectByExample(example);
+        setWareHouse(result);
+        setFirstProductImage(result);
+        return result;
+    }
+
+
     public void setFirstProductImage(List<Product> ps) {
         for (Product p : ps)
             setFirstProductImage(p);

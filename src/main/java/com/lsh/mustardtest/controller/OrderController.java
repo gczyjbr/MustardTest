@@ -41,12 +41,6 @@ public class OrderController {
 
         orderItemService.fill(os);
 
-        /*for (Order o : os) {
-            List<OrderItem> ois = o.getOrderItems();
-            for (OrderItem oi : ois)
-                System.out.println(oi.getProduct().getFirstProductImage().getId());
-        }*/
-
         model.addAttribute("os", os);
         model.addAttribute("page", page);
 

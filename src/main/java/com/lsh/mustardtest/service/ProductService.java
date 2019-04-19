@@ -19,4 +19,6 @@ public interface ProductService {
     void setFirstProductImage(Product p);
     void fill(List<WareHouse> ws);
     void fill(WareHouse w);
+    List usableProducts(Integer wareHouseID);
+    List productsByType(Integer wareHouseID, String type);
 }
