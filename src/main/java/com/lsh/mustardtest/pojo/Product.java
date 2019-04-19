@@ -1,5 +1,7 @@
 package com.lsh.mustardtest.pojo;
 
+import java.util.List;
+
 /**
  * 刘森华
  * 2019/04/15
@@ -26,6 +28,28 @@ public class Product {
     private WareHouse wareHouse;
 
     private ProductImage firstProductImage;
+
+    // 单个产品图片集合
+    private List<ProductImage> productSingleImages;
+
+    // 详情产品图片集合
+    private List<ProductImage> productDetailImages;
+
+    public List<ProductImage> getProductSingleImages() {
+        return productSingleImages;
+    }
+
+    public void setProductSingleImages(List<ProductImage> productSingleImages) {
+        this.productSingleImages = productSingleImages;
+    }
+
+    public List<ProductImage> getProductDetailImages() {
+        return productDetailImages;
+    }
+
+    public void setProductDetailImages(List<ProductImage> productDetailImages) {
+        this.productDetailImages = productDetailImages;
+    }
 
     public ProductImage getFirstProductImage() {
         return firstProductImage;
