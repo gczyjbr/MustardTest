@@ -11,11 +11,9 @@ import java.util.List;
 
 public interface OrderService {
     String waitPay = "waitPay";
-    String waitDelivery = "waitDelivery";
     String waitConfirm = "waitConfirm";
     String finish = "finish";
     String delete = "delete";
-    String renting ="renting";
 
     void add(Order o);
 
@@ -28,4 +26,7 @@ public interface OrderService {
     List<Order> list();
 
     Order get(String orderCode);
+
+    List<Order> list(Integer userID, String status);
+
 }

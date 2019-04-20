@@ -70,4 +70,13 @@ public class OrderServiceImpl implements OrderService {
         example.createCriteria().andOrderCodeEqualTo(orderCode);
         return orderMapper.selectByExample(example).get(0);
     }
+
+    @Override
+    public List<Order> list(Integer userID, String status) {
+        OrderExample example = new OrderExample();
+        example.createCriteria().andUserIDEqualTo(userID).andStatusEqualTo(status);
+        example.setOrderByClause("id");
+        return orderMapper.selectByExample(example);
+    }
+
 }

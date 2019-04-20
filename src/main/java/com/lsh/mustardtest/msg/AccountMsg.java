@@ -2,6 +2,11 @@ package com.lsh.mustardtest.msg;
 
 import com.lsh.mustardtest.pojo.User;
 
+/**
+ * 刘森华
+ * 2019/04/18
+ */
+
 public class AccountMsg {
     private User user;
     private String message;

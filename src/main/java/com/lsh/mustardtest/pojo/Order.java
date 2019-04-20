@@ -216,9 +216,6 @@ public class Order {
             case OrderService.waitPay:
                 desc = "待付款";
                 break;
-            case OrderService.waitDelivery:
-                desc = "待发货";
-                break;
             case OrderService.waitConfirm:
                 desc = "待收货";
                 break;
@@ -227,9 +224,6 @@ public class Order {
                 break;
             case OrderService.delete:
                 desc = "删除";
-                break;
-            case OrderService.renting:
-                desc = "租用中";
                 break;
             default:
                 desc = "未知";
