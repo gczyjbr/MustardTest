@@ -2,6 +2,8 @@ package com.lsh.mustardtest.service;
 
 import com.lsh.mustardtest.pojo.Order;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,4 +31,7 @@ public interface OrderService {
 
     List<Order> list(Integer userID, String status);
 
+    String date(Date date);
+
+    List<Order> list(Integer userID);
 }

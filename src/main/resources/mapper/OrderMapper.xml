@@ -8,11 +8,11 @@
     <result column="post" jdbcType="INTEGER" property="post" />
     <result column="sender" jdbcType="VARCHAR" property="sender" />
     <result column="userMessage" jdbcType="VARCHAR" property="userMessage" />
-    <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
-    <result column="payDate" jdbcType="TIMESTAMP" property="payDate" />
-    <result column="deliveryDate" jdbcType="TIMESTAMP" property="deliveryDate" />
-    <result column="confirmDate" jdbcType="TIMESTAMP" property="confirmDate" />
-    <result column="endDate" jdbcType="TIMESTAMP" property="endDate" />
+    <result column="createDate" jdbcType="VARCHAR" property="createDate" />
+    <result column="payDate" jdbcType="VARCHAR" property="payDate" />
+    <result column="deliveryDate" jdbcType="VARCHAR" property="deliveryDate" />
+    <result column="confirmDate" jdbcType="VARCHAR" property="confirmDate" />
+    <result column="endDate" jdbcType="VARCHAR" property="endDate" />
     <result column="status" jdbcType="VARCHAR" property="status" />
     <result column="duration" jdbcType="INTEGER" property="duration" />
     <result column="userID" jdbcType="INTEGER" property="userID" />
@@ -107,9 +107,9 @@
       endDate, status, duration, 
       userID, mobile)
     values (#{orderCode,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{post,jdbcType=INTEGER}, 
-      #{sender,jdbcType=VARCHAR}, #{userMessage,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
-      #{payDate,jdbcType=TIMESTAMP}, #{deliveryDate,jdbcType=TIMESTAMP}, #{confirmDate,jdbcType=TIMESTAMP}, 
-      #{endDate,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{duration,jdbcType=INTEGER}, 
+      #{sender,jdbcType=VARCHAR}, #{userMessage,jdbcType=VARCHAR}, #{createDate,jdbcType=VARCHAR}, 
+      #{payDate,jdbcType=VARCHAR}, #{deliveryDate,jdbcType=VARCHAR}, #{confirmDate,jdbcType=VARCHAR}, 
+      #{endDate,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{duration,jdbcType=INTEGER}, 
       #{userID,jdbcType=INTEGER}, #{mobile,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.Order" useGeneratedKeys="true">
@@ -175,19 +175,19 @@
         #{userMessage,jdbcType=VARCHAR},
       </if>
       <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
+        #{createDate,jdbcType=VARCHAR},
       </if>
       <if test="payDate != null">
-        #{payDate,jdbcType=TIMESTAMP},
+        #{payDate,jdbcType=VARCHAR},
       </if>
       <if test="deliveryDate != null">
-        #{deliveryDate,jdbcType=TIMESTAMP},
+        #{deliveryDate,jdbcType=VARCHAR},
       </if>
       <if test="confirmDate != null">
-        #{confirmDate,jdbcType=TIMESTAMP},
+        #{confirmDate,jdbcType=VARCHAR},
       </if>
       <if test="endDate != null">
-        #{endDate,jdbcType=TIMESTAMP},
+        #{endDate,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
         #{status,jdbcType=VARCHAR},
@@ -222,19 +222,19 @@
         userMessage = #{userMessage,jdbcType=VARCHAR},
       </if>
       <if test="createDate != null">
-        createDate = #{createDate,jdbcType=TIMESTAMP},
+        createDate = #{createDate,jdbcType=VARCHAR},
       </if>
       <if test="payDate != null">
-        payDate = #{payDate,jdbcType=TIMESTAMP},
+        payDate = #{payDate,jdbcType=VARCHAR},
       </if>
       <if test="deliveryDate != null">
-        deliveryDate = #{deliveryDate,jdbcType=TIMESTAMP},
+        deliveryDate = #{deliveryDate,jdbcType=VARCHAR},
       </if>
       <if test="confirmDate != null">
-        confirmDate = #{confirmDate,jdbcType=TIMESTAMP},
+        confirmDate = #{confirmDate,jdbcType=VARCHAR},
       </if>
       <if test="endDate != null">
-        endDate = #{endDate,jdbcType=TIMESTAMP},
+        endDate = #{endDate,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
         status = #{status,jdbcType=VARCHAR},
@@ -258,11 +258,11 @@
       post = #{post,jdbcType=INTEGER},
       sender = #{sender,jdbcType=VARCHAR},
       userMessage = #{userMessage,jdbcType=VARCHAR},
-      createDate = #{createDate,jdbcType=TIMESTAMP},
-      payDate = #{payDate,jdbcType=TIMESTAMP},
-      deliveryDate = #{deliveryDate,jdbcType=TIMESTAMP},
-      confirmDate = #{confirmDate,jdbcType=TIMESTAMP},
-      endDate = #{endDate,jdbcType=TIMESTAMP},
+      createDate = #{createDate,jdbcType=VARCHAR},
+      payDate = #{payDate,jdbcType=VARCHAR},
+      deliveryDate = #{deliveryDate,jdbcType=VARCHAR},
+      confirmDate = #{confirmDate,jdbcType=VARCHAR},
+      endDate = #{endDate,jdbcType=VARCHAR},
       status = #{status,jdbcType=VARCHAR},
       duration = #{duration,jdbcType=INTEGER},
       userID = #{userID,jdbcType=INTEGER},
@@ -276,11 +276,11 @@
       post = #{post,jdbcType=INTEGER},
       sender = #{sender,jdbcType=VARCHAR},
       userMessage = #{userMessage,jdbcType=VARCHAR},
-      createDate = #{createDate,jdbcType=TIMESTAMP},
-      payDate = #{payDate,jdbcType=TIMESTAMP},
-      deliveryDate = #{deliveryDate,jdbcType=TIMESTAMP},
-      confirmDate = #{confirmDate,jdbcType=TIMESTAMP},
-      endDate = #{endDate,jdbcType=TIMESTAMP},
+      createDate = #{createDate,jdbcType=VARCHAR},
+      payDate = #{payDate,jdbcType=VARCHAR},
+      deliveryDate = #{deliveryDate,jdbcType=VARCHAR},
+      confirmDate = #{confirmDate,jdbcType=VARCHAR},
+      endDate = #{endDate,jdbcType=VARCHAR},
       status = #{status,jdbcType=VARCHAR},
       duration = #{duration,jdbcType=INTEGER},
       userID = #{userID,jdbcType=INTEGER}

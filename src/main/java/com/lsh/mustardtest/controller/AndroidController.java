@@ -268,12 +268,12 @@ public class AndroidController {
      * 获取订单
      *
      * @param request HttpRequest对象
-     * @return list
+     * @return list 订单列表
      * @throws Exception
      */
     @RequestMapping("getOrder")
     @ResponseBody
-    public List getOrder(HttpServletRequest request) throws Exception {
+    public List<Order> getOrder(HttpServletRequest request) throws Exception {
         Integer userID = Integer.valueOf(request.getParameter("userID"));
         String status = request.getParameter("status");
         System.out.println("userID: " + userID);
@@ -282,13 +282,31 @@ public class AndroidController {
             System.out.println("userID为空");
             return null;
         } else if (status == null) {
-            List<List<Order>> list = new ArrayList<>();
-            list.add(orderService.list(userID, "waitPay"));
-            list.add(orderService.list(userID, "waitConfirm"));
-            list.add(orderService.list(userID, "finish"));
-            return list;
+            System.out.println("status: " + status);
+            return null;
         } else {
             List list = orderService.list(userID, status);
+            System.out.println("获取" + status + "状态的订单成功");
+            return list;
+        }
+    }
+
+    /**
+     * 我的订单
+     * @param request HttpRequest对象
+     * @return 订单列表
+     */
+    @RequestMapping("myOrders")
+    @ResponseBody
+    public List<Order> myOrders(HttpServletRequest request) {
+        Integer userID = Integer.valueOf(request.getParameter("userID"));
+        if (null == userID) {
+            System.out.println("userID为空");
+            return null;
+        }
+        else {
+            List list = orderService.list(userID);
+            System.out.println("获取订单成功");
             return list;
         }
     }
@@ -296,12 +314,32 @@ public class AndroidController {
     /**
      * 创建订单
      *
-     * @param order Order对象
+     * @param orderMsg OrderMSG对象
      * @throws Exception
      */
     @RequestMapping(value = "createOrder", method = RequestMethod.POST)
-    public void createOrder(@RequestBody Order order) throws Exception {
-        orderService.add(order);
+    @ResponseBody
+    public int createOrder(@RequestBody OrderMsg orderMsg) throws Exception {
+        System.out.println("orderCode: " + orderMsg.getOrderCode());
+        if (null == orderMsg.getOrderCode())
+            return ID_IS_NULL;
+        else {
+            Order order = new Order();
+            order.setOrderCode(orderMsg.getOrderCode());
+            order.setAddress(orderMsg.getAddress());
+            order.setPost(orderMsg.getPost());
+            order.setUserMessage(orderMsg.getUserMessage());
+            order.setUserID(orderMsg.getUserID());
+            order.setSender(order.getSender());
+            order.setEndDate(orderMsg.getEndDate());
+            order.setDuration(orderMsg.getDuration());
+            order.setCreateDate(orderMsg.getCreateDate());
+            order.setStatus(orderMsg.getStatus());
+            order.setConfirmDate(orderMsg.getConfirmDate());
+            orderService.add(order);
+            System.out.println("创建订单成功");
+            return SUCCESS;
+        }
     }
 
     /**
@@ -311,15 +349,25 @@ public class AndroidController {
      * @throws Exception
      */
     @RequestMapping(value = "changeOrderStatus", method = RequestMethod.POST)
-    public void changeOrderStatus(@RequestBody RequestAlterState requestAlterState) throws Exception {
-        Order order = orderService.get(requestAlterState.getOrderCode());
-        String status = requestAlterState.getStatus();
-        WarehouseNumBean warehouseNumBean = requestAlterState.getWarehouseNumBean();
-        if (OrderService.waitConfirm == status)
-            processOrder(order, warehouseNumBean);
-        order.setStatus(status);
-        orderService.update(order);
-
+    @ResponseBody
+    public int changeOrderStatus(@RequestBody RequestAlterState requestAlterState) throws Exception {
+        System.out.println("orderCode: " + requestAlterState.getOrderCode());
+        if (null == requestAlterState.getOrderCode())
+            return ID_IS_NULL;
+        else {
+            Order order = orderService.get(requestAlterState.getOrderCode());
+            String status = requestAlterState.getStatus();
+            WarehouseNumBean warehouseNumBean = requestAlterState.getWarehouseNumBean();
+            if (null == order || null == status || null == warehouseNumBean)
+                return OBJECT_IS_NULL;
+            else if (OrderService.waitConfirm == status) {
+                processOrder(order, warehouseNumBean);
+            }
+            order.setStatus(status);
+            orderService.update(order);
+            System.out.println("更改订单状态成功");
+            return SUCCESS;
+        }
     }
 
     /**
@@ -329,12 +377,18 @@ public class AndroidController {
      * @throws Exception
      */
     @RequestMapping(value = "Renewal", method = RequestMethod.POST)
-    public void Renewal(@RequestBody RequestRenew requestRenew) throws Exception {
+    @ResponseBody
+    public int Renewal(@RequestBody RequestRenew requestRenew) throws Exception {
         Integer productID = requestRenew.getProductID();
+        System.out.println("productID: " + productID);
+        if (null == productID)
+            return ID_IS_NULL;
         Product p = productService.get(productID);
         Integer userID = p.getUserID();
         List list = orderService.list(userID, OrderService.finish);
         Order historyOrder = (Order) list.get(list.size() - 1);
+        if (null == p || null == historyOrder)
+            return OBJECT_IS_NULL;
         Order order = new Order();
         order.setSender(historyOrder.getSender());
         order.setMobile(historyOrder.getMobile());
@@ -348,12 +402,16 @@ public class AndroidController {
         order.setDuration(requestRenew.getDuration());
         order.setEndDate(requestRenew.getEndDate());
         orderService.add(order);
+        System.out.println("创建订单成功");
 
         OrderItem oi = new OrderItem();
         oi.setProductID(productID);
         oi.setUserID(userID);
         oi.setOrderID(order.getId());
         orderItemService.add(oi);
+        System.out.println("创建订单项成功");
+        System.out.println("续期成功");
+        return SUCCESS;
     }
 
     /**
@@ -413,6 +471,7 @@ public class AndroidController {
             }
         }
         wareHouseService.update(w);
+        System.out.println("处理订单成功");
 
     }
 
@@ -440,6 +499,7 @@ public class AndroidController {
             oi.setNumber(1);
             orderItemService.add(oi);
         }
+        System.out.println("更改产品及创建订单项成功");
     }
 
     /**

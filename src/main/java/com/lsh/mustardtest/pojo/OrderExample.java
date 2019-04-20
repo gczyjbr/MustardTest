@@ -1,8 +1,12 @@
 package com.lsh.mustardtest.pojo;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+
+/**
+ * 刘森华
+ * 2019/04/15
+ */
 
 public class OrderExample {
     protected String orderByClause;
@@ -515,52 +519,62 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateDateEqualTo(Date value) {
+        public Criteria andCreateDateEqualTo(String value) {
             addCriterion("createDate =", value, "createDate");
             return (Criteria) this;
         }
 
-        public Criteria andCreateDateNotEqualTo(Date value) {
+        public Criteria andCreateDateNotEqualTo(String value) {
             addCriterion("createDate <>", value, "createDate");
             return (Criteria) this;
         }
 
-        public Criteria andCreateDateGreaterThan(Date value) {
+        public Criteria andCreateDateGreaterThan(String value) {
             addCriterion("createDate >", value, "createDate");
             return (Criteria) this;
         }
 
-        public Criteria andCreateDateGreaterThanOrEqualTo(Date value) {
+        public Criteria andCreateDateGreaterThanOrEqualTo(String value) {
             addCriterion("createDate >=", value, "createDate");
             return (Criteria) this;
         }
 
-        public Criteria andCreateDateLessThan(Date value) {
+        public Criteria andCreateDateLessThan(String value) {
             addCriterion("createDate <", value, "createDate");
             return (Criteria) this;
         }
 
-        public Criteria andCreateDateLessThanOrEqualTo(Date value) {
+        public Criteria andCreateDateLessThanOrEqualTo(String value) {
             addCriterion("createDate <=", value, "createDate");
             return (Criteria) this;
         }
 
-        public Criteria andCreateDateIn(List<Date> values) {
+        public Criteria andCreateDateLike(String value) {
+            addCriterion("createDate like", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateNotLike(String value) {
+            addCriterion("createDate not like", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateIn(List<String> values) {
             addCriterion("createDate in", values, "createDate");
             return (Criteria) this;
         }
 
-        public Criteria andCreateDateNotIn(List<Date> values) {
+        public Criteria andCreateDateNotIn(List<String> values) {
             addCriterion("createDate not in", values, "createDate");
             return (Criteria) this;
         }
 
-        public Criteria andCreateDateBetween(Date value1, Date value2) {
+        public Criteria andCreateDateBetween(String value1, String value2) {
             addCriterion("createDate between", value1, value2, "createDate");
             return (Criteria) this;
         }
 
-        public Criteria andCreateDateNotBetween(Date value1, Date value2) {
+        public Criteria andCreateDateNotBetween(String value1, String value2) {
             addCriterion("createDate not between", value1, value2, "createDate");
             return (Criteria) this;
         }
@@ -575,52 +589,62 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andPayDateEqualTo(Date value) {
+        public Criteria andPayDateEqualTo(String value) {
             addCriterion("payDate =", value, "payDate");
             return (Criteria) this;
         }
 
-        public Criteria andPayDateNotEqualTo(Date value) {
+        public Criteria andPayDateNotEqualTo(String value) {
             addCriterion("payDate <>", value, "payDate");
             return (Criteria) this;
         }
 
-        public Criteria andPayDateGreaterThan(Date value) {
+        public Criteria andPayDateGreaterThan(String value) {
             addCriterion("payDate >", value, "payDate");
             return (Criteria) this;
         }
 
-        public Criteria andPayDateGreaterThanOrEqualTo(Date value) {
+        public Criteria andPayDateGreaterThanOrEqualTo(String value) {
             addCriterion("payDate >=", value, "payDate");
             return (Criteria) this;
         }
 
-        public Criteria andPayDateLessThan(Date value) {
+        public Criteria andPayDateLessThan(String value) {
             addCriterion("payDate <", value, "payDate");
             return (Criteria) this;
         }
 
-        public Criteria andPayDateLessThanOrEqualTo(Date value) {
+        public Criteria andPayDateLessThanOrEqualTo(String value) {
             addCriterion("payDate <=", value, "payDate");
             return (Criteria) this;
         }
 
-        public Criteria andPayDateIn(List<Date> values) {
+        public Criteria andPayDateLike(String value) {
+            addCriterion("payDate like", value, "payDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayDateNotLike(String value) {
+            addCriterion("payDate not like", value, "payDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayDateIn(List<String> values) {
             addCriterion("payDate in", values, "payDate");
             return (Criteria) this;
         }
 
-        public Criteria andPayDateNotIn(List<Date> values) {
+        public Criteria andPayDateNotIn(List<String> values) {
             addCriterion("payDate not in", values, "payDate");
             return (Criteria) this;
         }
 
-        public Criteria andPayDateBetween(Date value1, Date value2) {
+        public Criteria andPayDateBetween(String value1, String value2) {
             addCriterion("payDate between", value1, value2, "payDate");
             return (Criteria) this;
         }
 
-        public Criteria andPayDateNotBetween(Date value1, Date value2) {
+        public Criteria andPayDateNotBetween(String value1, String value2) {
             addCriterion("payDate not between", value1, value2, "payDate");
             return (Criteria) this;
         }
@@ -635,52 +659,62 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andDeliveryDateEqualTo(Date value) {
+        public Criteria andDeliveryDateEqualTo(String value) {
             addCriterion("deliveryDate =", value, "deliveryDate");
             return (Criteria) this;
         }
 
-        public Criteria andDeliveryDateNotEqualTo(Date value) {
+        public Criteria andDeliveryDateNotEqualTo(String value) {
             addCriterion("deliveryDate <>", value, "deliveryDate");
             return (Criteria) this;
         }
 
-        public Criteria andDeliveryDateGreaterThan(Date value) {
+        public Criteria andDeliveryDateGreaterThan(String value) {
             addCriterion("deliveryDate >", value, "deliveryDate");
             return (Criteria) this;
         }
 
-        public Criteria andDeliveryDateGreaterThanOrEqualTo(Date value) {
+        public Criteria andDeliveryDateGreaterThanOrEqualTo(String value) {
             addCriterion("deliveryDate >=", value, "deliveryDate");
             return (Criteria) this;
         }
 
-        public Criteria andDeliveryDateLessThan(Date value) {
+        public Criteria andDeliveryDateLessThan(String value) {
             addCriterion("deliveryDate <", value, "deliveryDate");
             return (Criteria) this;
         }
 
-        public Criteria andDeliveryDateLessThanOrEqualTo(Date value) {
+        public Criteria andDeliveryDateLessThanOrEqualTo(String value) {
             addCriterion("deliveryDate <=", value, "deliveryDate");
             return (Criteria) this;
         }
 
-        public Criteria andDeliveryDateIn(List<Date> values) {
+        public Criteria andDeliveryDateLike(String value) {
+            addCriterion("deliveryDate like", value, "deliveryDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryDateNotLike(String value) {
+            addCriterion("deliveryDate not like", value, "deliveryDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryDateIn(List<String> values) {
             addCriterion("deliveryDate in", values, "deliveryDate");
             return (Criteria) this;
         }
 
-        public Criteria andDeliveryDateNotIn(List<Date> values) {
+        public Criteria andDeliveryDateNotIn(List<String> values) {
             addCriterion("deliveryDate not in", values, "deliveryDate");
             return (Criteria) this;
         }
 
-        public Criteria andDeliveryDateBetween(Date value1, Date value2) {
+        public Criteria andDeliveryDateBetween(String value1, String value2) {
             addCriterion("deliveryDate between", value1, value2, "deliveryDate");
             return (Criteria) this;
         }
 
-        public Criteria andDeliveryDateNotBetween(Date value1, Date value2) {
+        public Criteria andDeliveryDateNotBetween(String value1, String value2) {
             addCriterion("deliveryDate not between", value1, value2, "deliveryDate");
             return (Criteria) this;
         }
@@ -695,52 +729,62 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andConfirmDateEqualTo(Date value) {
+        public Criteria andConfirmDateEqualTo(String value) {
             addCriterion("confirmDate =", value, "confirmDate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmDateNotEqualTo(Date value) {
+        public Criteria andConfirmDateNotEqualTo(String value) {
             addCriterion("confirmDate <>", value, "confirmDate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmDateGreaterThan(Date value) {
+        public Criteria andConfirmDateGreaterThan(String value) {
             addCriterion("confirmDate >", value, "confirmDate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmDateGreaterThanOrEqualTo(Date value) {
+        public Criteria andConfirmDateGreaterThanOrEqualTo(String value) {
             addCriterion("confirmDate >=", value, "confirmDate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmDateLessThan(Date value) {
+        public Criteria andConfirmDateLessThan(String value) {
             addCriterion("confirmDate <", value, "confirmDate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmDateLessThanOrEqualTo(Date value) {
+        public Criteria andConfirmDateLessThanOrEqualTo(String value) {
             addCriterion("confirmDate <=", value, "confirmDate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmDateIn(List<Date> values) {
+        public Criteria andConfirmDateLike(String value) {
+            addCriterion("confirmDate like", value, "confirmDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateNotLike(String value) {
+            addCriterion("confirmDate not like", value, "confirmDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateIn(List<String> values) {
             addCriterion("confirmDate in", values, "confirmDate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmDateNotIn(List<Date> values) {
+        public Criteria andConfirmDateNotIn(List<String> values) {
             addCriterion("confirmDate not in", values, "confirmDate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmDateBetween(Date value1, Date value2) {
+        public Criteria andConfirmDateBetween(String value1, String value2) {
             addCriterion("confirmDate between", value1, value2, "confirmDate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmDateNotBetween(Date value1, Date value2) {
+        public Criteria andConfirmDateNotBetween(String value1, String value2) {
             addCriterion("confirmDate not between", value1, value2, "confirmDate");
             return (Criteria) this;
         }
@@ -755,52 +799,62 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andEndDateEqualTo(Date value) {
+        public Criteria andEndDateEqualTo(String value) {
             addCriterion("endDate =", value, "endDate");
             return (Criteria) this;
         }
 
-        public Criteria andEndDateNotEqualTo(Date value) {
+        public Criteria andEndDateNotEqualTo(String value) {
             addCriterion("endDate <>", value, "endDate");
             return (Criteria) this;
         }
 
-        public Criteria andEndDateGreaterThan(Date value) {
+        public Criteria andEndDateGreaterThan(String value) {
             addCriterion("endDate >", value, "endDate");
             return (Criteria) this;
         }
 
-        public Criteria andEndDateGreaterThanOrEqualTo(Date value) {
+        public Criteria andEndDateGreaterThanOrEqualTo(String value) {
             addCriterion("endDate >=", value, "endDate");
             return (Criteria) this;
         }
 
-        public Criteria andEndDateLessThan(Date value) {
+        public Criteria andEndDateLessThan(String value) {
             addCriterion("endDate <", value, "endDate");
             return (Criteria) this;
         }
 
-        public Criteria andEndDateLessThanOrEqualTo(Date value) {
+        public Criteria andEndDateLessThanOrEqualTo(String value) {
             addCriterion("endDate <=", value, "endDate");
             return (Criteria) this;
         }
 
-        public Criteria andEndDateIn(List<Date> values) {
+        public Criteria andEndDateLike(String value) {
+            addCriterion("endDate like", value, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateNotLike(String value) {
+            addCriterion("endDate not like", value, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateIn(List<String> values) {
             addCriterion("endDate in", values, "endDate");
             return (Criteria) this;
         }
 
-        public Criteria andEndDateNotIn(List<Date> values) {
+        public Criteria andEndDateNotIn(List<String> values) {
             addCriterion("endDate not in", values, "endDate");
             return (Criteria) this;
         }
 
-        public Criteria andEndDateBetween(Date value1, Date value2) {
+        public Criteria andEndDateBetween(String value1, String value2) {
             addCriterion("endDate between", value1, value2, "endDate");
             return (Criteria) this;
         }
 
-        public Criteria andEndDateNotBetween(Date value1, Date value2) {
+        public Criteria andEndDateNotBetween(String value1, String value2) {
             addCriterion("endDate not between", value1, value2, "endDate");
             return (Criteria) this;
         }

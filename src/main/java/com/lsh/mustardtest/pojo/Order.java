@@ -2,13 +2,12 @@ package com.lsh.mustardtest.pojo;
 
 import com.lsh.mustardtest.service.OrderService;
 
-import java.util.Date;
-import java.util.List;
-
 /**
  * 刘森华
  * 2019/04/15
  */
+
+import java.util.List;
 
 public class Order {
     private Integer id;
@@ -21,25 +20,25 @@ public class Order {
 
     private String sender;
 
-    private Integer mobile;
-
     private String userMessage;
 
-    private Date createDate;
+    private String createDate;
 
-    private Date payDate;
+    private String payDate;
 
-    private Date deliveryDate;
+    private String deliveryDate;
 
-    private Date confirmDate;
+    private String confirmDate;
 
-    private Date endDate;
+    private String endDate;
 
     private String status;
 
     private Integer duration;
 
     private Integer userID;
+
+    private String mobile;
 
     /**
      * 非数据库字段
@@ -51,6 +50,7 @@ public class Order {
     private float total;
 
     private int totalNumber;
+
 
     public Integer getId() {
         return id;
@@ -92,14 +92,6 @@ public class Order {
         this.sender = sender == null ? null : sender.trim();
     }
 
-    public Integer getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(Integer mobile) {
-        this.mobile = mobile;
-    }
-
     public String getUserMessage() {
         return userMessage;
     }
@@ -108,44 +100,44 @@ public class Order {
         this.userMessage = userMessage == null ? null : userMessage.trim();
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate == null ? null : createDate.trim();
     }
 
-    public Date getPayDate() {
+    public String getPayDate() {
         return payDate;
     }
 
-    public void setPayDate(Date payDate) {
-        this.payDate = payDate;
+    public void setPayDate(String payDate) {
+        this.payDate = payDate == null ? null : payDate.trim();
     }
 
-    public Date getDeliveryDate() {
+    public String getDeliveryDate() {
         return deliveryDate;
     }
 
-    public void setDeliveryDate(Date deliveryDate) {
-        this.deliveryDate = deliveryDate;
+    public void setDeliveryDate(String deliveryDate) {
+        this.deliveryDate = deliveryDate == null ? null : deliveryDate.trim();
     }
 
-    public Date getConfirmDate() {
+    public String getConfirmDate() {
         return confirmDate;
     }
 
-    public void setConfirmDate(Date confirmDate) {
-        this.confirmDate = confirmDate;
+    public void setConfirmDate(String confirmDate) {
+        this.confirmDate = confirmDate == null ? null : confirmDate.trim();
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setEndDate(String endDate) {
+        this.endDate = endDate == null ? null : endDate.trim();
     }
 
     public String getStatus() {
@@ -170,6 +162,14 @@ public class Order {
 
     public void setUserID(Integer userID) {
         this.userID = userID;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile == null ? null : mobile.trim();
     }
 
     public List<OrderItem> getOrderItems() {

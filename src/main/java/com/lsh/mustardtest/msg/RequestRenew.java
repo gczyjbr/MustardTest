@@ -10,9 +10,9 @@ import java.util.Date;
 public class RequestRenew {
     private String orderCode; //订单编号
     private Integer productID;
-    private Date createDate;    //创建日期
+    private String createDate;    //创建日期
     private Integer duration;   //时长
-    private Date endDate;       //截至时间
+    private String endDate;       //截至时间
 
     public String getOrderCode() {
         return orderCode;
@@ -30,11 +30,11 @@ public class RequestRenew {
         this.productID = productID;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 
@@ -46,11 +46,11 @@ public class RequestRenew {
         this.duration = duration;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 }

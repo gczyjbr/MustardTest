@@ -10,6 +10,8 @@ import com.lsh.mustardtest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -58,7 +60,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Order> list() {
         OrderExample example = new OrderExample();
-        example.setOrderByClause("id");
+        example.setOrderByClause("id desc");
         List<Order> result = orderMapper.selectByExample(example);
         setUser(result);
         return result;
@@ -75,8 +77,21 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> list(Integer userID, String status) {
         OrderExample example = new OrderExample();
         example.createCriteria().andUserIDEqualTo(userID).andStatusEqualTo(status);
-        example.setOrderByClause("id");
+        example.setOrderByClause("id desc");
         return orderMapper.selectByExample(example);
     }
 
+    @Override
+    public String date(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SS");
+        return format.format(date);
+    }
+
+    @Override
+    public List<Order> list(Integer userID) {
+        OrderExample example = new OrderExample();
+        example.createCriteria().andUserIDEqualTo(userID);
+        example.setOrderByClause("id desc");
+        return  orderMapper.selectByExample(example);
+    }
 }

@@ -55,7 +55,7 @@ public class OrderController {
      */
     @RequestMapping("admin_order_confirm")
     public String confirm(Order o) throws IOException {
-        o.setConfirmDate(new Date());
+        o.setConfirmDate(orderService.date(new Date()));
         o.setStatus(OrderService.finish);
         orderService.update(o);
         return "redirect:admin_order_list";
