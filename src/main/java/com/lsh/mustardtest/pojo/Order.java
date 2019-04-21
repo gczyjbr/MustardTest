@@ -2,11 +2,6 @@ package com.lsh.mustardtest.pojo;
 
 import com.lsh.mustardtest.service.OrderService;
 
-/**
- * 刘森华
- * 2019/04/15
- */
-
 import java.util.List;
 
 public class Order {
@@ -19,6 +14,8 @@ public class Order {
     private Integer post;
 
     private String sender;
+
+    private String mobile;
 
     private String userMessage;
 
@@ -37,8 +34,6 @@ public class Order {
     private Integer duration;
 
     private Integer userID;
-
-    private String mobile;
 
     /**
      * 非数据库字段
@@ -90,6 +85,14 @@ public class Order {
 
     public void setSender(String sender) {
         this.sender = sender == null ? null : sender.trim();
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile == null ? null : mobile.trim();
     }
 
     public String getUserMessage() {
@@ -162,14 +165,6 @@ public class Order {
 
     public void setUserID(Integer userID) {
         this.userID = userID;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile == null ? null : mobile.trim();
     }
 
     public List<OrderItem> getOrderItems() {

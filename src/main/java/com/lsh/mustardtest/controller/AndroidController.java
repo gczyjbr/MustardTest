@@ -261,6 +261,10 @@ public class AndroidController {
         return productMsg;
     }
 
+    private void getEndDate(Integer productID) {
+
+    }
+
     /** 订单管理 **/
 
 
@@ -285,14 +289,16 @@ public class AndroidController {
             System.out.println("status: " + status);
             return null;
         } else {
-            List list = orderService.list(userID, status);
+            List<Order> list = orderService.list(userID, status);
             System.out.println("获取" + status + "状态的订单成功");
+            System.out.println(list.get(0).getMobile());
             return list;
         }
     }
 
     /**
      * 我的订单
+     *
      * @param request HttpRequest对象
      * @return 订单列表
      */
@@ -303,10 +309,10 @@ public class AndroidController {
         if (null == userID) {
             System.out.println("userID为空");
             return null;
-        }
-        else {
-            List list = orderService.list(userID);
+        } else {
+            List<Order> list = orderService.list(userID);
             System.out.println("获取订单成功");
+//            System.out.println(list.get(0).getMobile());
             return list;
         }
     }
@@ -314,29 +320,40 @@ public class AndroidController {
     /**
      * 创建订单
      *
-     * @param orderMsg OrderMSG对象
+     * @param requestOrder RequestOrder对象
      * @throws Exception
      */
     @RequestMapping(value = "createOrder", method = RequestMethod.POST)
     @ResponseBody
-    public int createOrder(@RequestBody OrderMsg orderMsg) throws Exception {
-        System.out.println("orderCode: " + orderMsg.getOrderCode());
-        if (null == orderMsg.getOrderCode())
+    public int createOrder(@RequestBody RequestOrder requestOrder) throws Exception {
+        String orderCode = requestOrder.getOrderCode();
+        System.out.println("orderCode: " + orderCode);
+        System.out.println("warehouseID: " + requestOrder.getWarehouseID());
+        System.out.println("duration: " + requestOrder.getDuration());
+        if (null == orderCode)
             return ID_IS_NULL;
         else {
             Order order = new Order();
-            order.setOrderCode(orderMsg.getOrderCode());
-            order.setAddress(orderMsg.getAddress());
-            order.setPost(orderMsg.getPost());
-            order.setUserMessage(orderMsg.getUserMessage());
-            order.setUserID(orderMsg.getUserID());
-            order.setSender(order.getSender());
-            order.setEndDate(orderMsg.getEndDate());
-            order.setDuration(orderMsg.getDuration());
-            order.setCreateDate(orderMsg.getCreateDate());
-            order.setStatus(orderMsg.getStatus());
-            order.setConfirmDate(orderMsg.getConfirmDate());
+            order.setOrderCode(requestOrder.getOrderCode());
+            order.setAddress(requestOrder.getAddress());
+            order.setPost(requestOrder.getPost());
+            order.setUserMessage(requestOrder.getUserMessage());
+            order.setUserID(requestOrder.getUserID());
+            order.setSender(requestOrder.getSender());
+            order.setMobile(requestOrder.getMobile());
+            order.setEndDate(requestOrder.getEndDate());
+            order.setDuration(requestOrder.getDuration());
+            order.setCreateDate(requestOrder.getCreateDate());
+            order.setStatus(requestOrder.getStatus());
+//            order.setConfirmDate(requestOrder.getConfirmDate());
             orderService.add(order);
+            Order order1 = orderService.get(orderCode);
+            if (null == order1)
+                return OBJECT_IS_NULL;
+            WarehouseNumBean warehouseNumBean = new WarehouseNumBean(requestOrder.getWarehouseID(),
+                    requestOrder.getNumSS(), requestOrder.getNumS(), requestOrder.getNumM(), requestOrder.getNumL());
+            System.out.println("orderID: " + order1.getId());
+            processOrder(order1, warehouseNumBean);
             System.out.println("创建订单成功");
             return SUCCESS;
         }
@@ -351,21 +368,53 @@ public class AndroidController {
     @RequestMapping(value = "changeOrderStatus", method = RequestMethod.POST)
     @ResponseBody
     public int changeOrderStatus(@RequestBody RequestAlterState requestAlterState) throws Exception {
-        System.out.println("orderCode: " + requestAlterState.getOrderCode());
-        if (null == requestAlterState.getOrderCode())
+        String orderCode = requestAlterState.getOrderCode();
+        String status = requestAlterState.getStatus();
+        System.out.println("orderCode: " + orderCode);
+        System.out.println("status: " + status);
+        System.out.println("warehouseID: " + requestAlterState.getWarehouseID());
+//        Integer warehouseID = Integer.valueOf("warehouseID");
+//        Integer numSS = Integer.valueOf(request.getParameter("numSS"));
+//        Integer numS = Integer.valueOf(request.getParameter("numS"));
+//        Integer numM = Integer.valueOf(request.getParameter("numM"));
+//        Integer numL = Integer.valueOf(request.getParameter("numL"));
+        if (null == orderCode)
             return ID_IS_NULL;
         else {
-            Order order = orderService.get(requestAlterState.getOrderCode());
-            String status = requestAlterState.getStatus();
-            WarehouseNumBean warehouseNumBean = requestAlterState.getWarehouseNumBean();
-            if (null == order || null == status || null == warehouseNumBean)
-                return OBJECT_IS_NULL;
-            else if (OrderService.waitConfirm == status) {
-                processOrder(order, warehouseNumBean);
-            }
+            Order order = orderService.get(orderCode);
+            System.out.println("获取订单成功");
+            List<OrderItem> ois = orderItemService.list(order.getId());
+            WarehouseNumBean warehouseNumBean = new WarehouseNumBean(requestAlterState.getWarehouseID(), requestAlterState.getNumSS(),
+                    requestAlterState.getNumS(), requestAlterState.getNumM(), requestAlterState.getNumL());
+            System.out.println("创建wareHouseNumBean成功");
+            System.out.println("orderID: " + order.getId());
             order.setStatus(status);
             orderService.update(order);
             System.out.println("更改订单状态成功");
+            if (null == order || null == status || null == warehouseNumBean) {
+
+                System.out.println("订单或wareHouseNUmBean为空");
+                return OBJECT_IS_NULL;
+            }
+             if (OrderService.waitConfirm.equals(status)) {
+//                order.setStatus(status);
+//                orderService.update(order);
+                processOrder(ois, OrderService.waitConfirm);
+//                System.out.println("更改订单状态成功");
+//                processOrder(ois);
+//                stock(requestAlterState.getWarehouseNumBean());
+            }
+            if (OrderService.delete.equals(status)) {
+//                order.setStatus(status);
+//                orderService.update(order);
+                System.out.println("正在修改库存...");
+                stock(warehouseNumBean);
+                processOrder(ois, OrderService.delete);
+//                System.out.println("更改订单状态成功");
+            }
+//            order.setStatus(status);
+//            orderService.update(order);
+//            System.out.println("更改订单状态成功");
             return SUCCESS;
         }
     }
@@ -410,6 +459,8 @@ public class AndroidController {
         oi.setOrderID(order.getId());
         orderItemService.add(oi);
         System.out.println("创建订单项成功");
+        p.setEndDate(requestRenew.getEndDate());
+        productService.update(p);
         System.out.println("续期成功");
         return SUCCESS;
     }
@@ -421,58 +472,82 @@ public class AndroidController {
      * @param warehouseNumBean WarehouseNumBean对象
      * @throws Exception
      */
-    private void processOrder(Order order, WarehouseNumBean warehouseNumBean) throws Exception {
+    @ResponseBody
+    private int processOrder(Order order, WarehouseNumBean warehouseNumBean) throws Exception {
         Integer wareHouseID = warehouseNumBean.getWareHouseID();
+        System.out.println("warehouseID: " + wareHouseID);
         int numSS = warehouseNumBean.getNumSS();
         int numS = warehouseNumBean.getNumS();
         int numM = warehouseNumBean.getNumM();
         int numL = warehouseNumBean.getNumL();
 
         WareHouse w = wareHouseService.get(wareHouseID);
-        int tiny_stock = w.getTiny_stock();
-        int small_stock = w.getSmall_stock();
-        int middle_stock = w.getMiddle_stock();
-        int big_stock = w.getBig_stock();
+        System.out.println("warehouseID: " + w.getId());
+        int tiny_stock = w.getTiny_stock() - numSS;
+        int small_stock = w.getSmall_stock() - numS;
+        int middle_stock = w.getMiddle_stock() - numM;
+        int big_stock = w.getBig_stock() - numL;
+//        System.out.println("big stock: " + big_stock);
 
         if (0 != numSS) {
-            if (w.getTiny_stock() < numSS)
+            if (tiny_stock < 0) {
                 System.out.println("微仓库存不足");
-            else {
+                return OBJECT_IS_NULL;
+            } else {
+                w.setTiny_stock(tiny_stock);
+                wareHouseService.update(w);
+                System.out.println("库存修改完成");
                 processOrder(order, warehouseNumBean, "微型");
-                w.setTiny_stock(tiny_stock - numSS);
+//                w.setTiny_stock(tiny_stock - numSS);
             }
         }
 
         if (0 != numS) {
-            if (w.getSmall_stock() < numS)
+            if (small_stock < 0) {
                 System.out.println("小仓库存不足");
-            else {
+                return OBJECT_IS_NULL;
+            } else {
+                w.setSmall_stock(small_stock);
+                wareHouseService.update(w);
+                System.out.println("库存修改完成");
                 processOrder(order, warehouseNumBean, "小型");
-                w.setSmall_stock(small_stock - numS);
+//                w.setSmall_stock(small_stock - numS);
             }
 
         }
 
         if (0 != numM) {
-            if (w.getMiddle_stock() < numM)
+            if (middle_stock < 0) {
                 System.out.println("中仓库存不足");
-            else {
+                return OBJECT_IS_NULL;
+            } else {
+                w.setMiddle_stock(middle_stock);
+                wareHouseService.update(w);
+                System.out.println("库存修改完成");
                 processOrder(order, warehouseNumBean, "中型");
-                w.setMiddle_stock(middle_stock - numM);
+//                w.setMiddle_stock(middle_stock - numM);
             }
         }
 
         if (0 != numL) {
-            if (w.getBig_stock() < numL)
+            if (big_stock < 0) {
                 System.out.println("大仓库存不足");
-            else {
+                return OBJECT_IS_NULL;
+            } else {
+                w.setBig_stock(big_stock);
+                wareHouseService.update(w);
+                System.out.println("库存修改完成");
                 processOrder(order, warehouseNumBean, "大型");
-                w.setBig_stock(big_stock - numL);
+//                System.out.println("正在处理订单");
+//                System.out.println("正在修改大仓库存");
+//                w.setBig_stock(big_stock - numL);
             }
         }
-        wareHouseService.update(w);
-        System.out.println("处理订单成功");
-
+//        wareHouseService.update(w);
+//        WareHouse w2 = wareHouseService.get(wareHouseID);
+//        System.out.println("当前大仓库存为:" + w.getBig_stock());
+//        System.out.println("处理订单成功");
+        return SUCCESS;
     }
 
     /**
@@ -484,22 +559,71 @@ public class AndroidController {
      * @throws Exception
      */
     private void processOrder(Order order, WarehouseNumBean warehouseNumBean, String type) throws Exception {
+        System.out.println("正在处理订单项...");
+//        System.out.println("orderID: " + order.getId());
+//        System.out.println(warehouseNumBean.getWareHouseID());
+//        System.out.println(type);
+        Integer orderID = order.getId();
         List products = productService.productsByType(warehouseNumBean.getWareHouseID(), type);
+//        System.out.println("productID: " + products.get(0).toString());
         int j = selector(type, warehouseNumBean);
         Product p;
         for (int i = 0; i < j; i++) {
             p = (Product) products.get(i);
-            p.setUsed(true);
+            p.setUsed(false);
             p.setUserID(order.getUserID());
+            p.setEndDate(order.getEndDate());
             productService.update(p);
             OrderItem oi = new OrderItem();
             oi.setProductID(p.getId());
             oi.setUserID(order.getUserID());
-            oi.setOrderID(order.getId());
+//            System.out.println("oi.orderID: " + orderID);
+            oi.setOrderID(orderID);
+//            System.out.println("oi.orderID: " + oi.getOrderID());
             oi.setNumber(1);
             orderItemService.add(oi);
         }
-        System.out.println("更改产品及创建订单项成功");
+        System.out.println("创建订单项成功");
+    }
+
+    /**
+     * 为储物柜填写用户id
+     *
+     * @param list 订单项列表
+     */
+    private void processOrder(List<OrderItem> list, String status) {
+        if (OrderService.waitConfirm == status) {
+            for (OrderItem oi : list) {
+                Product p = productService.get(oi.getProductID());
+//                p.setUserID(oi.getUserID());
+                p.setUsed(true);
+                productService.update(p);
+            }
+        }
+        if (OrderService.delete == status) {
+            for (OrderItem oi : list) {
+                Product p = productService.get(oi.getProductID());
+                p.setUsed(false);
+                p.setUserID(1);
+                p.setEndDate(null);
+                productService.update(p);
+            }
+        }
+    }
+
+    /**
+     * 管理库存
+     *
+     * @param warehouseNumBean WarehouseNumBean对象
+     */
+    private void stock(WarehouseNumBean warehouseNumBean) {
+        WareHouse w = wareHouseService.get(warehouseNumBean.getWareHouseID());
+        w.setTiny_stock(w.getTiny_stock() + warehouseNumBean.getNumSS());
+        w.setSmall_stock(w.getSmall_stock() + warehouseNumBean.getNumS());
+        w.setMiddle_stock(w.getMiddle_stock() + warehouseNumBean.getNumM());
+        w.setBig_stock(w.getBig_stock() + warehouseNumBean.getNumL());
+        wareHouseService.update(w);
+        System.out.println("库存修改完成");
     }
 
     /**
@@ -511,14 +635,21 @@ public class AndroidController {
      * @throws Exception
      */
     private int selector(String type, WarehouseNumBean warehouseNumBean) throws Exception {
+        WareHouse w = wareHouseService.get(warehouseNumBean.getWareHouseID());
         switch (type) {
             case "微型":
+//                w.setTiny_stock(w.getTiny_stock() - warehouseNumBean.getNumSS());
+//                wareHouseService.update(w);
+//                System.out.println("正在修改小仓库存");
                 return warehouseNumBean.getNumSS();
             case "小型":
                 return warehouseNumBean.getNumS();
             case "中型":
                 return warehouseNumBean.getNumM();
             case "大型":
+//                w.setBig_stock(w.getBig_stock() - warehouseNumBean.getNumL());
+//                wareHouseService.update(w);
+//                System.out.println("正在修改大仓库存");
                 return warehouseNumBean.getNumL();
             default:
                 return 0;

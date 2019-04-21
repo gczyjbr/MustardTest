@@ -10,6 +10,7 @@
     <result column="wareHouseID" jdbcType="INTEGER" property="wareHouseID" />
     <result column="used" jdbcType="BIT" property="used" />
     <result column="userID" jdbcType="INTEGER" property="userID" />
+    <result column="endDate" jdbcType="VARCHAR" property="endDate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -41,7 +42,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, productCode, type, originalPrice, promotePrice, wareHouseID, used, userID
+    id, productCode, type, originalPrice, promotePrice, wareHouseID, used, userID, endDate
   </sql>
   <select id="selectByExample" parameterType="com.lsh.mustardtest.pojo.ProductExample" resultMap="BaseResultMap">
     select
@@ -71,10 +72,10 @@
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.Product" useGeneratedKeys="true">
     insert into product (productCode, type, originalPrice, 
       promotePrice, wareHouseID, used, 
-      userID)
+      userID, endDate)
     values (#{productCode,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{originalPrice,jdbcType=REAL}, 
       #{promotePrice,jdbcType=REAL}, #{wareHouseID,jdbcType=INTEGER}, #{used,jdbcType=BIT}, 
-      #{userID,jdbcType=INTEGER})
+      #{userID,jdbcType=INTEGER}, #{endDate,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lsh.mustardtest.pojo.Product" useGeneratedKeys="true">
     insert into product
@@ -100,6 +101,9 @@
       <if test="userID != null">
         userID,
       </if>
+      <if test="endDate != null">
+        endDate,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="productCode != null">
@@ -122,6 +126,9 @@
       </if>
       <if test="userID != null">
         #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -149,6 +156,9 @@
       <if test="userID != null">
         userID = #{userID,jdbcType=INTEGER},
       </if>
+      <if test="endDate != null">
+        endDate = #{endDate,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -160,7 +170,8 @@
       promotePrice = #{promotePrice,jdbcType=REAL},
       wareHouseID = #{wareHouseID,jdbcType=INTEGER},
       used = #{used,jdbcType=BIT},
-      userID = #{userID,jdbcType=INTEGER}
+      userID = #{userID,jdbcType=INTEGER},
+      endDate = #{endDate,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

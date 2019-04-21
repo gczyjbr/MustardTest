@@ -47,12 +47,12 @@
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>-->
 
-        <!--<table tableName="product" domainObjectName="Product" enableCountByExample="false" enableUpdateByExample="false"
+        <table tableName="product" domainObjectName="Product" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>-->
+        </table>
 
         <!--<table tableName="productImage" domainObjectName="ProductImage" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
@@ -62,12 +62,12 @@
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>-->
 
-        <table tableName="order_" domainObjectName="Order" enableCountByExample="false" enableUpdateByExample="false"
+        <!--<table tableName="order_" domainObjectName="Order" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
+        </table>-->
 
         <!--<table tableName="propertyValue" domainObjectName="PropertyValue" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"

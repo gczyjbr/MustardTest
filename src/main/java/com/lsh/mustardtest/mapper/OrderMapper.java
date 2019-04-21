@@ -11,15 +11,11 @@ public interface OrderMapper {
 
     int insertSelective(Order record);
 
-    List<Order> selectByExampleWithBLOBs(OrderExample example);
-
     List<Order> selectByExample(OrderExample example);
 
     Order selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Order record);
-
-    int updateByPrimaryKeyWithBLOBs(Order record);
 
     int updateByPrimaryKey(Order record);
 }

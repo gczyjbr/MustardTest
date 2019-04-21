@@ -6,14 +6,14 @@ package com.lsh.mustardtest.msg;
  */
 
 public class WarehouseNumBean {
-    private Integer wareHouseID;
+    private Integer warehouseID;
     private int numSS;
     private int numS;
     private int numM;
     private int numL;
 
-    public WarehouseNumBean(Integer wareHouseID, int numSS, int numS, int numM, int numL){
-        this.wareHouseID = wareHouseID;
+    public WarehouseNumBean(Integer warehouseID, int numSS, int numS, int numM, int numL){
+        this.warehouseID = warehouseID;
         this.numSS = numSS;
         this.numS = numS;
         this.numM = numM;
@@ -21,11 +21,11 @@ public class WarehouseNumBean {
     }
 
     public Integer getWareHouseID() {
-        return wareHouseID;
+        return warehouseID;
     }
 
     public void setWareHouseID(Integer wareHouseID) {
-        this.wareHouseID = wareHouseID;
+        this.warehouseID = wareHouseID;
     }
 
     public int getNumSS() {

@@ -49,7 +49,7 @@ public class OrderItemServiceImpl implements OrderItemService {
     @Override
     public List<OrderItem> list() {
         OrderItemExample example = new OrderItemExample();
-        example.setOrderByClause("id");
+        example.setOrderByClause("id desc");
         return orderItemMapper.selectByExample(example);
     }
 
@@ -60,10 +60,19 @@ public class OrderItemServiceImpl implements OrderItemService {
         }
     }
 
+    @Override
+    public List<OrderItem> list(Integer orderID) {
+        OrderItemExample example = new OrderItemExample();
+        example.createCriteria().andUserIDEqualTo(orderID);
+        example.setOrderByClause("id desc");
+        List result = orderItemMapper.selectByExample(example);
+        return result;
+    }
+
     public void fill(Order o) {
         OrderItemExample example = new OrderItemExample();
         example.createCriteria().andOrderIDEqualTo(o.getId());
-        example.setOrderByClause("id");
+        example.setOrderByClause("id desc");
         List<OrderItem> ois = orderItemMapper.selectByExample(example);
         setProduct(ois);
 

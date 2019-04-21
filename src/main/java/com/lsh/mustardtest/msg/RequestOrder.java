@@ -11,16 +11,21 @@ public class RequestOrder {
     private String orderCode;   //订单编号
     private String address;     //用户地址
     private String sender;      //用户姓名
-    private Integer mobile;     //电话
+    private String mobile;     //电话
     private String userMessage; //备注
-    private Date createDate;    //创建日期
-    private Date payDate;       //付款时间
-    private Date endDate;       //截至时间
+    private String createDate;    //创建日期
+    private String payDate;       //付款时间
+    private String endDate;       //截至时间
     private String status;      //状态
     private Integer duration;   //时长
     private Integer userID;     //用户id
+    private Integer post;
 
-    WarehouseNumBean warehouseNumBean;  //各类型产品数量
+    private Integer warehouseID;
+    private int numSS;
+    private int numS;
+    private int numM;
+    private int numL;
 
     public String getAddress() {
         return address;
@@ -38,11 +43,11 @@ public class RequestOrder {
         this.sender = sender;
     }
 
-    public Integer getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
-    public void setMobile(Integer mobile) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
@@ -54,19 +59,19 @@ public class RequestOrder {
         this.userMessage = userMessage;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 
-    public Date getPayDate() {
+    public String getPayDate() {
         return payDate;
     }
 
-    public void setPayDate(Date payDate) {
+    public void setPayDate(String payDate) {
         this.payDate = payDate;
     }
 
@@ -94,14 +99,6 @@ public class RequestOrder {
         this.userID = userID;
     }
 
-    public WarehouseNumBean getWarehouseNumBean() {
-        return warehouseNumBean;
-    }
-
-    public void setWarehouseNumBean(WarehouseNumBean warehouseNumBean) {
-        this.warehouseNumBean = warehouseNumBean;
-    }
-
     public String getOrderCode() {
         return orderCode;
     }
@@ -110,11 +107,59 @@ public class RequestOrder {
         this.orderCode = orderCode;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
+    }
+
+    public Integer getPost() {
+        return post;
+    }
+
+    public void setPost(Integer post) {
+        this.post = post;
+    }
+
+    public Integer getWarehouseID() {
+        return warehouseID;
+    }
+
+    public void setWarehouseID(Integer warehouseID) {
+        this.warehouseID = warehouseID;
+    }
+
+    public int getNumSS() {
+        return numSS;
+    }
+
+    public void setNumSS(int numSS) {
+        this.numSS = numSS;
+    }
+
+    public int getNumS() {
+        return numS;
+    }
+
+    public void setNumS(int numS) {
+        this.numS = numS;
+    }
+
+    public int getNumM() {
+        return numM;
+    }
+
+    public void setNumM(int numM) {
+        this.numM = numM;
+    }
+
+    public int getNumL() {
+        return numL;
+    }
+
+    public void setNumL(int numL) {
+        this.numL = numL;
     }
 }

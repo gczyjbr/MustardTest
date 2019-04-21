@@ -47,7 +47,7 @@ public class OrderItem {
         return orderID;
     }
 
-    public void setOrderID(Integer oid) {
+    public void setOrderID(Integer orderID) {
         this.orderID = orderID;
     }
 

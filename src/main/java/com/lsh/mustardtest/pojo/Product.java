@@ -2,11 +2,6 @@ package com.lsh.mustardtest.pojo;
 
 import java.util.List;
 
-/**
- * 刘森华
- * 2019/04/15
- */
-
 public class Product {
     private Integer id;
 
@@ -24,6 +19,8 @@ public class Product {
 
     private Integer userID;
 
+    private String endDate;
+
     /** 非数据库字段 **/
     private WareHouse wareHouse;
 
@@ -34,38 +31,6 @@ public class Product {
 
     // 详情产品图片集合
     private List<ProductImage> productDetailImages;
-
-    public List<ProductImage> getProductSingleImages() {
-        return productSingleImages;
-    }
-
-    public void setProductSingleImages(List<ProductImage> productSingleImages) {
-        this.productSingleImages = productSingleImages;
-    }
-
-    public List<ProductImage> getProductDetailImages() {
-        return productDetailImages;
-    }
-
-    public void setProductDetailImages(List<ProductImage> productDetailImages) {
-        this.productDetailImages = productDetailImages;
-    }
-
-    public ProductImage getFirstProductImage() {
-        return firstProductImage;
-    }
-
-    public void setFirstProductImage(ProductImage firstProductImage) {
-        this.firstProductImage = firstProductImage;
-    }
-
-    public WareHouse getWareHouse() {
-        return wareHouse;
-    }
-
-    public void setWareHouse(WareHouse wareHouse) {
-        this.wareHouse = wareHouse;
-    }
 
     public Integer getId() {
         return id;
@@ -129,5 +94,45 @@ public class Product {
 
     public void setUserID(Integer userID) {
         this.userID = userID;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate == null ? null : endDate.trim();
+    }
+
+    public WareHouse getWareHouse() {
+        return wareHouse;
+    }
+
+    public void setWareHouse(WareHouse wareHouse) {
+        this.wareHouse = wareHouse;
+    }
+
+    public ProductImage getFirstProductImage() {
+        return firstProductImage;
+    }
+
+    public void setFirstProductImage(ProductImage firstProductImage) {
+        this.firstProductImage = firstProductImage;
+    }
+
+    public List<ProductImage> getProductSingleImages() {
+        return productSingleImages;
+    }
+
+    public void setProductSingleImages(List<ProductImage> productSingleImages) {
+        this.productSingleImages = productSingleImages;
+    }
+
+    public List<ProductImage> getProductDetailImages() {
+        return productDetailImages;
+    }
+
+    public void setProductDetailImages(List<ProductImage> productDetailImages) {
+        this.productDetailImages = productDetailImages;
     }
 }

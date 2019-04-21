@@ -90,7 +90,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Order> list(Integer userID) {
         OrderExample example = new OrderExample();
-        example.createCriteria().andUserIDEqualTo(userID);
+        example.createCriteria().andUserIDEqualTo(userID).andStatusNotEqualTo(OrderService.delete);
         example.setOrderByClause("id desc");
         return  orderMapper.selectByExample(example);
     }

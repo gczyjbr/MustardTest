@@ -23,4 +23,5 @@ public interface OrderItemService {
 
     void fill(List<Order> os);
 
+    List<OrderItem> list(Integer orderID);
 }

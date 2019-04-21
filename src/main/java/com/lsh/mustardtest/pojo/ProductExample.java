@@ -3,11 +3,6 @@ package com.lsh.mustardtest.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 刘森华
- * 2019/04/15
- */
-
 public class ProductExample {
     protected String orderByClause;
 
@@ -606,6 +601,76 @@ public class ProductExample {
 
         public Criteria andUserIDNotBetween(Integer value1, Integer value2) {
             addCriterion("userID not between", value1, value2, "userID");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateIsNull() {
+            addCriterion("endDate is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateIsNotNull() {
+            addCriterion("endDate is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateEqualTo(String value) {
+            addCriterion("endDate =", value, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateNotEqualTo(String value) {
+            addCriterion("endDate <>", value, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateGreaterThan(String value) {
+            addCriterion("endDate >", value, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateGreaterThanOrEqualTo(String value) {
+            addCriterion("endDate >=", value, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateLessThan(String value) {
+            addCriterion("endDate <", value, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateLessThanOrEqualTo(String value) {
+            addCriterion("endDate <=", value, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateLike(String value) {
+            addCriterion("endDate like", value, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateNotLike(String value) {
+            addCriterion("endDate not like", value, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateIn(List<String> values) {
+            addCriterion("endDate in", values, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateNotIn(List<String> values) {
+            addCriterion("endDate not in", values, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateBetween(String value1, String value2) {
+            addCriterion("endDate between", value1, value2, "endDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndDateNotBetween(String value1, String value2) {
+            addCriterion("endDate not between", value1, value2, "endDate");
             return (Criteria) this;
         }
     }

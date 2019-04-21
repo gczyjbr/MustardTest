@@ -31,6 +31,7 @@
                 <th>金额</th>
                 <th>商品数量</th>
                 <th>买家名称</th>
+                <th>电话</th>
                 <th>租用时长</th>
                 <th>发货地址</th>
                 <th>创建时间</th>
@@ -49,14 +50,15 @@
                     <td>￥<fmt:formatNumber type="number" value="${o.total}" minFractionDigits="2"/></td>
                     <td align="center">${o.totalNumber}</td>
                     <td align="center">${o.user.userName}</td>
+                    <td align="center">${o.mobile}</td>
                     <td align="center">${o.duration}个月</td>
                     <td align="center">${o.address}</td>
 
-                    <td><fmt:formatDate value="${o.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                    <td><fmt:formatDate value="${o.payDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                    <td><fmt:formatDate value="${o.deliveryDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                    <td><fmt:formatDate value="${o.confirmDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                    <td><fmt:formatDate value="${o.endDate}" pattern="yyyy-MM-dd HH:mm:ss"/> </td>
+                    <td>${o.createDate}</td>
+                    <td>${o.payDate}</td>
+                    <td>${o.deliveryDate}</td>
+                    <td>${o.confirmDate}</td>
+                    <td>${o.endDate}</td>
 
                     <td>
                         <button orderID=${o.id} class="orderPageCheckOrderItems btn btn-primary btn-xs">查看详情</button>
@@ -86,7 +88,7 @@
                                         </td>
                                         <td align="right">
 
-                                            <span class="text-muted">${oi.number}个</span>
+                                            <span class="text-muted">${o.duration}个月</span>
                                         </td>
                                         <td align="right">
 

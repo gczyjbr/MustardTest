@@ -108,7 +108,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List productsByType(Integer wareHouseID, String type) {
         ProductExample example = new ProductExample();
-        example.createCriteria().andWareHouseIDEqualTo(wareHouseID).andUsedEqualTo(false).andUserIDEqualTo(null).andTypeEqualTo(type);
+        example.createCriteria().andWareHouseIDEqualTo(wareHouseID).andUsedEqualTo(false).andUserIDEqualTo(1).andTypeLike(type);
         example.setOrderByClause("id");
         List result = productMapper.selectByExample(example);
         setWareHouse(result);
@@ -119,9 +119,9 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List myProducts(Integer userID) {
         ProductExample example = new ProductExample();
-        example.createCriteria().andUserIDEqualTo(userID);
-        example.setOrderByClause("id");
-        List result = productMapper.selectByExample(example);
+        example.createCriteria().andUserIDEqualTo(userID).andUsedEqualTo(true);
+        example.setOrderByClause("id desc");
+        List<Product> result = productMapper.selectByExample(example);
         setWareHouse(result);
         setFirstProductImage(result);
         return result;

@@ -12,7 +12,7 @@ public class OrderMsg {
 
     private String sender;
 
-    private Long mobile;
+    private String mobile;
 
     private String userMessage;
 
@@ -64,11 +64,11 @@ public class OrderMsg {
         this.sender = sender;
     }
 
-    public Long getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
-    public void setMobile(Long mobile) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
