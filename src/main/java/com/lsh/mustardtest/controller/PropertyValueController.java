@@ -21,8 +21,7 @@ public class PropertyValueController {
     ProductService productService;
 
     /**
-     *
-     * @param model 渲染模型
+     * @param model     渲染模型
      * @param productID
      * @return jsp文件路径，具体路径为classpath:/admin/editPropertyValue.jsp
      */

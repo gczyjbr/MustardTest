@@ -2,6 +2,7 @@ package com.lsh.mustardtest.mapper;
 
 import com.lsh.mustardtest.pojo.Product;
 import com.lsh.mustardtest.pojo.ProductExample;
+
 import java.util.List;
 
 public interface ProductMapper {

@@ -12,14 +12,24 @@ import java.util.List;
 
 public interface ProductService {
     void add(Product p);
+
     void delete(Integer id);
+
     void update(Product p);
+
     Product get(Integer id);
+
     List list(Integer warehouseID);
+
     void setFirstProductImage(Product p);
+
     void fill(List<WareHouse> ws);
+
     void fill(WareHouse w);
+
     List usableProducts(Integer wareHouseID);
+
     List productsByType(Integer wareHouseID, String type);
+
     List myProducts(Integer userID);
 }

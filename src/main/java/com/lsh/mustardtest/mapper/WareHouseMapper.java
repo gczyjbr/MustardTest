@@ -2,6 +2,7 @@ package com.lsh.mustardtest.mapper;
 
 import com.lsh.mustardtest.pojo.WareHouse;
 import com.lsh.mustardtest.pojo.WareHouseExample;
+
 import java.util.List;
 
 /**

@@ -11,8 +11,12 @@ import java.util.List;
 
 public interface WareHouseService {
     List<WareHouse> list();
+
     void add(WareHouse wareHouse);
+
     void delete(Integer id);
+
     WareHouse get(Integer id);
+
     void update(WareHouse wareHouse);
 }

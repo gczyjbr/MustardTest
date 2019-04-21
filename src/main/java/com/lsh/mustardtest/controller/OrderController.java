@@ -25,9 +25,8 @@ public class OrderController {
     OrderItemService orderItemService;
 
     /**
-     *
      * @param model 渲染模型
-     * @param page Page对象
+     * @param page  Page对象
      * @return jsp文件路径，具体路径为classpath:/admin/listOrder.jsp
      */
     @RequestMapping("admin_order_list")
@@ -48,9 +47,8 @@ public class OrderController {
     }
 
     /**
-     *
      * @param o Order对象
-     * @return 重定向url(admin_order_list),即list方法映射的路径
+     * @return 重定向url(admin_order_list), 即list方法映射的路径
      * @throws IOException
      */
     @RequestMapping("admin_order_confirm")

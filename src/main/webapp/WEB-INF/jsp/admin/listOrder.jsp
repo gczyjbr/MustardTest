@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" import="java.util.*"%>
+         pageEncoding="UTF-8" import="java.util.*" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@include file="../include/admin/adminHeader.jsp"%>
-<%@include file="../include/admin/adminNavigator.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@include file="../include/admin/adminHeader.jsp" %>
+<%@include file="../include/admin/adminNavigator.jsp" %>
 
 <script>
-    $(function(){
-        $("button.orderPageCheckOrderItems").click(function(){
+    $(function () {
+        $("button.orderPageCheckOrderItems").click(function () {
             var orderID = $(this).attr("orderID");
-            $("tr.orderPageOrderItemTR[orderID="+orderID+"]").toggle();
+            $("tr.orderPageOrderItemTR[orderID=" + orderID + "]").toggle();
         });
     });
 
@@ -18,7 +18,7 @@
 <title>订单管理</title>
 
 <div class="workingArea">
-    <h1 class="label label-info" >订单管理</h1>
+    <h1 class="label label-info">订单管理</h1>
     <br>
     <br>
 
@@ -46,7 +46,7 @@
             <c:forEach items="${os}" var="o">
                 <tr>
                     <td>${o.id}</td>
-                    <td>${o.statusDesc}</td>
+                    <td>${o.status}</td>
                     <td>￥<fmt:formatNumber type="number" value="${o.total}" minFractionDigits="2"/></td>
                     <td align="center">${o.totalNumber}</td>
                     <td align="center">${o.user.userName}</td>
@@ -61,24 +61,26 @@
                     <td>${o.endDate}</td>
 
                     <td>
-                        <button orderID=${o.id} class="orderPageCheckOrderItems btn btn-primary btn-xs">查看详情</button>
+                        <button orderID=${o.id} class="orderPageCheckOrderItems btn btn-primary btn-xs
+                        ">查看详情</button>
 
                         <c:if test="${o.status=='waitConfirm'}">
                             <a href="admin_order_confirm?id=${o.id}">
-                                <button class="btn btn-primary btn-xs">收货</button>
+                                <button class="btn btn-primary btn-xs">入仓</button>
                             </a>
                         </c:if>
                     </td>
                 </tr>
-                <tr class="orderPageOrderItemTR"  orderID=${o.id}>
+                <tr class="orderPageOrderItemTR" orderID=${o.id}>
                     <td colspan="10" align="center">
 
-                        <div  class="orderPageOrderItem">
+                        <div class="orderPageOrderItem">
                             <table width="800px" align="center" class="orderPageOrderItemTable">
                                 <c:forEach items="${o.orderItems}" var="oi">
                                     <tr>
                                         <td align="left">
-                                            <img width="40px" height="40px" src="img/productSingle/${oi.product.firstProductImage.id}.jpg">
+                                            <img width="40px" height="40px"
+                                                 src="img/productSingle/${oi.product.firstProductImage.id}.jpg">
                                         </td>
 
                                         <td>
@@ -114,4 +116,4 @@
 
 </div>
 
-<%@include file="../include/admin/adminFooter.jsp"%>
+<%@include file="../include/admin/adminFooter.jsp" %>

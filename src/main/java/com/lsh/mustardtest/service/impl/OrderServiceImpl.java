@@ -92,6 +92,6 @@ public class OrderServiceImpl implements OrderService {
         OrderExample example = new OrderExample();
         example.createCriteria().andUserIDEqualTo(userID).andStatusNotEqualTo(OrderService.delete);
         example.setOrderByClause("id desc");
-        return  orderMapper.selectByExample(example);
+        return orderMapper.selectByExample(example);
     }
 }

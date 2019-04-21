@@ -43,7 +43,7 @@ public class PropertyServiceImpl implements PropertyService {
     public List list(int warehouseID) {
         PropertyExample example = new PropertyExample();
         example.createCriteria().andWarehouseIDEqualTo(warehouseID);
-        example.setOrderByClause("id");
+        example.setOrderByClause("id desc");
         return propertyMapper.selectByExample(example);
     }
 }

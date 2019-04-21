@@ -16,7 +16,9 @@ public class OrderItem {
 
     private Integer number;
 
-    /** 非数据库字段 **/
+    /**
+     * 非数据库字段
+     **/
     private Product product;
 
     public Product getProduct() {

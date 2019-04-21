@@ -22,7 +22,9 @@ public class WareHouse {
 
     private Integer big_stock;
 
-    /** 非数据库字段 **/
+    /**
+     * 非数据库字段
+     **/
     private List<Product> products;
 
     public List<Product> getProducts() {

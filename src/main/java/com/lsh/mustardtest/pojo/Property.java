@@ -12,7 +12,9 @@ public class Property {
 
     private String name;
 
-    /** 非数据库字段 **/
+    /**
+     * 非数据库字段
+     **/
     private WareHouse wareHouse;
 
     public WareHouse getWareHouse() {

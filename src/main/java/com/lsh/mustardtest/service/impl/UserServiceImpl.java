@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List list() {
         UserExample example = new UserExample();
-        example.setOrderByClause("id");
+        example.setOrderByClause("id desc");
         return userMapper.selectByExample(example);
     }
 

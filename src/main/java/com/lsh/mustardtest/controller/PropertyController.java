@@ -29,8 +29,8 @@ public class PropertyController {
 
     /**
      * @param warehouseID
-     * @param model      渲染模型
-     * @param page       Page对象
+     * @param model       渲染模型
+     * @param page        Page对象
      * @return jsp文件路径，具体路径为classpath/admin/listProperty.jsp
      */
     @RequestMapping("admin_property_list")
@@ -107,9 +107,8 @@ public class PropertyController {
     }
 
     /**
-     *
      * @param id property id
-     * @return 重定向url(admin_property_list),即list方法映射的路径
+     * @return 重定向url(admin_property_list), 即list方法映射的路径
      */
     @RequestMapping("admin_property_delete")
     public String delete(Integer id) {

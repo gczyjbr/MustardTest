@@ -22,7 +22,7 @@ public class WareHouseServiceImpl implements WareHouseService {
     @Override
     public List<WareHouse> list() {
         WareHouseExample example = new WareHouseExample();
-        example.setOrderByClause("id");
+        example.setOrderByClause("id desc");
         return wareHouseMapper.selectByExample(example);
     }
 

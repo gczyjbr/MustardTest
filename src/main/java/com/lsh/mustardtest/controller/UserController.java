@@ -19,9 +19,8 @@ public class UserController {
     UserService userService;
 
     /**
-     *
      * @param model 渲染模型
-     * @param page Page对象
+     * @param page  Page对象
      * @return jsp文件路径，具体路径为classpath:/admin/listUser.jsp
      */
     @RequestMapping("admin_user_list")

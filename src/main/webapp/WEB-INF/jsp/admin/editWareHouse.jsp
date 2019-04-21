@@ -46,19 +46,23 @@
                     </tr>
                     <tr>
                         <td>微仓数量</td>
-                        <td><input id="tinyStock" name="tiny_stock" value="${w.tiny_stock}" type="text" class="form-control"></td>
+                        <td><input id="tinyStock" name="tiny_stock" value="${w.tiny_stock}" type="text"
+                                   class="form-control"></td>
                     </tr>
                     <tr>
                         <td>小仓数量</td>
-                        <td><input id="smallStock" name="small_stock" value="${w.small_stock}" type="text" class="form-control"></td>
+                        <td><input id="smallStock" name="small_stock" value="${w.small_stock}" type="text"
+                                   class="form-control"></td>
                     </tr>
                     <tr>
                         <td>中仓数量</td>
-                        <td><input id="middleStock" name="middle_stock" value="${w.middle_stock}" type="text" class="form-control"></td>
+                        <td><input id="middleStock" name="middle_stock" value="${w.middle_stock}" type="text"
+                                   class="form-control"></td>
                     </tr>
                     <tr>
                         <td>大仓数量</td>
-                        <td><input id="bigStock" name="big_stock" value="${w.big_stock}" type="text" class="form-control"></td>
+                        <td><input id="bigStock" name="big_stock" value="${w.big_stock}" type="text"
+                                   class="form-control"></td>
                     </tr>
                     <tr>
                         <td>仓库图片</td>

@@ -21,7 +21,9 @@ public class Product {
 
     private String endDate;
 
-    /** 非数据库字段 **/
+    /**
+     * 非数据库字段
+     **/
     private WareHouse wareHouse;
 
     private ProductImage firstProductImage;

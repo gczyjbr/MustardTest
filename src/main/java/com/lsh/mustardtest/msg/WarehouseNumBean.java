@@ -12,7 +12,7 @@ public class WarehouseNumBean {
     private int numM;
     private int numL;
 
-    public WarehouseNumBean(Integer warehouseID, int numSS, int numS, int numM, int numL){
+    public WarehouseNumBean(Integer warehouseID, int numSS, int numS, int numM, int numL) {
         this.warehouseID = warehouseID;
         this.numSS = numSS;
         this.numS = numS;

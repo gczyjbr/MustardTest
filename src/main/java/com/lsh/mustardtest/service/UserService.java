@@ -11,10 +11,16 @@ import java.util.List;
 
 public interface UserService {
     void add(User u);
+
     void delete(Integer id);
+
     void update(User u);
+
     User get(Integer id);
+
     List list();
+
     boolean isExist(long phone);
+
     User get(Long phone, String password);
 }
