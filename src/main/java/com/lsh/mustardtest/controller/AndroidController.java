@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -41,13 +42,21 @@ public class AndroidController {
     private static final int ID_IS_NULL = 200;
     private static final int OBJECT_IS_NULL = 300;
 
+
+    /** 仓库管理 **/
+
+    /**
+     * 仓库列表
+     * @return 仓库列表
+     * @throws Exception
+     */
     @RequestMapping(value = "home")
     @ResponseBody
     public List<WareHouse> home() throws Exception {
-        System.out.println("正在获取仓库列表...");
+        System.out.println(orderService.date(new Date()) + ": 正在获取仓库列表...");
         List<WareHouse> ws = wareHouseService.list();
         productService.fill(ws);
-        System.out.println("仓库列表获取完成");
+        System.out.println(orderService.date(new Date()) + ": 仓库列表获取完成");
         return ws;
     }
 
@@ -63,7 +72,7 @@ public class AndroidController {
     @RequestMapping(value = "register", method = RequestMethod.POST)
     @ResponseBody
     public AccountMsg register(HttpServletRequest request) throws Exception {
-        System.out.println("正在进行注册...");
+        System.out.println(orderService.date(new Date()) + ": 正在进行注册...");
         Long phone = Long.valueOf(request.getParameter("phone"));
         String password = request.getParameter("password");
         System.out.println("账号: " + phone);
@@ -77,7 +86,7 @@ public class AndroidController {
             accountMsg.setFlag(false);
             accountMsg.setUser(null);
             accountMsg.setMessage("该号码已被注册");
-            System.out.println("该账号已注册");
+            System.out.println(orderService.date(new Date()) + ": 该账号已注册");
         } else {
             user.setPhone(phone);
             user.setPassword(password);
@@ -85,7 +94,7 @@ public class AndroidController {
             accountMsg.setFlag(true);
             accountMsg.setMessage("注册成功");
             accountMsg.setUser(userService.get(phone, password));
-            System.out.println("注册成功");
+            System.out.println(orderService.date(new Date()) + ": 注册成功");
         }
         return accountMsg;
     }
@@ -99,7 +108,7 @@ public class AndroidController {
     @RequestMapping(value = "login", method = RequestMethod.POST)
     @ResponseBody
     public AccountMsg login(HttpServletRequest request) throws Exception {
-        System.out.println("正在进行登录...");
+        System.out.println(orderService.date(new Date()) + ": 正在进行登录...");
         AccountMsg accountMsg = new AccountMsg();
         Long phone = Long.valueOf(request.getParameter("phone"));
         String password = request.getParameter("password");
@@ -111,12 +120,12 @@ public class AndroidController {
             accountMsg.setFlag(false);
             accountMsg.setMessage("该号码未注册");
             accountMsg.setUser(null);
-            System.out.println("该号码未注册");
+            System.out.println(orderService.date(new Date()) + ": 该号码未注册");
         } else {
             accountMsg.setUser(user);
             accountMsg.setFlag(true);
             accountMsg.setMessage("登录成功");
-            System.out.println("登录成功");
+            System.out.println(orderService.date(new Date()) + ": 登录成功");
         }
         return accountMsg;
     }
@@ -131,7 +140,7 @@ public class AndroidController {
     @RequestMapping(value = "updatePassword", method = RequestMethod.POST)
     @ResponseBody
     public int updatePassword(HttpServletRequest request) throws Exception {
-        System.out.println("正在修改密码...");
+        System.out.println(orderService.date(new Date()) + ": 正在修改密码...");
         Integer id = Integer.valueOf(request.getParameter("id"));
         String password = request.getParameter("password");
         if (null == id) {
@@ -140,12 +149,12 @@ public class AndroidController {
         } else {
             User user = userService.get(id);
             if (null == user) {
-                System.out.println("账户不存在");
+                System.out.println(orderService.date(new Date()) + ": 账户不存在");
                 return OBJECT_IS_NULL;
             } else {
                 user.setPassword(password);
                 userService.update(user);
-                System.out.println("修改密码成功");
+                System.out.println(orderService.date(new Date()) + ": 修改密码成功");
                 return SUCCESS;
             }
         }
@@ -161,7 +170,7 @@ public class AndroidController {
     @RequestMapping(value = "editUser", method = RequestMethod.POST)
     @ResponseBody
     public int editUser(@RequestBody User user) throws Exception {
-        System.out.println("正在编辑用户信息...");
+        System.out.println(orderService.date(new Date()) + ": 正在编辑用户信息...");
         System.out.println("id: " + user.getId());
         System.out.println("性别: " + user.getSex());
         System.out.println("姓名: " + user.getUserName());
@@ -170,10 +179,10 @@ public class AndroidController {
             return ID_IS_NULL;
         } else {
             if (null == userService.get(user.getId())) {
-                System.out.println("账户不存在");
+                System.out.println(orderService.date(new Date()) + ": 账户不存在");
                 return OBJECT_IS_NULL;
             } else {
-                System.out.println("编辑个人资料成功");
+                System.out.println(orderService.date(new Date()) + ": 编辑个人资料成功");
                 userService.update(user);
                 return SUCCESS;
             }
@@ -190,14 +199,14 @@ public class AndroidController {
     @RequestMapping("userInformation")
     @ResponseBody
     public User userInformation(HttpServletRequest request) throws Exception {
-        System.out.println("正在获取用户信息...");
+        System.out.println(orderService.date(new Date()) + ": 正在获取用户信息...");
         Integer id = Integer.valueOf(request.getParameter("id"));
         System.out.println("userInformation.userID: " + id);
         if (null == id) {
             System.out.println("userInformation.id为空");
             return null;
         } else {
-            System.out.println("获取用户信息成功");
+            System.out.println(orderService.date(new Date()) + ": 获取用户信息成功");
             return userService.get(id);
         }
     }
@@ -212,22 +221,22 @@ public class AndroidController {
     @RequestMapping("myProducts")
     @ResponseBody
     public List<ProductMsg> myProducts(HttpServletRequest request) throws Exception {
-        System.out.println("正在获取当前用户的储物柜信息...");
+        System.out.println(orderService.date(new Date()) + ": 正在获取当前用户的储物柜信息...");
         Integer userID = Integer.valueOf(request.getParameter("userID"));
         System.out.println("myProducts.userID: " + userID);
         if (null == userID) {
             System.out.println("userID为空");
-            return null;
+            return new ArrayList<>();
         } else {
             List<Product> products = productService.myProducts(userID);
             if (products.isEmpty()) {
-                System.out.println("该用户还未租用产品");
-                return null;
+                System.out.println(orderService.date(new Date()) + ": 该用户还未租用产品");
+                return new ArrayList<>();
             } else {
                 List<ProductMsg> list = new ArrayList<>();
                 for (Product p : products)
                     list.add(productDetail(p));
-                System.out.println("获取我的产品列表成功");
+                System.out.println(orderService.date(new Date()) + ": 获取我的产品列表成功");
                 return list;
             }
         }
@@ -245,10 +254,10 @@ public class AndroidController {
     @RequestMapping("products")
     @ResponseBody
     public List<Product> products(HttpServletRequest request) throws Exception {
-        System.out.println("正在获取当前仓库的所有储物柜...");
+        System.out.println(orderService.date(new Date()) + ": 正在获取当前仓库的所有储物柜...");
         Integer wareHouseID = Integer.valueOf(request.getParameter("wareHouseID"));
         System.out.println("products.wareHouseID: " + wareHouseID);
-        System.out.println("获取产品列表成功");
+        System.out.println(orderService.date(new Date()) + ": 获取产品列表成功");
         return productService.usableProducts(wareHouseID);
     }
 
@@ -258,12 +267,12 @@ public class AndroidController {
      * @throws Exception
      */
     private ProductMsg productDetail(Product p) throws Exception {
-        System.out.println("正在为当前产品设置图片...");
+        System.out.println(orderService.date(new Date()) + ": 正在为当前产品设置图片...");
         List<ProductImage> productSingleImages = productImageService.list(p.getId(), ProductImageService.type_single);
         List<ProductImage> productDetailImages = productImageService.list(p.getId(), ProductImageService.type_detail);
         p.setProductSingleImages(productSingleImages);
         p.setProductDetailImages(productDetailImages);
-        System.out.println("设置图片完成");
+        System.out.println(orderService.date(new Date()) + ": 设置图片完成");
         List<PropertyValue> pvs = propertyValueService.list(p.getId());
 
 
@@ -287,7 +296,7 @@ public class AndroidController {
     @RequestMapping("getOrder")
     @ResponseBody
     public List<Order> getOrder(HttpServletRequest request) throws Exception {
-        System.out.println("正在获取当前用户指定状态的订单...");
+        System.out.println(orderService.date(new Date()) + ": 正在获取当前用户指定状态的订单...");
         Integer userID = Integer.valueOf(request.getParameter("userID"));
         String status = request.getParameter("status");
         System.out.println("getOrder.userID: " + userID);
@@ -300,7 +309,7 @@ public class AndroidController {
             return null;
         } else {
             List<Order> list = orderService.list(userID, status);
-            System.out.println("获取" + status + "状态的订单成功");
+            System.out.println(orderService.date(new Date()) + ": 获取" + status + "状态的订单成功");
             return list;
         }
     }
@@ -314,14 +323,14 @@ public class AndroidController {
     @RequestMapping("myOrders")
     @ResponseBody
     public List<Order> myOrders(HttpServletRequest request) {
-        System.out.println("正在获取当前用户的所有订单...");
+        System.out.println(orderService.date(new Date()) + ": 正在获取当前用户的所有订单...");
         Integer userID = Integer.valueOf(request.getParameter("userID"));
         if (null == userID) {
             System.out.println("myOrders.userID为空");
             return null;
         } else {
             List<Order> list = orderService.list(userID);
-            System.out.println("获取订单成功");
+            System.out.println(orderService.date(new Date()) + ": 获取订单成功");
             return list;
         }
     }
@@ -335,7 +344,7 @@ public class AndroidController {
     @RequestMapping(value = "createOrder", method = RequestMethod.POST)
     @ResponseBody
     public int createOrder(@RequestBody RequestOrder requestOrder) throws Exception {
-        System.out.println("正在创建订单...");
+        System.out.println(orderService.date(new Date()) + ": 正在创建订单...");
         String orderCode = requestOrder.getOrderCode();
         System.out.println("createOrder.orderCode: " + orderCode);
         System.out.println("createOrder.warehouseID: " + requestOrder.getWarehouseID());
@@ -362,7 +371,7 @@ public class AndroidController {
                     requestOrder.getNumSS(), requestOrder.getNumS(), requestOrder.getNumM(), requestOrder.getNumL());
             System.out.println("createOrder.orderID: " + order1.getId());
             processOrder(order1, warehouseNumBean);
-            System.out.println("创建订单成功");
+            System.out.println(orderService.date(new Date()) + ": 创建订单成功");
             return SUCCESS;
         }
     }
@@ -376,7 +385,7 @@ public class AndroidController {
     @RequestMapping(value = "changeOrderStatus", method = RequestMethod.POST)
     @ResponseBody
     public int changeOrderStatus(@RequestBody RequestAlterState requestAlterState) throws Exception {
-        System.out.println("正在修改订单状态...");
+        System.out.println(orderService.date(new Date()) + ": 正在修改订单状态...");
         String orderCode = requestAlterState.getOrderCode();
         String status = requestAlterState.getStatus();
         System.out.println("changeOrderStatus.orderCode: " + orderCode);
@@ -386,26 +395,26 @@ public class AndroidController {
             return ID_IS_NULL;
         else {
             Order order = orderService.get(orderCode);
-            System.out.println("获取订单成功");
+            System.out.println(orderService.date(new Date()) + ": 获取订单成功");
             List<OrderItem> ois = orderItemService.list(order.getId());
             WarehouseNumBean warehouseNumBean = new WarehouseNumBean(requestAlterState.getWarehouseID(), requestAlterState.getNumSS(),
                     requestAlterState.getNumS(), requestAlterState.getNumM(), requestAlterState.getNumL());
             System.out.println("changeOrderStatus.orderID: " + order.getId());
             order.setStatus(status);
             orderService.update(order);
-            System.out.println("更改订单状态成功");
+            System.out.println(orderService.date(new Date()) + ": 更改订单状态成功");
             if (null == order || null == status || null == warehouseNumBean) {
 
-                System.out.println("订单或wareHouseNUmBean为空");
+                System.out.println(orderService.date(new Date()) + ": 订单或wareHouseNUmBean为空");
                 return OBJECT_IS_NULL;
             }
             if (OrderService.waitConfirm.equals(status)) {
-                System.out.println("正在为储物柜填写用户id...");
+                System.out.println(orderService.date(new Date()) + ": 正在为储物柜填写用户id...");
                 processOrder(ois, OrderService.waitConfirm);
-                System.out.println("储物柜填写用户id完成");
+                System.out.println(orderService.date(new Date()) + ": 储物柜填写用户id完成");
             }
             if (OrderService.delete.equals(status)) {
-                System.out.println("正在修改库存...");
+                System.out.println(orderService.date(new Date()) + ": 正在修改库存...");
                 stock(warehouseNumBean);
                 processOrder(ois, OrderService.delete);
             }
@@ -422,7 +431,7 @@ public class AndroidController {
     @RequestMapping(value = "Renewal", method = RequestMethod.POST)
     @ResponseBody
     public int Renewal(@RequestBody RequestRenew requestRenew) throws Exception {
-        System.out.println("正在为指定储物柜续期...");
+        System.out.println(orderService.date(new Date()) + ": 正在为指定储物柜续期...");
         Integer productID = requestRenew.getProductID();
         System.out.println("Renewal.productID: " + productID);
         if (null == productID)
@@ -447,7 +456,7 @@ public class AndroidController {
         order.setEndDate(requestRenew.getEndDate());
         order.setStatus(OrderService.finish);
         orderService.add(order);
-        System.out.println("创建订单成功");
+        System.out.println(orderService.date(new Date()) + ": 创建订单成功");
 
         OrderItem oi = new OrderItem();
         oi.setProductID(productID);
@@ -455,10 +464,10 @@ public class AndroidController {
         oi.setOrderID(order.getId());
         oi.setNumber(order.getDuration());
         orderItemService.add(oi);
-        System.out.println("创建订单项成功");
+        System.out.println(orderService.date(new Date()) + ": 创建订单项成功");
         p.setEndDate(requestRenew.getEndDate());
         productService.update(p);
-        System.out.println("续期成功");
+        System.out.println(orderService.date(new Date()) + ": 续期成功");
         return SUCCESS;
     }
 
@@ -471,7 +480,7 @@ public class AndroidController {
      */
     @ResponseBody
     private int processOrder(Order order, WarehouseNumBean warehouseNumBean) throws Exception {
-        System.out.println("正在处理订单...");
+        System.out.println(orderService.date(new Date()) + ": 正在处理订单...");
         Integer wareHouseID = warehouseNumBean.getWareHouseID();
         int numSS = warehouseNumBean.getNumSS();
         int numS = warehouseNumBean.getNumS();
@@ -486,26 +495,20 @@ public class AndroidController {
 
         if (0 != numSS) {
             if (tiny_stock < numSS) {
-                System.out.println("微仓库存不足");
+                System.out.println(orderService.date(new Date()) + ": 微仓库存不足");
                 return OBJECT_IS_NULL;
             } else {
-                System.out.println("正在进行相关操作...");
-//                w.setTiny_stock(tiny_stock);
-//                wareHouseService.update(w);
-//                System.out.println("库存修改完成");
+                System.out.println(orderService.date(new Date()) + ": 正在进行相关操作...");
                 processOrder(order, warehouseNumBean, "微型");
             }
         }
 
         if (0 != numS) {
             if (small_stock < numS) {
-                System.out.println("小仓库存不足");
+                System.out.println(orderService.date(new Date()) + ": 小仓库存不足");
                 return OBJECT_IS_NULL;
             } else {
-                System.out.println("正在进行相关操作...");
-//                w.setSmall_stock(small_stock);
-//                wareHouseService.update(w);
-//                System.out.println("库存修改完成");
+                System.out.println(orderService.date(new Date()) + ": 正在进行相关操作...");
                 processOrder(order, warehouseNumBean, "小型");
             }
 
@@ -513,26 +516,20 @@ public class AndroidController {
 
         if (0 != numM) {
             if (middle_stock < 0) {
-                System.out.println("中仓库存不足");
+                System.out.println(orderService.date(new Date()) + ": 中仓库存不足");
                 return OBJECT_IS_NULL;
             } else {
-                System.out.println("正在进行相关操作...");
-                /*w.setMiddle_stock(middle_stock);
-                wareHouseService.update(w);
-                System.out.println("库存修改完成");*/
+                System.out.println(orderService.date(new Date()) + ": 正在进行相关操作...");
                 processOrder(order, warehouseNumBean, "中型");
             }
         }
 
         if (0 != numL) {
             if (big_stock < 0) {
-                System.out.println("大仓库存不足");
+                System.out.println(orderService.date(new Date()) + ": 大仓库存不足");
                 return OBJECT_IS_NULL;
             } else {
-                System.out.println("正在进行相关操作...");
-                /*w.setBig_stock(big_stock);
-                wareHouseService.update(w);
-                System.out.println("库存修改完成");*/
+                System.out.println(orderService.date(new Date()) + ": 正在进行相关操作...");
                 processOrder(order, warehouseNumBean, "大型");
             }
         }
@@ -549,31 +546,31 @@ public class AndroidController {
      */
     @ResponseBody
     private int processOrder(Order order, WarehouseNumBean warehouseNumBean, String type) throws Exception {
-        System.out.println("正在处理订单项...");
+        System.out.println(orderService.date(new Date()) + ": 正在处理订单项...");
         Integer orderID = order.getId();
         List products = productService.productsByType(warehouseNumBean.getWareHouseID(), type);
         if (products.isEmpty()) {
-            System.out.println("严重错误:" + type + "库存与产品数量不符，请检查当前仓库的设置...");
+            System.out.println(orderService.date(new Date()) + ": 严重错误:" + type + "库存与产品数量不符，请检查当前仓库的设置...");
             return ID_IS_NULL;
         }
         else {
             int stock = selector(type, warehouseNumBean.getWareHouseID());
             if (stock != products.size()) {
-                System.out.println(type + "储物柜数量与库存不符，请检查储物柜情况");
+                System.out.println(orderService.date(new Date()) + ": " + type + "储物柜数量与库存不符，请检查储物柜情况");
                 return OBJECT_IS_NULL;
             }
             else {
                 int j = selector(type, warehouseNumBean);
                 Product p;
                 for (int i = 0; i < j; i++) {
-                    System.out.println("正在修改储物柜设置...");
+                    System.out.println(orderService.date(new Date()) + ": 正在修改储物柜设置...");
                     p = (Product) products.get(i);
                     p.setUsed(false);
                     p.setUserID(order.getUserID());
                     p.setEndDate(order.getEndDate());
                     productService.update(p);
-                    System.out.println("储物柜设置完成");
-                    System.out.println("正在创建订单项...");
+                    System.out.println(orderService.date(new Date()) + ": 储物柜设置完成");
+                    System.out.println(orderService.date(new Date()) + ": 正在创建订单项...");
                     OrderItem oi = new OrderItem();
                     oi.setProductID(p.getId());
                     oi.setUserID(order.getUserID());
@@ -581,7 +578,7 @@ public class AndroidController {
                     oi.setNumber(order.getDuration());
                     orderItemService.add(oi);
                 }
-                System.out.println("创建订单项成功");
+                System.out.println(orderService.date(new Date()) + ": 创建订单项成功");
                 stock(warehouseNumBean.getWareHouseID(), stock, j, type);
                 return SUCCESS;
             }
@@ -594,7 +591,7 @@ public class AndroidController {
      * @param list 订单项列表
      */
     private void processOrder(List<OrderItem> list, String status) {
-        System.out.println("正在修改储物柜设置...");
+        System.out.println(orderService.date(new Date()) + ": 正在修改储物柜设置...");
         if (OrderService.waitConfirm == status) {
             for (OrderItem oi : list) {
                 Product p = productService.get(oi.getProductID());
@@ -611,7 +608,7 @@ public class AndroidController {
                 productService.update(p);
             }
         }
-        System.out.println("储物柜设置修改完成");
+        System.out.println(orderService.date(new Date()) + ": 储物柜设置修改完成");
     }
 
     /**
@@ -620,21 +617,21 @@ public class AndroidController {
      * @param warehouseNumBean WarehouseNumBean对象
      */
     private void stock(WarehouseNumBean warehouseNumBean) {
-        System.out.println("正在修改当前仓库库存...");
+        System.out.println(orderService.date(new Date()) + ": 正在修改当前仓库库存...");
         WareHouse w = wareHouseService.get(warehouseNumBean.getWareHouseID());
         w.setTiny_stock(w.getTiny_stock() + warehouseNumBean.getNumSS());
         w.setSmall_stock(w.getSmall_stock() + warehouseNumBean.getNumS());
         w.setMiddle_stock(w.getMiddle_stock() + warehouseNumBean.getNumM());
         w.setBig_stock(w.getBig_stock() + warehouseNumBean.getNumL());
         wareHouseService.update(w);
-        System.out.println("库存修改完成");
+        System.out.println(orderService.date(new Date()) + ": 库存修改完成");
     }
 
     private void stock(int warehouseID, int stock, int number, String type) {
-        System.out.println("正在修改" + type + "储物柜库存...");
+        System.out.println(orderService.date(new Date()) + ": 正在修改" + type + "储物柜库存...");
         System.out.println(type + "原库存为: " + stock);
         int thisStock = stock - number;
-        System.out.println("应修正" + type + "储物柜库存为" + thisStock);
+        System.out.println(orderService.date(new Date()) + ": 应修正" + type + "储物柜库存为" + thisStock);
         WareHouse w = wareHouseService.get(warehouseID);
         switch (type) {
             case "微型":
@@ -650,7 +647,7 @@ public class AndroidController {
                 w.setBig_stock(thisStock);
                 wareHouseService.update(w);
         }
-        System.out.println("库存修改完成");
+        System.out.println(orderService.date(new Date()) + ": 库存修改完成");
     }
 
     /**

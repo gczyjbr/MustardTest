@@ -3,7 +3,7 @@
 
 <div class="navitagorDiv">
     <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-        <img style="margin-left:10px;margin-right:0px" class="pull-left" src="img/site/jiezi.png" height="45px">
+        <img style="margin-left:10px;margin-right:0px" class="pull-left" src="img/productSingle/1.jpg" height="45px">
         <a class="navbar-brand" href="#nowhere">芥子后台</a>
 
         <a class="navbar-brand" href="admin_warehouse_list">仓库管理</a>[
