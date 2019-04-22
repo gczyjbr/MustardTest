@@ -36,8 +36,7 @@
                 <th>发货地址</th>
                 <th>创建时间</th>
                 <th>支付时间</th>
-                <th>发货时间</th>
-                <th>确认收货时间</th>
+                <th>入仓时间</th>
                 <th>结束时间</th>
                 <th width="120px">操作</th>
             </tr>
@@ -46,7 +45,7 @@
             <c:forEach items="${os}" var="o">
                 <tr>
                     <td>${o.id}</td>
-                    <td>${o.status}</td>
+                    <td>${o.statusDesc}</td>
                     <td>￥<fmt:formatNumber type="number" value="${o.total}" minFractionDigits="2"/></td>
                     <td align="center">${o.totalNumber}</td>
                     <td align="center">${o.user.userName}</td>
@@ -56,7 +55,6 @@
 
                     <td>${o.createDate}</td>
                     <td>${o.payDate}</td>
-                    <td>${o.deliveryDate}</td>
                     <td>${o.confirmDate}</td>
                     <td>${o.endDate}</td>
 

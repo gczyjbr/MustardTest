@@ -479,33 +479,33 @@ public class AndroidController {
         int numL = warehouseNumBean.getNumL();
 
         WareHouse w = wareHouseService.get(wareHouseID);
-        int tiny_stock = w.getTiny_stock() - numSS;
-        int small_stock = w.getSmall_stock() - numS;
-        int middle_stock = w.getMiddle_stock() - numM;
-        int big_stock = w.getBig_stock() - numL;
+        int tiny_stock = w.getTiny_stock();
+        int small_stock = w.getSmall_stock();
+        int middle_stock = w.getMiddle_stock();
+        int big_stock = w.getBig_stock();
 
         if (0 != numSS) {
-            if (tiny_stock < 0) {
+            if (tiny_stock < numSS) {
                 System.out.println("微仓库存不足");
                 return OBJECT_IS_NULL;
             } else {
-                System.out.println("正在修改微仓库存...");
-                w.setTiny_stock(tiny_stock);
-                wareHouseService.update(w);
-                System.out.println("库存修改完成");
+                System.out.println("正在进行相关操作...");
+//                w.setTiny_stock(tiny_stock);
+//                wareHouseService.update(w);
+//                System.out.println("库存修改完成");
                 processOrder(order, warehouseNumBean, "微型");
             }
         }
 
         if (0 != numS) {
-            if (small_stock < 0) {
+            if (small_stock < numS) {
                 System.out.println("小仓库存不足");
                 return OBJECT_IS_NULL;
             } else {
-                System.out.println("正在修改小仓库存...");
-                w.setSmall_stock(small_stock);
-                wareHouseService.update(w);
-                System.out.println("库存修改完成");
+                System.out.println("正在进行相关操作...");
+//                w.setSmall_stock(small_stock);
+//                wareHouseService.update(w);
+//                System.out.println("库存修改完成");
                 processOrder(order, warehouseNumBean, "小型");
             }
 
@@ -516,10 +516,10 @@ public class AndroidController {
                 System.out.println("中仓库存不足");
                 return OBJECT_IS_NULL;
             } else {
-                System.out.println("正在修改大仓库存...");
-                w.setMiddle_stock(middle_stock);
+                System.out.println("正在进行相关操作...");
+                /*w.setMiddle_stock(middle_stock);
                 wareHouseService.update(w);
-                System.out.println("库存修改完成");
+                System.out.println("库存修改完成");*/
                 processOrder(order, warehouseNumBean, "中型");
             }
         }
@@ -529,10 +529,10 @@ public class AndroidController {
                 System.out.println("大仓库存不足");
                 return OBJECT_IS_NULL;
             } else {
-                System.out.println("正在修改大仓库存...");
-                w.setBig_stock(big_stock);
+                System.out.println("正在进行相关操作...");
+                /*w.setBig_stock(big_stock);
                 wareHouseService.update(w);
-                System.out.println("库存修改完成");
+                System.out.println("库存修改完成");*/
                 processOrder(order, warehouseNumBean, "大型");
             }
         }
@@ -547,31 +547,45 @@ public class AndroidController {
      * @param type             类型
      * @throws Exception
      */
-    private void processOrder(Order order, WarehouseNumBean warehouseNumBean, String type) throws Exception {
+    @ResponseBody
+    private int processOrder(Order order, WarehouseNumBean warehouseNumBean, String type) throws Exception {
         System.out.println("正在处理订单项...");
         Integer orderID = order.getId();
         List products = productService.productsByType(warehouseNumBean.getWareHouseID(), type);
-        if (products.isEmpty())
+        if (products.isEmpty()) {
             System.out.println("严重错误:" + type + "库存与产品数量不符，请检查当前仓库的设置...");
-        int j = selector(type, warehouseNumBean);
-        Product p;
-        for (int i = 0; i < j; i++) {
-            System.out.println("正在修改储物柜设置...");
-            p = (Product) products.get(i);
-            p.setUsed(false);
-            p.setUserID(order.getUserID());
-            p.setEndDate(order.getEndDate());
-            productService.update(p);
-            System.out.println("储物柜设置完成");
-            System.out.println("正在创建订单项...");
-            OrderItem oi = new OrderItem();
-            oi.setProductID(p.getId());
-            oi.setUserID(order.getUserID());
-            oi.setOrderID(orderID);
-            oi.setNumber(order.getDuration());
-            orderItemService.add(oi);
+            return ID_IS_NULL;
         }
-        System.out.println("创建订单项成功");
+        else {
+            int stock = selector(type, warehouseNumBean.getWareHouseID());
+            if (stock != products.size()) {
+                System.out.println(type + "储物柜数量与库存不符，请检查储物柜情况");
+                return OBJECT_IS_NULL;
+            }
+            else {
+                int j = selector(type, warehouseNumBean);
+                Product p;
+                for (int i = 0; i < j; i++) {
+                    System.out.println("正在修改储物柜设置...");
+                    p = (Product) products.get(i);
+                    p.setUsed(false);
+                    p.setUserID(order.getUserID());
+                    p.setEndDate(order.getEndDate());
+                    productService.update(p);
+                    System.out.println("储物柜设置完成");
+                    System.out.println("正在创建订单项...");
+                    OrderItem oi = new OrderItem();
+                    oi.setProductID(p.getId());
+                    oi.setUserID(order.getUserID());
+                    oi.setOrderID(orderID);
+                    oi.setNumber(order.getDuration());
+                    orderItemService.add(oi);
+                }
+                System.out.println("创建订单项成功");
+                stock(warehouseNumBean.getWareHouseID(), stock, j, type);
+                return SUCCESS;
+            }
+        }
     }
 
     /**
@@ -616,6 +630,29 @@ public class AndroidController {
         System.out.println("库存修改完成");
     }
 
+    private void stock(int warehouseID, int stock, int number, String type) {
+        System.out.println("正在修改" + type + "储物柜库存...");
+        System.out.println(type + "原库存为: " + stock);
+        int thisStock = stock - number;
+        System.out.println("应修正" + type + "储物柜库存为" + thisStock);
+        WareHouse w = wareHouseService.get(warehouseID);
+        switch (type) {
+            case "微型":
+                w.setTiny_stock(thisStock);
+                wareHouseService.update(w);
+            case "小型":
+                w.setSmall_stock(thisStock);
+                wareHouseService.update(w);
+            case "中型":
+                w.setMiddle_stock(thisStock);
+                wareHouseService.update(w);
+            case "大型":
+                w.setBig_stock(thisStock);
+                wareHouseService.update(w);
+        }
+        System.out.println("库存修改完成");
+    }
+
     /**
      * 选择器
      *
@@ -635,6 +672,22 @@ public class AndroidController {
                 return warehouseNumBean.getNumM();
             case "大型":
                 return warehouseNumBean.getNumL();
+            default:
+                return 0;
+        }
+    }
+
+    private int selector(String type, Integer warehouseID) {
+        WareHouse w = wareHouseService.get(warehouseID);
+        switch (type) {
+            case "微型":
+                return w.getTiny_stock();
+            case "小型":
+                return w.getSmall_stock();
+            case "中型":
+                return w.getMiddle_stock();
+            case "大型":
+                return w.getBig_stock();
             default:
                 return 0;
         }

@@ -207,18 +207,14 @@ public class Order {
 
     public String getStatusDesc(){
         String desc ="未知";
+        if (null == status)
+            status = "  ";
         switch(status){
             case OrderService.waitPay:
                 desc="待付款";
                 break;
-            case OrderService.waitDelivery:
-                desc="待发货";
-                break;
             case OrderService.waitConfirm:
-                desc="待收货";
-                break;
-            case OrderService.waitReview:
-                desc="等评价";
+                desc="待入仓";
                 break;
             case OrderService.finish:
                 desc="完成";
