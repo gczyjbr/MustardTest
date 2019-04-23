@@ -304,7 +304,7 @@ public class AndroidController {
         if (null == userID) {
             System.out.println("getOrder.userID为空");
             return null;
-        } else if (status == null) {
+        } else if (null == status) {
             System.out.println("getOrder.status: " + status);
             return null;
         } else {
@@ -592,14 +592,14 @@ public class AndroidController {
      */
     private void processOrder(List<OrderItem> list, String status) {
         System.out.println(orderService.date(new Date()) + ": 正在修改储物柜设置...");
-        if (OrderService.waitConfirm == status) {
+        if (OrderService.waitConfirm.equals(status)) {
             for (OrderItem oi : list) {
                 Product p = productService.get(oi.getProductID());
                 p.setUsed(true);
                 productService.update(p);
             }
         }
-        if (OrderService.delete == status) {
+        if (OrderService.delete.equals(status)) {
             for (OrderItem oi : list) {
                 Product p = productService.get(oi.getProductID());
                 p.setUsed(false);
