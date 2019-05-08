@@ -3,7 +3,6 @@ package com.lsh.mustardtest.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lsh.mustardtest.pojo.Order;
-import com.lsh.mustardtest.pojo.OrderItem;
 import com.lsh.mustardtest.service.OrderItemService;
 import com.lsh.mustardtest.service.OrderService;
 import com.lsh.mustardtest.util.Page;
